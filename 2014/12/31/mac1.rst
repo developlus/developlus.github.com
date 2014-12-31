@@ -33,7 +33,7 @@ Macといえば「ことえり」なんでしょうが，いつからか「こ�
 ただ，Windowsでもそうだったように，豊富な語彙を持っているGoogle日本語
 入力があれば十分です．（早くiOSにもMozcが実装されないかな・・・）
 
-'Google IME <https://www.google.co.jp/ime/index-mac.html>'_ からインス
+`Google IME <https://www.google.co.jp/ime/index-mac.html>`_ からインス
 トールすることが可能です．
 
 さらに，Windowsでも同様の設定にしていたので，「Ctrl＋Space」でIMをトグ
