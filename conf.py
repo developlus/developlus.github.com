@@ -39,7 +39,7 @@ html_favicon = '_static/tinkerer.ico'
 
 # Pick another Tinkerer theme or use your own
 #html_theme = 'flat'
-html_theme = 'dp'
+html_theme = 'dark'
 
 # Theme-specific options, see docs
 html_theme_options = {}
