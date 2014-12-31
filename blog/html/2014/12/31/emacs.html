@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="脳内情報垂れ流し">
         <meta name="viewport" content="width=device-width">
-        <title>スパムメール対策 &mdash; DeveloPlus</title>
+        <title>Emacs on MacOS &mdash; DeveloPlus</title>
             <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
@@ -28,7 +28,7 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="サーバリニューアルのすゝめ（５）" href="../16/newvps5.html" /><link rel="prev" title="Beckyの設定" href="../../05/12/becky.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="next" title="Homebrew" href="mac2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
         VERSION:     '1.5',
@@ -80,62 +80,43 @@
 </div>
 
 <div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../../05/12/becky.html">Beckyの設定</a></li>
-            <li class="right"><a href="../16/newvps5.html">サーバリニューアルのすゝめ（５）</a> &raquo; </li>
+            <li class="left"></li>
+            <li class="right"><a href="mac2.html">Homebrew</a> &raquo; </li>
         </ul><div class="timestamp postmeta">
-            <span>April 21, 2014</span>
+            <span>December 31, 2014</span>
         </div>
-    <div class="section" id="id1">
-<h1>スパムメール対策<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>サーバをリニューアルしたのは良いものの，メールサーバの設定を手抜きしてしまった．RBLを沢山登録しておいたら，Twitterからのメールすら届かない始末．</p>
-<p>手作業でチェックした結果，以下のRBL設定のみ残すこととしました．</p>
-<div class="highlight-python"><div class="highlight"><pre>smtpd_client_restrictions =
-     permit_mynetworks,
-     check_client_access hash:/etc/postfix/access,
-     #reject_rbl_client all.rbl.jp,
-     reject_rbl_client bl.spamcop.net,
-     reject_rbl_client sbl-xbl.spamhaus.org,
-     reject_rbl_client xbl.spamhaus.org,
-     reject_rbl_client cbl.abuseat.org,
-     reject_rbl_client psbl.surriel.com,
-     reject_unauth_destination,
-     permit
+    <div class="section" id="emacs-on-macos">
+<h1>Emacs on MacOS<a class="headerlink" href="#emacs-on-macos" title="Permalink to this headline">¶</a></h1>
+<p>Mac OS上でEmacsを使う．これまで，Emacsに関する情報収集するときに，よく「Cocoa Emacs」という単語を目にしていましたが，ついに自分が使う時がきたか・・・</p>
+<div class="section" id="emacs">
+<h2>Emacsをインストールする<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
+<p>といっても，Homebrewでサクッとインストールすることができる．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew install emacs
 </pre></div>
 </div>
-<p>だいぶ少なくなってしまった．</p>
-<p>これでもスパム送信をやめてくれないホストは，そもそもSMTP Connectを拒否ってしまいます．ただ，手探りでスパム送信元を探すのも面倒なので，メールログを解析してくれるツールを導入します．Postfixのログといえば，「pflogsumm」です．</p>
-<p>サクっとインストールして，Cronに登録します．</p>
-<div class="highlight-python"><div class="highlight"><pre># aptitude install pflogsumm
-# vim /etc/cron.daily/pflogsumm
+<p>これだけでインストールすることが可能です．なお，これだけだと「/usr/local」配下にインストールされるだけなので，まともに利用することはできない．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew linkapps
+</pre></div>
+</div>
+<p>これを実行すると，「/Applications」配下にシンボリックリンクが作成されるので，ランチャからEmacsを起動することができる．</p>
+<p>ただ，自分の環境だけなのか？Spotlight検索からEmacsが検索されなかった．「/usr/local/Cellar/emacs/24.4/Emacs.app」を「/Application」配下にコピーすることで解決されるが，手動でコピーするのが気持ち悪かったので，自分のホームディレクトリ配下にある「/home/{UserName}/Application」配下に，「Emacs.app」をコピーして利用することにした．これで，ランチャにも表示されるし，Spotlight検索でも起動できる．</p>
+</div>
+<div class="section" id="id1">
+<h2>キーバインド<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Macのキーボードは特殊・・・というか，Macでは普通なことですが．ちなみに私は，JPキーボードで利用しています．信者な方には，「ハハッ」と言われるでしょうが，もう「＠（アットマーク），「＿（アンダースコア）」のキー配置で混乱してしまうので，JPキーボードでいいのです．Ctrlも標準で「A」の隣に配置されているし．</p>
+<p>ちなみに，WindowsではHHKのJPを利用しているので，なんら違和感はありません．</p>
+<p>Emacsを使っていて困るのが，「Command」と「Option（Alt）」の配置です．HHKでも左手親指を微妙に左にずらした位置・・・つまりCommandキーの位置がAltなわけです．EmacsでMetaキーの役割を果たすAltキーの位置は重要なわけで，これを解決するキーバインドが必須です．</p>
+<p>これまで「init-loader」を利用していたので，これを利用して「Cocoa Emacs」の場合のキーバインドを設定します．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; emacs .emacs.d/conf/cocoa-emacs-keybind.el
 
-#!/bin/sh
-/usr/bin/perl /usr/sbin/pflogsumm --verbose_msg_detail -e -d
-yesterday /var/log/mail.log | mail -s &#39;Logwatch for Postfix&#39; root
-
-# chmod +x /etc/cron.daily/pflogsumm
+;; Command ⇔ Option
+(setq ns-command-modifier (quote meta))
+(setq ns-alternate-modifier (quote super))
 </pre></div>
 </div>
-<p>以上です．</p>
-<p>あとは，毎日メールログ解析結果がメールで届くので，「message rejectdetail」に記載されているログにおいて，明らかにスパム（変なドメイン，海外ドメイン）の送信元IPを「/etc/postfix/access」でREJECTしてしまう．</p>
-<p>main.cfに以下のような設定が必要です．</p>
-<div class="highlight-python"><div class="highlight"><pre>smtp_client_restrictions =
-    check_client_access hash:/etc/postfix/access
-</pre></div>
+<p>これで万事OKです．</p>
+<p>MacでEmacsを使い始めて，これまで利用していた「.emacs.d」ディレクトリ配下が，そのままでは利用できないことが判明したので，色々と変更していきます．その記事はまた別の記事へ．</p>
 </div>
-<p>さらに，accessファイルはハッシュ化しておく必要があるので．</p>
-<div class="highlight-python"><div class="highlight"><pre># vim /etc/postfix/access
-（拒否しているIP自分で確認してください）
-203.190.62.96   REJECT
-182.48.33.218   REJECT
-163.43.162.90   REJECT
-110.165.4.16    REJECT
-97.88.229.119   REJECT
-87.246.193.114  REJECT
-
-# postmap /etc/postfix/access
-</pre></div>
-</div>
-<p>こんな感じです．</p>
 </div>
 
     <div class="postmeta">
@@ -145,17 +126,17 @@ yesterday /var/log/mail.log | mail -s &#39;Logwatch for Postfix&#39; root
         <div class="categories">
             <span>
                 カテゴリー:
-                <a href="../../../categories/blog.html">Blog</a></span>
+                <a href="../../../categories/emacs.html">Emacs</a></span>
         </div>
         <div class="tags">
             <span>
                 タグ:
-                <a href="../../../tags/postfix.html">postfix</a></span>
+                <a href="../../../tags/emacs.html">emacs</a>, <a href="../../../tags/mac.html">mac</a></span>
         </div>
         </div>
     <ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../../05/12/becky.html">Beckyの設定</a></li>
-            <li class="right"><a href="../16/newvps5.html">サーバリニューアルのすゝめ（５）</a> &raquo; </li>
+            <li class="left"></li>
+            <li class="right"><a href="mac2.html">Homebrew</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
     <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (3)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (2)</li></ul>
@@ -163,25 +144,25 @@ yesterday /var/log/mail.log | mail -s &#39;Logwatch for Postfix&#39; root
     <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (5), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/homebrew.html">homebrew</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (3), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (3), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="../../12/31/emacs.html">Emacs on MacOS</a>
+            <a href="#">Emacs on MacOS</a>
         </li><li>
-            <a href="../../12/31/mac2.html">Homebrew</a>
+            <a href="mac2.html">Homebrew</a>
         </li><li>
-            <a href="../../12/31/mac1.html">Mac OSを使う</a>
+            <a href="mac1.html">Mac OSを使う</a>
         </li><li>
             <a href="../../05/12/becky.html">Beckyの設定</a>
         </li><li>
-            <a href="#">スパムメール対策</a>
+            <a href="../../04/21/postfix.html">スパムメール対策</a>
         </li><li>
-            <a href="../16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
+            <a href="../../04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
         </li><li>
-            <a href="../14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
+            <a href="../../04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
         </li><li>
-            <a href="../14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
+            <a href="../../04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
         </li><li>
-            <a href="../14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
+            <a href="../../04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
         </li><li>
-            <a href="../14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
+            <a href="../../04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/12/31/emacs
    2014/12/31/mac2
    2014/12/31/mac1
    2014/05/12/becky
