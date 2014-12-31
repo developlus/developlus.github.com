@@ -86,9 +86,87 @@
             <span>December 31, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/12/31/mac.html">Mac OSを使う</a></h1>
+            <h1><a href="2014/12/31/mac2.html">Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></a></h1>
+<p>Mac初心者がいろいろとMacを便利に使う方法を調べた経緯でたどり着いたパッケージ管理システム＝Homebrew．</p>
+<p>「Mac パッケージ管理」でググると一つ目に出てくるので説明する必要は不要なはずですが，自分のための備忘録として作業記録を残しておく．一つ目の目標は，MacでもTinkererを使えるようになること．</p>
 <div class="section" id="id1">
-<h2>背景</h2>
+<h2>Homebrewのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>何はなくとも，まずはHomebrewをインストールする．・・・と言いたいところだけれども，Macの開発環境であるXcodeが必要．</p>
+<p>Mac初心者の私にとっては，Xcodeって何？という感じですが，iOSのアプリを作ったりするためには必須という統合開発環境ですね．今はSwiftが流行りだとか・・・</p>
+<p>App StoreからXcodeを見つけてインストールします．私はハマりましたが，Xcodeをインストールしただけでは意味がなくて，一度起動してUserAgreementに同意しましょう．</p>
+<p>そして，’Homebrew &lt;<a class="reference external" href="http://brew.sh/">http://brew.sh/</a>&gt;’_ をインストールします．インストール方法は，左記のOfficial Webの下段に記載していあるインストールスクリプトを実行するだけです．最近は，インストールスクリプトをWebからダウンロードして直接インストールするパターンのやつ多いですね．Sublime TextEditorでも経験したので，そろそろ違和感がなくなってきました．</p>
+<p>実行するスクリプトを以下の通り．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</pre></div>
+</div>
+<p>これだけでインストールは完了なはずなのですが，うろ覚えだけれども，多分何かしらコマンドを実行しろと言われるはず・・・特に，Xcode関連のコマンドを要求されます．特に注意すべきは下記</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; xcode-select --install
+</pre></div>
+</div>
+<p>これを実行することで，コマンドライン用のDeveloper toolsがインストールされるとのこと．詳しくは「man xcode-select」オプションを確認するとよろしい</p>
+<p>あとは，パッケージリストのアップデート等々を実施して，必要なパッケージをインストールしていく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew update
+&gt; brew install {PackageName}
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Pythonのインストール<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>MacにデフォルトでインストールされているPythonでも特に問題はないはずですが，ライブラリ関連でトラブりそうなのでHomebrewでインストールしたものに統一しておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew install python
+</pre></div>
+</div>
+<p>標準で「eazy_install」がついてくるので，pipを入れておく．というか個人的にpipのほうしか使っていない．ついでにpip-toolsもインストールしておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; type easy_install
+easy_install is /usr/local/bin/easy_install
+&gt; sudo easy_install pip
+&gt; pip install pip-tools
+&gt; pip-review
+</pre></div>
+</div>
+<p>「pip-review –auto」で実行すると，pipで管理しているパッケージを自動的にアップデートする．ただ，β版であろうと容赦なくアップデートするので注意が必要．</p>
+</div>
+<div class="section" id="tinkerer">
+<h2>Tinkererのインストール<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h2>
+<p>ブログを更新するために，Tinkererをインストールする．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; pip install tinkerer
+</pre></div>
+</div>
+<p>あ．忘れていた．肝心なgitもインストールしておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew install git
+</pre></div>
+</div>
+<p>非常に便利です．Macってこんなに便利なんだ・・・</p>
+<p>あとは，Linuxを使っているのと同じように，ブログ記事を更新していくだけです．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; cd repos/
+&gt; git clone https://github.com/developlus/developlus.github.com
+</pre></div>
+</div>
+<p>いつもどおり！！</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/mac.html">Mac</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/mac.html">mac</a>, <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/homebrew.html">homebrew</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 31, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/12/31/mac1.html">Mac OSを使う<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></a></h1>
+<div class="section" id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>最近，メインマシンをMac book Pro 13に変更しました．転勤により，ノートPCが貸与されなくなり，仕方なく自分でPCを調達することにしました．</p>
 <p>元々は，Vaio Pro11（Windows 7 64bit）に，Cygwin，VMwareWorkstation（Lubuntu稼働）で，困ることはなかったのですが，唯一困ることはUnix系のCUIツール（シェルスクリプト，Emacs等）をCygwin上で利用する場合は動作が重いこと．Emacsを利用する場合は，VMで動作させるか，Cygwin-Xだけを動作させて他PCで動作しているLubuntuにSSHしてEmacsウィンドウだけを転送してくるような使い方をしていました．</p>
 <p>そんな面倒なことをするくらいならば，最初からEmacsをさくさく利用できる環境がよい．ということで，Macに変更することにしました．</p>
@@ -96,7 +174,7 @@
 <p>まずやること・・・</p>
 </div>
 <div class="section" id="id2">
-<h2>日本語入力</h2>
+<h2>日本語入力<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Macといえば「ことえり」なんでしょうが，いつからか「ことえり」は終了し新たな日本語IMエンジンに変更されたとか・・・</p>
 <p>ただ，Windowsでもそうだったように，豊富な語彙を持っているGoogle日本語入力があれば十分です．（早くiOSにもMozcが実装されないかな・・・）</p>
 <p>‘Google IME &lt;<a class="reference external" href="https://www.google.co.jp/ime/index-mac.html">https://www.google.co.jp/ime/index-mac.html</a>&gt;’_ からインストールすることが可能です．</p>
@@ -127,7 +205,7 @@
             <span>May 12, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/05/12/becky.html">Beckyの設定</a></h1>
+            <h1><a href="2014/05/12/becky.html">Beckyの設定<a class="headerlink" href="#becky" title="Permalink to this headline">¶</a></a></h1>
 <p>これまでBecky!を利用していて困ったことはなかったのですが，メールサーバをCourier-IMAPサーバからDovecotに変更して気が付きました．</p>
 <p>これまで，Courier-IMAPサーバで標準でIMAPのメールディレクトリPrefixに「INBOX」が付いていたと思います．これで閲覧していると，受信箱の下に各振り分けフォルダがぶら下がって見えるので，慣れもあってしっくりきていました．</p>
 <p>見え方は</p>
@@ -160,7 +238,7 @@ name should probably be prefixed with: INBOX.)
 </div>
 <p>これで解決です．</p>
 <div class="section" id="thunderbird">
-<h2>Thunderbirdの場合</h2>
+<h2>Thunderbirdの場合<a class="headerlink" href="#thunderbird" title="Permalink to this headline">¶</a></h2>
 <p>ちなみに，Thunderbirdの場合は，ごみ箱や送信済みトレイとして自動的に探してくれます．しかし，Prefixに「INBOX」をつけていても，受信トレイの配下にフォルダツリーが構成されません．</p>
 <p>ためにし，受信トレイの下にフォルダを作成してみると．</p>
 <div class="highlight-python"><div class="highlight"><pre>.INBOX.folderName
@@ -189,7 +267,7 @@ name should probably be prefixed with: INBOX.)
             <span>April 21, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/21/postfix.html">スパムメール対策</a></h1>
+            <h1><a href="2014/04/21/postfix.html">スパムメール対策<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <p>サーバをリニューアルしたのは良いものの，メールサーバの設定を手抜きしてしまった．RBLを沢山登録しておいたら，Twitterからのメールすら届かない始末．</p>
 <p>手作業でチェックした結果，以下のRBL設定のみ残すこととしました．</p>
 <div class="highlight-python"><div class="highlight"><pre>smtpd_client_restrictions =
@@ -259,9 +337,9 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
             <span>April 16, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a></h1>
+            <h1><a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <div class="section" id="ipv6">
-<h2>IPv6無効化</h2>
+<h2>IPv6無効化<a class="headerlink" href="#ipv6" title="Permalink to this headline">¶</a></h2>
 <p>以外とハマりやすいのがIPv6関連．ローカルにHTTP Proxy（Squid）をたてて，プロキシサーバにしようとしたところ，設定は間違っていないのになぜかWebアクセスできない・・・と悩んで，ログを確認してみると，DIRECTアクセス先の指定がIPv6になっている．しかし，IPv6 Readyな環境ではないのでもちろんタイムアウトします．</p>
 <p>そんなときは，IPv6を利用しないように設定します．</p>
 <p>設定は簡単「/etc/sysctl.conf」の末尾あたりに設定を追加．</p>
@@ -301,9 +379,9 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a></h1>
+            <h1><a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <div class="section" id="stone">
-<h2>パケットリピータ（Stone）</h2>
+<h2>パケットリピータ（Stone）<a class="headerlink" href="#stone" title="Permalink to this headline">¶</a></h2>
 <p>Stoneを利用するとプロキシ経由でしたインターネットにアクセスできない環境から外部のサーバにSSH出来たりします．</p>
 <p>褒められたことはではありませんが，会社などセキュリティ条件が厳しい環境からでも，外部にトンネル掘れるわけですね．</p>
 <p>早速インストール・・・といっても，Ubuntuだと標準でリポジトリに・・・</p>
@@ -314,7 +392,7 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 <p>うまく設定すれば，本物のHTTPSとStoneを切り分けこともできるようですが，面倒なのでそこまでは求めません．</p>
 </div>
 <div class="section" id="etc-init-d-stone">
-<h2>起動スクリプト（/etc/init.d/stone）</h2>
+<h2>起動スクリプト（/etc/init.d/stone）<a class="headerlink" href="#etc-init-d-stone" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre>#! /bin/sh
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Stone Server"
@@ -344,7 +422,7 @@ esac
 </div>
 </div>
 <div class="section" id="id2">
-<h2>証明書の準備</h2>
+<h2>証明書の準備<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Stone用の証明書を準備する必要があります．ほんもののHTTPS通信と見せかけるためには，きちんと証明書を作っておく必要があります．</p>
 <p>なお，OpenSSLの使い方は忘れやすいのでメモです．数年前までPKIの専門家（仮）だった知識を活かして，一撃で自己署名証明書の発行方法を記します．</p>
 <p>全部１行で</p>
@@ -374,9 +452,9 @@ esac
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a></h1>
+            <h1><a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <div class="section" id="postfix">
-<h2>Postfixの準備</h2>
+<h2>Postfixの準備<a class="headerlink" href="#postfix" title="Permalink to this headline">¶</a></h2>
 <p>「カゴヤ・クラウド／VPS」でUbuntuを導入したところ，標準でSendmailが動作していましたが，面倒なのですべてのSendmail関連パッケージを削除しました．</p>
 <p>まずは，インストール・・・</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install postfix</span>
@@ -384,7 +462,7 @@ esac
 </div>
 <p>とりあえず，Debianパッケージだとローカルのみだとか，イントラネットだとか，メールサーバを配置する場所に応じて初期値となる設定値を埋めてくれます．とりあえず「インターネット上」に設定しておく．</p>
 <div class="section" id="main-cf">
-<h3>main.cfの設定</h3>
+<h3>main.cfの設定<a class="headerlink" href="#main-cf" title="Permalink to this headline">¶</a></h3>
 <p>何はなくとも設定ファイル「/etc/postfix/main.cf」をいじります．</p>
 <div class="highlight-python"><div class="highlight"><pre># クライアントに無駄な情報を教えない
 smtpd_banner = $myhostname ESMTP
@@ -420,7 +498,7 @@ default_rbl_reply = $rbl_code &lt;$recipient&gt;: Recipient address rejected: Us
 </div>
 </div>
 <div class="section" id="sasl2">
-<h3>SASL2の設定</h3>
+<h3>SASL2の設定<a class="headerlink" href="#sasl2" title="Permalink to this headline">¶</a></h3>
 <p>SMTPS認証を実施するために，SASL2を利用します．幸い最初からインストールされていましたが，以下のパッケージが必要になります．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install sasl2-bin sasl2-modules</span>
 </pre></div>
@@ -437,7 +515,7 @@ OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd"
 </div>
 </div>
 <div class="section" id="master-cf">
-<h3>master.cfの設定</h3>
+<h3>master.cfの設定<a class="headerlink" href="#master-cf" title="Permalink to this headline">¶</a></h3>
 <p>SMTPSをListenするために，「/etc/postfix/master.cf」を変更します．コメントアウトを外すだけ．</p>
 <div class="highlight-python"><div class="highlight"><pre>submission inet n       -       -       -       -       smtpd
     -o syslog_name=postfix/submission
@@ -466,14 +544,14 @@ mech_list: plain login
 </div>
 </div>
 <div class="section" id="dovecot">
-<h2>Dovecotの準備</h2>
+<h2>Dovecotの準備<a class="headerlink" href="#dovecot" title="Permalink to this headline">¶</a></h2>
 <p>以前は何が何でもCourier-IMAPを利用していましたが，最近はDovecotを利用するようになりました．</p>
 <p>まずは，Dovecotのインストール</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install dovecot-imapd dovecot-common</span>
 </pre></div>
 </div>
 <div class="section" id="id2">
-<h3>メールディレクトリ設定</h3>
+<h3>メールディレクトリ設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Courier-IMAPと同様に利用するためにはひと工夫が必要なので，設定ファイル「/etc/dovecot/conf.d/10-mail.conf」を編集します．</p>
 <div class="highlight-python"><div class="highlight"><pre>（メールディレクトリをMaildirに変更）
 mail_location = maildir:~/Maildir
@@ -512,9 +590,9 @@ namespace inbox {
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a></h1>
+            <h1><a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <div class="section" id="emacs24">
-<h2>Emacs24を使う</h2>
+<h2>Emacs24を使う<a class="headerlink" href="#emacs24" title="Permalink to this headline">¶</a></h2>
 <p>Ubuntu 12系では残念ながら標準のapt-getリポジトリにはEmacs24が準備されていない．ググるとヒットするのですが，手順を書いておくと・・・</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install python-software-properties</span>
 <span class="c"># add-apt-repository ppa:cassou/emacs</span>
@@ -556,10 +634,10 @@ namespace inbox {
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a></h1>
+            <h1><a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <p>VPS上で構築していたサーバのPythonを3.3系にアップデートしたところ，なにを間違ってしまったのかいろいろなライブラリが利用できなくなってしまった．スナップショットを取っておけばよかったものの・・・時すでに遅し．ものはついでなので，メールサーバ＋メーリングリストのリニューアル＋Webコンテンツの統合のためにサーバ自体をリニューアルする．きっと時間はかからないはず．</p>
 <div class="section" id="vps">
-<h2>VPSサーバの増設</h2>
+<h2>VPSサーバの増設<a class="headerlink" href="#vps" title="Permalink to this headline">¶</a></h2>
 <p>「カゴヤ・クラウド／VPS」であれば，サーバを増設しても日単位の課金．新規サーバを増設して，旧サーバからの移行が完了するまでの数日間分の利用料金のみＯＫなはずです．</p>
 <p>何かしらハマるはずなので，４〜５日といったところでしょうか・・・</p>
 <p>今回は・・・Ubuntu 13系で行きたいところですが，LTSである12系しか準備されていません．OpenVZの痛いところです．</p>
@@ -569,7 +647,7 @@ Ubuntu 12.04.4 LTS \n \l
 </div>
 </div>
 <div class="section" id="ssh">
-<h2>SSHサーバ</h2>
+<h2>SSHサーバ<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h2>
 <p>確か通常のディストリビューションからUbuntu系をインストールすると，SSHサーバはインストールされていなかったと思いますが，「カゴヤ・クラウド／VPS」で作成されたインスタンスでは最初からSSHサーバが起動されています．</p>
 <p>経験上，Webサーバを公開しているとブルートフォースアタックを受けるので，sshdの待ち受けポートを変更しておきます．</p>
 <div class="highlight-python"><div class="highlight"><pre>root@cat:~# vim /etc/ssh/sshd_config
@@ -610,10 +688,10 @@ Host cat
             <span>December 17, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/12/17/docomomail.html">ドコモメール</a></h1>
+            <h1><a href="2013/12/17/docomomail.html">ドコモメール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
 <p>本日（2013/12/17）より，ドコモメールがIMAP経由で利用できるようになりました．ついに「@docomo.ne.jp」ドメインのメールアドレスを，簡単に利用できるようになりました．</p>
 <div class="section" id="id2">
-<h2>スマフォ側の設定</h2>
+<h2>スマフォ側の設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>私の場合は，SPモードメールを「Communicase」で受信するように設定していましたが，Communicaseのアカウント設定で「アカウント毎設定＞ドコモ＞受信＞ドコモのメール受信」という設定項目で</p>
 <ul class="simple">
 <li>このアプリで受信する</li>
@@ -625,7 +703,7 @@ Host cat
 <div>私の場合，ドコモアプリケーションマネージャをOffにしていたので，ちょっと引っかかりました．一度docomo IDを有効にして，メールの受信を開始してしまえば，Gmail向けのメーラアプリでも受信できると思います．（プッシュでの受信が可能かどうかは知らないですが）</div></blockquote>
 </div>
 <div class="section" id="imap">
-<h2>IMAPクライアントの設定</h2>
+<h2>IMAPクライアントの設定<a class="headerlink" href="#imap" title="Permalink to this headline">¶</a></h2>
 <p>IMAPクライアント側の設定情報については，<a class="reference external" href="https://www.nttdocomo.co.jp/service/docomo_cloud/docomo_mail/function/other/index.html">公式</a>に記載があるので確認してください．</p>
 <p>概要としては，</p>
 <ul class="simple">
@@ -653,76 +731,6 @@ Host cat
                 タグ:
                 <a href="tags/docomo.html">docomo</a></span>
         </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>December 13, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a></h1>
-<p>Windows版のEmacs（Ntemacs/gnupack emacs）を利用する際の便利な設定を紹介します．既にCygwinを利用していることが前提ですが，Cygwinがなくても応用できるかと・・・</p>
-<div class="section" id="id1">
-<h2>NTEmacsのインストール</h2>
-<p>NTEmacsはIME用のパッチが，gnupackから提供されており，かつパッチのみを適用したNTEmacsが<a class="reference external" href="http://cha.la.coocan.jp/doc/NTEmacs.html">こちら</a>から提供されています．</p>
-<p>もしくは，<a class="reference external" href="http://sourceforge.jp/projects/gnupack/">gnupack</a>からEmacs単体でも提供されているので，どちらを利用しても構わないと思います．</p>
-<p>取得したEmacsのパッケージを回答して，Cygwinから[/usr/local/emacs/24.3]みたいなディレクトリに格納します．バージョンアップごとにLispを差し替えるのは面倒なので，以下のようにシンボリックリンクを貼ってくと便利です．</p>
-<div class="highlight-python"><div class="highlight"><pre>drwxr-xr-x+ 1 24.3/
-lrwxrwxrwx  1 bin -&gt; /usr/local/emacs/24.3/bin/
-lrwxrwxrwx  1 etc -&gt; /usr/local/emacs/24.3/etc/
-lrwxrwxrwx  1 info -&gt; /usr/local/emacs/24.3/info/
-lrwxrwxrwx  1 leim -&gt; /usr/local/emacs/24.3/leim/
-lrwxrwxrwx  1 lisp -&gt; /usr/local/emacs/24.3/lisp/
-lrwxrwxrwx  1 site-lisp -&gt; /usr/local/emacs/24.3/site-lisp/
-</pre></div>
-</div>
-<p>[site-lisp]までリンクにしていますが，site-lispはバージョンごとに共通で問題無いと思います．</p>
-<p><strong>2014/01/28：追記</strong></p>
-<p>上記のようにシンボリックで対応すると，各種Lispをインストールする際に正しくインストールできません．そのため，Windowsのリンク機能（ジャンクション）で対応する必要があります．詳細については，次の節を参照してください．</p>
-</div>
-<div class="section" id="windows">
-<h2>Windowsのディレクトリに細工</h2>
-<p>EmacsからるとCygwin上のファイルパスとWindows上のファイルパスが異なるので，Windows側に細工してあげます．</p>
-<p>Windowsのコマンドプロンプト（スタートメニュー＞すべてのプログラム＞アクセサリ＞コマンドプロンプト）を管理者権限（右クリックして「管理者として実行」）で起動します．</p>
-<p>Windowsでいうディレクトリへのシンボリックリンクのようなもの，ジャンクションを設定します．</p>
-<div class="highlight-python"><div class="highlight"><pre>mklink /J usr c:\cygwin\usr
-mklink /J home c:\cygwin\home
-mklink /J bin c:\cygwin\bin
-</pre></div>
-</div>
-<p>こうしておくことで，Emacsからファイルを開く際に，Cygwinから見えるファイルパスと，Windowsから見えるファイルパスがほぼ同じに見えるので，厄介事が少なくなります．</p>
-</div>
-<div class="section" id="ime">
-<h2>IMEの有効化</h2>
-<p>NTEmacs上でIMEの入力を便利にするために，EmacsのIMEパッチを有効にする必要があります．</p>
-<div class="highlight-python"><div class="highlight"><pre>;; Win32IME用のパッチを有効化
-(w32-ime-initialize)
-(setq default-input-method "W32-IME")
-;;モードライン行の表示
-(setq-default w32-ime-mode-line-state-indicator "[--]")
-(setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
-;;カーソルカラー
-(add-hook 'input-method-activate-hook   ;; IME ON/OFF時のカーソルカラー
-   (lambda () (set-cursor-color "firebrick")))
-(add-hook 'input-method-inactivate-hook ;; IME OFF時の初期カーソルカラー
-   (lambda () (set-cursor-color "white")))
-</pre></div>
-</div>
-<p>これで完了．</p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/emacs.html">Emacs</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/emacs.html">emacs</a>, <a href="tags/cygwin.html">cygwin</a></span>
-        </div>
         </div><div class="archive_link">
         <a href="archive.html"> &mdash; ブログアーカイブ &mdash; </a>
     </div><ul class="related clearfix">
@@ -730,12 +738,14 @@ mklink /J bin c:\cygwin\bin
             <li class="right"><a href="page2.html">前の投稿</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (1)</li></ul>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (2)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (1), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/homebrew.html">homebrew</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (2), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (3), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="2014/12/31/mac.html">Mac OSを使う</a>
+            <a href="2014/12/31/mac2.html">Homebrew</a>
+        </li><li>
+            <a href="2014/12/31/mac1.html">Mac OSを使う</a>
         </li><li>
             <a href="2014/05/12/becky.html">Beckyの設定</a>
         </li><li>
@@ -752,8 +762,6 @@ mklink /J bin c:\cygwin\bin
             <a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li><li>
             <a href="2013/12/17/docomomail.html">ドコモメール</a>
-        </li><li>
-            <a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

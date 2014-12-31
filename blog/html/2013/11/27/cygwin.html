@@ -86,12 +86,12 @@
             <span>November 27, 2013</span>
         </div>
     <div class="section" id="cygwin">
-<h1>Cygwinのすゝめ</h1>
+<h1>Cygwinのすゝめ<a class="headerlink" href="#cygwin" title="Permalink to this headline">¶</a></h1>
 <p>普段の生活でターミナルが無いと生活しにくいものです．まだまだ，TeraTerm，を使っているひとも少なくないと思いますが・・・</p>
 <p>かれこれ１０年以上愛用している「Cygwin ＋ ckターミナルエミュレータ」がおすすめです．もはやこれを手放すことができません．Windows上で生活していながら，かゆいところに手が届きます．</p>
 <p>あとは，Windows版Emacsがサクサク動いてくれれば，Linux環境を手放すことができそうです．</p>
 <div class="section" id="id1">
-<h2>Cygwinのインストール</h2>
+<h2>Cygwinのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
 <p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
 <ul class="simple">
@@ -129,7 +129,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>Cygwinの環境変数</h2>
+<h2>Cygwinの環境変数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
 <div class="highlight-python"><div class="highlight"><pre>HOME  =  C:\Cygwin\home\UserName
 </pre></div>
@@ -137,7 +137,7 @@
 <p>と設定されていれば問題ないかと．</p>
 </div>
 <div class="section" id="ck">
-<h2>ckのインストール</h2>
+<h2>ckのインストール<a class="headerlink" href="#ck" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.geocities.jp/meir000/ck/">Cygwin ck terminal emulator</a>はCygwin上で動作するターミナルエミュレータです．何年か前に突如配布サイトが消失してしまって，この世の終わりかと思いましたが，現在は定期的に更新されています．ありがたい限りです．</p>
 <p>配布ファイルを展開し，「ck.app.dll/ck.con.exe/ck.exe」の３点のファイルをCygwinインストールディレクトリ配下の「/bin」にコピーします．さらに「ck.exe」のショートカットを作成しましょう．ショートカットのリンク先を</p>
 <div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\ck.exe -dir C:\cygwin\home\UserName
@@ -147,7 +147,7 @@
 <p>また，ホームディレクトリに「.ck.config.js」を配置すると動作設定を細かに設定することが可能です．詳細については，配布ファイルに含まれているドキュメントを確認してください．</p>
 </div>
 <div class="section" id="id3">
-<h2>ckの便利な設定</h2>
+<h2>ckの便利な設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>私がckをカスタマイズしている部分を紹介します．</p>
 <div class="highlight-python"><div class="highlight"><pre>Config.window.position_x = -1;
 Config.window.position_y = 0;
@@ -177,7 +177,7 @@ AccelKeys.add(Keys.Escape, user_cmd_ime_off);
 <p>ck上でvimを開くことが多いのですが，IMEがonになっていると，vimのコマンドモードで反応してくれなくなるのですが，「Esc」を押してコマンドモードに移行した瞬間にIMEをoffにすることが可能ですので，vim＋日本語環境の煩わしさから少しだけ開放されます．</p>
 </div>
 <div class="section" id="x">
-<h2>Xサーバの自動起動</h2>
+<h2>Xサーバの自動起動<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
 <p>LinuxからEmacsウィンドウを転送してくるために，Cygwin付属のXサーバを常時起動させておきます．貧弱なマシンだと少々重いかもしれませんが，私は気にしません．</p>
 <div class="highlight-python"><div class="highlight"><pre>%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 </pre></div>
@@ -190,7 +190,7 @@ AccelKeys.add(Keys.Escape, user_cmd_ime_off);
 <p>また，デフォルトでXサーバを起動すると，無駄にXtermが起動されたりするので，デフォルトでは何も起動しないように設定するため，Cygwinのホームディレクトリに「.startxwinrc」および「.XWinrc」という空ファイルを配置してください．すると，Xサーバのみが単体で起動されます．</p>
 </div>
 <div class="section" id="emacs">
-<h2>Emacsの呼び出し</h2>
+<h2>Emacsの呼び出し<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
 <p>Windows上の仮想マシンとして起動しているLinuxのEmacsを呼び出します．Linux側にX転送設定を書いても良いのですが，面倒ですのでSSHサーバのX転送機能を利用します．といっても，特に設定は不要のはず・・・</p>
 <p>Windows上に下記のようなショートカットを作成してください．</p>
 <div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c  ~/bin/remacs
@@ -227,12 +227,14 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
             <li class="right"><a href="../20/emacs.html">Emacsのすゝめ</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (1)</li></ul>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (2)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (1), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/homebrew.html">homebrew</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (2), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (3), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="../../../2014/12/31/mac.html">Mac OSを使う</a>
+            <a href="../../../2014/12/31/mac2.html">Homebrew</a>
+        </li><li>
+            <a href="../../../2014/12/31/mac1.html">Mac OSを使う</a>
         </li><li>
             <a href="../../../2014/05/12/becky.html">Beckyの設定</a>
         </li><li>
@@ -249,8 +251,6 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
             <a href="../../../2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li><li>
             <a href="../../12/17/docomomail.html">ドコモメール</a>
-        </li><li>
-            <a href="../../12/13/ntemacs.html">NTEmacsのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

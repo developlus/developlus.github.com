@@ -83,15 +83,85 @@
             <li class="left"> &laquo; <a href="index.html">次の投稿</a></li>
             <li class="right"></li>
         </ul><div class="timestamp postmeta">
+            <span>December 13, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ<a class="headerlink" href="#ntemacs" title="Permalink to this headline">¶</a></a></h1>
+<p>Windows版のEmacs（Ntemacs/gnupack emacs）を利用する際の便利な設定を紹介します．既にCygwinを利用していることが前提ですが，Cygwinがなくても応用できるかと・・・</p>
+<div class="section" id="id1">
+<h2>NTEmacsのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>NTEmacsはIME用のパッチが，gnupackから提供されており，かつパッチのみを適用したNTEmacsが<a class="reference external" href="http://cha.la.coocan.jp/doc/NTEmacs.html">こちら</a>から提供されています．</p>
+<p>もしくは，<a class="reference external" href="http://sourceforge.jp/projects/gnupack/">gnupack</a>からEmacs単体でも提供されているので，どちらを利用しても構わないと思います．</p>
+<p>取得したEmacsのパッケージを回答して，Cygwinから[/usr/local/emacs/24.3]みたいなディレクトリに格納します．バージョンアップごとにLispを差し替えるのは面倒なので，以下のようにシンボリックリンクを貼ってくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>drwxr-xr-x+ 1 24.3/
+lrwxrwxrwx  1 bin -&gt; /usr/local/emacs/24.3/bin/
+lrwxrwxrwx  1 etc -&gt; /usr/local/emacs/24.3/etc/
+lrwxrwxrwx  1 info -&gt; /usr/local/emacs/24.3/info/
+lrwxrwxrwx  1 leim -&gt; /usr/local/emacs/24.3/leim/
+lrwxrwxrwx  1 lisp -&gt; /usr/local/emacs/24.3/lisp/
+lrwxrwxrwx  1 site-lisp -&gt; /usr/local/emacs/24.3/site-lisp/
+</pre></div>
+</div>
+<p>[site-lisp]までリンクにしていますが，site-lispはバージョンごとに共通で問題無いと思います．</p>
+<p><strong>2014/01/28：追記</strong></p>
+<p>上記のようにシンボリックで対応すると，各種Lispをインストールする際に正しくインストールできません．そのため，Windowsのリンク機能（ジャンクション）で対応する必要があります．詳細については，次の節を参照してください．</p>
+</div>
+<div class="section" id="windows">
+<h2>Windowsのディレクトリに細工<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>EmacsからるとCygwin上のファイルパスとWindows上のファイルパスが異なるので，Windows側に細工してあげます．</p>
+<p>Windowsのコマンドプロンプト（スタートメニュー＞すべてのプログラム＞アクセサリ＞コマンドプロンプト）を管理者権限（右クリックして「管理者として実行」）で起動します．</p>
+<p>Windowsでいうディレクトリへのシンボリックリンクのようなもの，ジャンクションを設定します．</p>
+<div class="highlight-python"><div class="highlight"><pre>mklink /J usr c:\cygwin\usr
+mklink /J home c:\cygwin\home
+mklink /J bin c:\cygwin\bin
+</pre></div>
+</div>
+<p>こうしておくことで，Emacsからファイルを開く際に，Cygwinから見えるファイルパスと，Windowsから見えるファイルパスがほぼ同じに見えるので，厄介事が少なくなります．</p>
+</div>
+<div class="section" id="ime">
+<h2>IMEの有効化<a class="headerlink" href="#ime" title="Permalink to this headline">¶</a></h2>
+<p>NTEmacs上でIMEの入力を便利にするために，EmacsのIMEパッチを有効にする必要があります．</p>
+<div class="highlight-python"><div class="highlight"><pre>;; Win32IME用のパッチを有効化
+(w32-ime-initialize)
+(setq default-input-method "W32-IME")
+;;モードライン行の表示
+(setq-default w32-ime-mode-line-state-indicator "[--]")
+(setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+;;カーソルカラー
+(add-hook 'input-method-activate-hook   ;; IME ON/OFF時のカーソルカラー
+   (lambda () (set-cursor-color "firebrick")))
+(add-hook 'input-method-inactivate-hook ;; IME OFF時の初期カーソルカラー
+   (lambda () (set-cursor-color "white")))
+</pre></div>
+</div>
+<p>これで完了．</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/emacs.html">Emacs</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/emacs.html">emacs</a>, <a href="tags/cygwin.html">cygwin</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>November 27, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a></h1>
+            <h1><a href="2013/11/27/cygwin.html">Cygwinのすゝめ<a class="headerlink" href="#cygwin" title="Permalink to this headline">¶</a></a></h1>
 <p>普段の生活でターミナルが無いと生活しにくいものです．まだまだ，TeraTerm，を使っているひとも少なくないと思いますが・・・</p>
 <p>かれこれ１０年以上愛用している「Cygwin ＋ ckターミナルエミュレータ」がおすすめです．もはやこれを手放すことができません．Windows上で生活していながら，かゆいところに手が届きます．</p>
 <p>あとは，Windows版Emacsがサクサク動いてくれれば，Linux環境を手放すことができそうです．</p>
 <div class="section" id="id1">
-<h2>Cygwinのインストール</h2>
+<h2>Cygwinのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
 <p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
 <ul class="simple">
@@ -129,7 +199,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>Cygwinの環境変数</h2>
+<h2>Cygwinの環境変数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
 <div class="highlight-python"><div class="highlight"><pre>HOME  =  C:\Cygwin\home\UserName
 </pre></div>
@@ -137,7 +207,7 @@
 <p>と設定されていれば問題ないかと．</p>
 </div>
 <div class="section" id="ck">
-<h2>ckのインストール</h2>
+<h2>ckのインストール<a class="headerlink" href="#ck" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.geocities.jp/meir000/ck/">Cygwin ck terminal emulator</a>はCygwin上で動作するターミナルエミュレータです．何年か前に突如配布サイトが消失してしまって，この世の終わりかと思いましたが，現在は定期的に更新されています．ありがたい限りです．</p>
 <p>配布ファイルを展開し，「ck.app.dll/ck.con.exe/ck.exe」の３点のファイルをCygwinインストールディレクトリ配下の「/bin」にコピーします．さらに「ck.exe」のショートカットを作成しましょう．ショートカットのリンク先を</p>
 <div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\ck.exe -dir C:\cygwin\home\UserName
@@ -147,7 +217,7 @@
 <p>また，ホームディレクトリに「.ck.config.js」を配置すると動作設定を細かに設定することが可能です．詳細については，配布ファイルに含まれているドキュメントを確認してください．</p>
 </div>
 <div class="section" id="id3">
-<h2>ckの便利な設定</h2>
+<h2>ckの便利な設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>私がckをカスタマイズしている部分を紹介します．</p>
 <div class="highlight-python"><div class="highlight"><pre>Config.window.position_x = -1;
 Config.window.position_y = 0;
@@ -177,7 +247,7 @@ AccelKeys.add(Keys.Escape, user_cmd_ime_off);
 <p>ck上でvimを開くことが多いのですが，IMEがonになっていると，vimのコマンドモードで反応してくれなくなるのですが，「Esc」を押してコマンドモードに移行した瞬間にIMEをoffにすることが可能ですので，vim＋日本語環境の煩わしさから少しだけ開放されます．</p>
 </div>
 <div class="section" id="x">
-<h2>Xサーバの自動起動</h2>
+<h2>Xサーバの自動起動<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
 <p>LinuxからEmacsウィンドウを転送してくるために，Cygwin付属のXサーバを常時起動させておきます．貧弱なマシンだと少々重いかもしれませんが，私は気にしません．</p>
 <div class="highlight-python"><div class="highlight"><pre>%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 </pre></div>
@@ -190,7 +260,7 @@ AccelKeys.add(Keys.Escape, user_cmd_ime_off);
 <p>また，デフォルトでXサーバを起動すると，無駄にXtermが起動されたりするので，デフォルトでは何も起動しないように設定するため，Cygwinのホームディレクトリに「.startxwinrc」および「.XWinrc」という空ファイルを配置してください．すると，Xサーバのみが単体で起動されます．</p>
 </div>
 <div class="section" id="emacs">
-<h2>Emacsの呼び出し</h2>
+<h2>Emacsの呼び出し<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
 <p>Windows上の仮想マシンとして起動しているLinuxのEmacsを呼び出します．Linux側にX転送設定を書いても良いのですが，面倒ですのでSSHサーバのX転送機能を利用します．といっても，特に設定は不要のはず・・・</p>
 <p>Windows上に下記のようなショートカットを作成してください．</p>
 <div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c  ~/bin/remacs
@@ -225,10 +295,10 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
             <span>November 20, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/20/emacs.html">Emacsのすゝめ</a></h1>
+            <h1><a href="2013/11/20/emacs.html">Emacsのすゝめ<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></a></h1>
 <p>ほぼメーラ専属となってしまいましたが，Emacs＋Wanderlustでメールの読み書きをしています．今回はLubuntuで，Emacs24とWanderlust2.15系の組み合わせで，メールを読み書きするまでの手順を紹介します．</p>
 <div class="section" id="id1">
-<h2>Emacsのインストール</h2>
+<h2>Emacsのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Emacsのインストール自体はお手軽です．Emacs23系でも十分に満足していたのですが，Emacs24系からLispパッケージの管理が楽になるとのことで，Emacs24を使うことにします．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs24 emacs-mozc</span>
 </pre></div>
@@ -236,7 +306,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>「emacs-mozc」はかな漢字変換を行うLispです．中身は「mozc_server」と「mozc_emacs_helper」というサーバクライアントプロセス間で通信して，Emacsがかな漢字変換結果を受け取るシステムのようです．Mozcは野良コンパイルは面倒なので，パッケージ管理（aptitude）でさくっと入れてしまいます．</p>
 <p>その他，使っているLispはこんなもの．</p>
 <div class="section" id="init-loader-el">
-<h3>まず初めにinit-loader.elする</h3>
+<h3>まず初めにinit-loader.elする<a class="headerlink" href="#init-loader-el" title="Permalink to this headline">¶</a></h3>
 <p>前は，「.emacs」に記述していましたが，WindowsでNtemacsを使ったり，Linux上でEmacs使ったり設定の切り替えが面倒になってきました．最初は頑張って</p>
 <div class="highlight-python"><div class="highlight"><pre>(cond
   ((and (equal system-type 'windows-nt) (= emacs-major-version23))
@@ -261,7 +331,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 </div>
 </div>
 <div class="section" id="wanderlust">
-<h2>Wanderlustのインストール</h2>
+<h2>Wanderlustのインストール<a class="headerlink" href="#wanderlust" title="Permalink to this headline">¶</a></h2>
 <p>Ubuntuのパッケージ管理（aptitude）でも簡単にWanderlusutをインストールできるのですが，せっかくなので最新版をインストールする手順をご紹介．</p>
 <p>Wanderlustの製作者であり配布元である<a class="reference external" href="http://www.gohome.org/wl/index.ja.html">本家</a>は更新が途絶えております．いまは，Github上で管理されているのでこちらを取得します．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/local/src/</span>
@@ -307,13 +377,13 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
             <span>November 11, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/11/vps.html">VPSのすゝめ</a></h1>
+            <h1><a href="2013/11/11/vps.html">VPSのすゝめ<a class="headerlink" href="#vps" title="Permalink to this headline">¶</a></a></h1>
 <p>以前は自宅サーバとしてキューブ型PCを置いて，テレビ録画＋メール＋Webもろもろのサーバとして利用していました．しかし，昨今はVPSもワンコインでレンタルできる時代です．</p>
 <p>ちなみに，自宅サーバを運用していたときの月額電気量はおおよそ500円程度＋固定IPアドレス500円の費用がかかっていました．</p>
 <p>2010年〜2011年は「<a class="reference external" href="mailto:ServersMan%40VPS">ServersMan<span>@</span>VPS</a>」の最安プランを利用していました．しかしまぁ，使い勝手に不満がありまして現在は「カゴヤ・クラウド」に乗り換えています．特に不満は無いのですが，さらに他社のサービスも活気づいてきているので，更なる乗り換え先を模索しています．</p>
 <p>そのための参考情報</p>
 <div class="section" id="vps-201311">
-<h2>VPSプロバイダ（2013年11月調べ）</h2>
+<h2>VPSプロバイダ（2013年11月調べ）<a class="headerlink" href="#vps-201311" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="14%"/>
@@ -462,19 +532,19 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
             <span>November 08, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/08/lubuntu.html">Lubuntuのすゝめ</a></h1>
+            <h1><a href="2013/11/08/lubuntu.html">Lubuntuのすゝめ<a class="headerlink" href="#lubuntu" title="Permalink to this headline">¶</a></a></h1>
 <p>Lubuntuに特化した話ではないですが，Ubuntuを使う場合に私はこんな設定をしている・・・という内容を紹介します．</p>
 <div class="section" id="id1">
-<h2>インストール</h2>
+<h2>インストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>簡単すぎるので省略します．インストールディスクさえマウントできれば，あとは淡々とインストールするだけなので．</p>
 <p>そのうち，物理マシンのHDDではなくUSBにインストールする方法でも考えたいな・・・と．</p>
 </div>
 <div class="section" id="id2">
-<h2>まずはじめにアップデート</h2>
+<h2>まずはじめにアップデート<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>インストールしたら必ずやることと．</p>
 <p>Debian系のパッケージ管理といえば「apt-get」ですが，これが少し拡張された「aptitude」を利用しています．そこまで大きな違いは無いようですが，パッケージの依存関係が管理されており，パッケージを削除する際には，関連パッケージもまとめて削除してくれるようです．</p>
 <div class="section" id="id3">
-<h3>プロキシの設定</h3>
+<h3>プロキシの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>会社で利用していると，プロキシ経由でなければインターネット側に抜けられないのでプロキシの設定をします．RedHat系で「yum」を利用するのであれば，環境変数（http_proxy）でも書いておけばいいのですが，Ubuntuでは不足なので設定を追加します．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo vi /etc/apt/apt/apt.conf.d/00proxy
 Acquire::http::proxy "http://proxy.server.co.jp:8080;
@@ -484,7 +554,7 @@ Acquire::ftp::proxy "http://proxy.server.co.jp:8080;
 </div>
 </div>
 <div class="section" id="id4">
-<h3>更新の実行</h3>
+<h3>更新の実行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>あとは「aptitude」を準備して，更新を実行するだけです．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
 $ sudo apt-get install aptitude
@@ -498,7 +568,7 @@ $ auto aptitude autoclean
 </div>
 </div>
 <div class="section" id="id5">
-<h2>必要なパッケージの追加</h2>
+<h2>必要なパッケージの追加<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install openssh-server
 $ sudo aptitude install vim
 </pre></div>
@@ -506,7 +576,7 @@ $ sudo aptitude install vim
 <p>必要になったタイミングでおいおい準備していきます．</p>
 </div>
 <div class="section" id="os-windows">
-<h2>ホストOS（Windows）ディレクトリの参照</h2>
+<h2>ホストOS（Windows）ディレクトリの参照<a class="headerlink" href="#os-windows" title="Permalink to this headline">¶</a></h2>
 <p>Lubuntu側のメーラ（Emacs）でメールを受けて，添付ファイルをホストOS側に渡して，Office製品で編集する．なんてパターンが多々あります．Windows側からLubuntu側のファイルをSamba経由で参照しても良いのですが，私の場合はLubuntu側からWindowsのファイルシステムをCIFS経由で参照しています．</p>
 <p>その方法は・・・</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install cifs-utils
@@ -554,17 +624,17 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
             <span>November 07, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/07/linux.html">作業用Linuxマシンのすゝめ</a></h1>
+            <h1><a href="2013/11/07/linux.html">作業用Linuxマシンのすゝめ<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></a></h1>
 <p>私は，メール・テキストの編集などはEmacsを利用したいタイプです．なお，ターミナルエミュレータ的なものが無いと生活出来ません．シェル（bash）を使いたいし，grepやawkやsed，簡単な設定ファイルはvi/vimを使いたいのです．</p>
 <p>しかし，会社での生活環境はWindowsしか許されていません．正確にはLinuxも許されていますが，社内の共通的な業務はWindowsでないと困ることが多々あります．</p>
 <p>そこで，会社の生活環境PCに，Cygwin＋ck（ターミナルエミュレータ），Emacs24＋Wanderlust（Mewライクなメーラ）をインストールして生活しています．</p>
 <p>しかし，これでも不便を感じることが多いのです．というのも，Emacsが結構落ちるのです．原因は不明，あとWanderlustでメールを書いて送信した直後にフリーズとか・・・．ちなみに，Linuxで同じことをしていても，なんの問題もありません．非常に快適です．</p>
 <p>そんなわけで，会社の生活環境PCに仮想環境（VMWare Server/もうサポートが終わりました）を構築し，VM中にLinuxをインストールして利用しています．私が使いやすいと感じる妥協ポイントを紹介していきます．</p>
 <div class="section" id="id1">
-<h2>仮想環境の選択</h2>
+<h2>仮想環境の選択<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>上記で書いたとおり，VMWare Serverを利用していますが，この製品はサポートが終了しています．なぜこれを選択しているのか・・・</p>
 <div class="section" id="vmware-server">
-<h3>VMWare Server</h3>
+<h3>VMWare Server<a class="headerlink" href="#vmware-server" title="Permalink to this headline">¶</a></h3>
 <p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -580,7 +650,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 </ul>
 </div>
 <div class="section" id="vmware-player-vmware-player-plus">
-<h3>VMWare Player（もといVMWare Player Plus）</h3>
+<h3>VMWare Player（もといVMWare Player Plus）<a class="headerlink" href="#vmware-player-vmware-player-plus" title="Permalink to this headline">¶</a></h3>
 <p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -596,7 +666,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
 </div>
 <div class="section" id="virtual-box-oracle">
-<h3>Virtual Box （Oracle）</h3>
+<h3>Virtual Box （Oracle）<a class="headerlink" href="#virtual-box-oracle" title="Permalink to this headline">¶</a></h3>
 <p>Oracle（旧Sun）が提供する仮想環境です．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -614,7 +684,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Linuxの選択</h2>
+<h2>Linuxの選択<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Linuxで何を利用するか・・・以前は，CentOSを利用していました．一時期，CentOSのコミュニティが荒れていた時は，Scientific Linuxに浮気していました．</p>
 <p>しかし，このCnetOSですが．とにかくBoot時間が長いのです．Ubuntuを少し触った時に痛感しました．VMWare ServerからサービスとしてVMを自動起動してくるのですが，WindowsにログオンしてもLinuxのBootが完了していない時間が長すぎて少々イライラします．</p>
 <p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>
@@ -641,12 +711,12 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
             <span>November 06, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/06/tinkerer.html">Tinkererの設定</a></h1>
+            <h1><a href="2013/11/06/tinkerer.html">Tinkererの設定<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></a></h1>
 <p>Tinkerrの初期設定については，様々なサイトで紹介されているので省略する．ただし，頭が真っ白な状態では現状のサイト構成辿りつけなかったのでポイントだけ記録しておきます．</p>
 <div class="section" id="id1">
-<h2>日本語設定</h2>
+<h2>日本語設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>ビルドについて</h3>
+<h3>ビルドについて<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre>$ tinkerer -b
 </pre></div>
 </div>
@@ -659,7 +729,7 @@ description = u'脳内情報' # 文字列がUnicodeであることをマーク�
 </div>
 </div>
 <div class="section" id="id3">
-<h3>記事中の日本語について</h3>
+<h3>記事中の日本語について<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>これらの記事はEmacs（rst-mode）で記述しており，「auto-fill-mode」を有効にしています．なので，ReStドキュメント本体は適切な箇所で自動改行されています．</p>
 <p>この状態で何も考えずにコンテンツをビルドすると，改行が挿入された箇所が不自然に半角スペースに変換された状態となり，サイトの見た目が美しくありません．どうせビルド時に改行を[&amp;nbsp;]に置換しているんだろうな・・・とはあたりがつくものの，どこの設定を調節すれば良いのかサッパリでしたが，おおよそ自分が悩んでいる事象は世の中の先人も悩んでいるはずです．</p>
 <p>そんなわけで，ちょっとインターネットの力を借りると・・・これ</p>
@@ -678,7 +748,7 @@ extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus',
 </div>
 </div>
 <div class="section" id="id4">
-<h2>テーマについて</h2>
+<h2>テーマについて<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>デフォルトのテーマでは味気ない．そこでテーマを変更します．デフォルトで提供されているテーマは以下の通り．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ls -l /usr/local/lib
 $ ls -l /usr/local/lib/python2.7/dist-packages/tinkerer/themes/
@@ -770,15 +840,15 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
             <span>November 06, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/06/rest.html">ReSTフォーマットの復習</a></h1>
+            <h1><a href="2013/11/06/rest.html">ReSTフォーマットの復習<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></a></h1>
 <p>タイトルは復習ですが，私は今から勉強します．後で読み返したら「復習」になるでしょう．</p>
 <div class="section" id="id1">
-<h2>ReSTについて</h2>
+<h2>ReSTについて<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>そもそも「REST」って言われると，全然別のものを想像してしまうのですが，「reStructured Text」の略の様です．</p>
 <p>詳細については以下で・・・<a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a></p>
 </div>
 <div class="section" id="id2">
-<h2>ReST フォーマット</h2>
+<h2>ReST フォーマット<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
 <p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
 </div>
@@ -802,16 +872,16 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
             <span>November 05, 2013</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub</a></h1>
+            <h1><a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub<a class="headerlink" href="#tinkerer-sphinx-on-github" title="Permalink to this headline">¶</a></a></h1>
 <p>Web UIで執筆するCMSやブログシステムに耐えられなくて，さまざまなドキュメント管理ツールを試した結果，ReST（reStructured Text）にたどり着く．</p>
 <p>ReSTを整形するツールである「Sphinx」，さらにSphinxを利用するブログ構築を支援する「Tinkerer」を使って，今後のドキュメントを管理していく．</p>
 <div class="section" id="tinkerer">
-<h2>Tinkerer</h2>
+<h2>Tinkerer<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://tinkerer.me/">http://tinkerer.me/</a></p>
 <p>コマンド一つでブログのテンプレートの作成，ドキュメントのビルドを実行することが可能です．生成されるドキュメントは静的なものなので，どこにでも引っ越し可能です．</p>
 </div>
 <div class="section" id="github">
-<h2>GitHub</h2>
+<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/">https://github.com/</a></p>
 <p>言わずとしれた分散リポジトリ管理システムです．無料で個人のリポジトリを作成できることから巷でも人気のようですが，自分で書いたソースコードをインターネットな世界に晒す勇気がなくて躊躇していました．お仕事のソース管理はSubversionで十分でしたし．</p>
 <p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
@@ -840,12 +910,14 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
             <li class="right"></li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (1)</li></ul>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (2)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (1), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/homebrew.html">homebrew</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (2), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (3), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="2014/12/31/mac.html">Mac OSを使う</a>
+            <a href="2014/12/31/mac2.html">Homebrew</a>
+        </li><li>
+            <a href="2014/12/31/mac1.html">Mac OSを使う</a>
         </li><li>
             <a href="2014/05/12/becky.html">Beckyの設定</a>
         </li><li>
@@ -862,8 +934,6 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
             <a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li><li>
             <a href="2013/12/17/docomomail.html">ドコモメール</a>
-        </li><li>
-            <a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

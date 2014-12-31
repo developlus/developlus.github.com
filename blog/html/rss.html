@@ -8,8 +8,75 @@
         <pubDate>Wed, 31 Dec 2014 00:00:00 +0900</pubDate>
         
         <item>
-            <link>http://www.developlus.jp/2014/12/31/mac.html</link>
-            <guid>http://www.developlus.jp/2014/12/31/mac.html</guid>
+            <link>http://www.developlus.jp/2014/12/31/mac2.html</link>
+            <guid>http://www.developlus.jp/2014/12/31/mac2.html</guid>
+            <title><![CDATA[Homebrew]]></title>
+            <description><![CDATA[<h1>Homebrew</h1>
+<p>Mac初心者がいろいろとMacを便利に使う方法を調べた経緯でたどり着いたパッケージ管理システム＝Homebrew．</p>
+<p>「Mac パッケージ管理」でググると一つ目に出てくるので説明する必要は不要なはずですが，自分のための備忘録として作業記録を残しておく．一つ目の目標は，MacでもTinkererを使えるようになること．</p>
+<div class="section" id="id1">
+<h2>Homebrewのインストール</h2>
+<p>何はなくとも，まずはHomebrewをインストールする．・・・と言いたいところだけれども，Macの開発環境であるXcodeが必要．</p>
+<p>Mac初心者の私にとっては，Xcodeって何？という感じですが，iOSのアプリを作ったりするためには必須という統合開発環境ですね．今はSwiftが流行りだとか・・・</p>
+<p>App StoreからXcodeを見つけてインストールします．私はハマりましたが，Xcodeをインストールしただけでは意味がなくて，一度起動してUserAgreementに同意しましょう．</p>
+<p>そして，’Homebrew &lt;<a class="reference external" href="http://brew.sh/">http://brew.sh/</a>&gt;’_ をインストールします．インストール方法は，左記のOfficial Webの下段に記載していあるインストールスクリプトを実行するだけです．最近は，インストールスクリプトをWebからダウンロードして直接インストールするパターンのやつ多いですね．Sublime TextEditorでも経験したので，そろそろ違和感がなくなってきました．</p>
+<p>実行するスクリプトを以下の通り．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</pre></div>
+</div>
+<p>これだけでインストールは完了なはずなのですが，うろ覚えだけれども，多分何かしらコマンドを実行しろと言われるはず・・・特に，Xcode関連のコマンドを要求されます．特に注意すべきは下記</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; xcode-select --install
+</pre></div>
+</div>
+<p>これを実行することで，コマンドライン用のDeveloper toolsがインストールされるとのこと．詳しくは「man xcode-select」オプションを確認するとよろしい</p>
+<p>あとは，パッケージリストのアップデート等々を実施して，必要なパッケージをインストールしていく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew update
+&gt; brew install {PackageName}
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Pythonのインストール</h2>
+<p>MacにデフォルトでインストールされているPythonでも特に問題はないはずですが，ライブラリ関連でトラブりそうなのでHomebrewでインストールしたものに統一しておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew install python
+</pre></div>
+</div>
+<p>標準で「eazy_install」がついてくるので，pipを入れておく．というか個人的にpipのほうしか使っていない．ついでにpip-toolsもインストールしておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; type easy_install
+easy_install is /usr/local/bin/easy_install
+&gt; sudo easy_install pip
+&gt; pip install pip-tools
+&gt; pip-review
+</pre></div>
+</div>
+<p>「pip-review –auto」で実行すると，pipで管理しているパッケージを自動的にアップデートする．ただ，β版であろうと容赦なくアップデートするので注意が必要．</p>
+</div>
+<div class="section" id="tinkerer">
+<h2>Tinkererのインストール</h2>
+<p>ブログを更新するために，Tinkererをインストールする．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; pip install tinkerer
+</pre></div>
+</div>
+<p>あ．忘れていた．肝心なgitもインストールしておく．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; brew install git
+</pre></div>
+</div>
+<p>非常に便利です．Macってこんなに便利なんだ・・・</p>
+<p>あとは，Linuxを使っているのと同じように，ブログ記事を更新していくだけです．</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; cd repos/
+&gt; git clone https://github.com/developlus/developlus.github.com
+</pre></div>
+</div>
+<p>いつもどおり！！</p>
+</div>
+]]></description>
+            <category><![CDATA[ Mac ]]></category>
+             <pubDate>Wed, 31 Dec 2014 00:00:00 +0900</pubDate>
+        </item>
+    
+        <item>
+            <link>http://www.developlus.jp/2014/12/31/mac1.html</link>
+            <guid>http://www.developlus.jp/2014/12/31/mac1.html</guid>
             <title><![CDATA[Mac OSを使う]]></title>
             <description><![CDATA[<h1>Mac OSを使う</h1>
 <div class="section" id="id1">

@@ -86,9 +86,9 @@
             <span>April 14, 2014</span>
         </div>
     <div class="section" id="id1">
-<h1>サーバリニューアルのすゝめ（４）</h1>
+<h1>サーバリニューアルのすゝめ（４）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stone">
-<h2>パケットリピータ（Stone）</h2>
+<h2>パケットリピータ（Stone）<a class="headerlink" href="#stone" title="Permalink to this headline">¶</a></h2>
 <p>Stoneを利用するとプロキシ経由でしたインターネットにアクセスできない環境から外部のサーバにSSH出来たりします．</p>
 <p>褒められたことはではありませんが，会社などセキュリティ条件が厳しい環境からでも，外部にトンネル掘れるわけですね．</p>
 <p>早速インストール・・・といっても，Ubuntuだと標準でリポジトリに・・・</p>
@@ -99,7 +99,7 @@
 <p>うまく設定すれば，本物のHTTPSとStoneを切り分けこともできるようですが，面倒なのでそこまでは求めません．</p>
 </div>
 <div class="section" id="etc-init-d-stone">
-<h2>起動スクリプト（/etc/init.d/stone）</h2>
+<h2>起動スクリプト（/etc/init.d/stone）<a class="headerlink" href="#etc-init-d-stone" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre>#! /bin/sh
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC=&quot;Stone Server&quot;
@@ -129,7 +129,7 @@ esac
 </div>
 </div>
 <div class="section" id="id2">
-<h2>証明書の準備</h2>
+<h2>証明書の準備<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Stone用の証明書を準備する必要があります．ほんもののHTTPS通信と見せかけるためには，きちんと証明書を作っておく必要があります．</p>
 <p>なお，OpenSSLの使い方は忘れやすいのでメモです．数年前までPKIの専門家（仮）だった知識を活かして，一撃で自己署名証明書の発行方法を記します．</p>
 <p>全部１行で</p>
@@ -161,12 +161,14 @@ esac
             <li class="right"><a href="newvps3.html">サーバリニューアルのすゝめ（３）</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (1)</li></ul>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (2)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (1), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/homebrew.html">homebrew</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (2), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (3), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="../../12/31/mac.html">Mac OSを使う</a>
+            <a href="../../12/31/mac2.html">Homebrew</a>
+        </li><li>
+            <a href="../../12/31/mac1.html">Mac OSを使う</a>
         </li><li>
             <a href="../../05/12/becky.html">Beckyの設定</a>
         </li><li>
@@ -183,8 +185,6 @@ esac
             <a href="newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li><li>
             <a href="../../../2013/12/17/docomomail.html">ドコモメール</a>
-        </li><li>
-            <a href="../../../2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
