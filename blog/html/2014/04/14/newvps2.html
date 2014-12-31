@@ -1,0 +1,176 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>サーバリニューアルのすゝめ（２） &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="サーバリニューアルのすゝめ（１）" href="newvps1.html" /><link rel="prev" title="サーバリニューアルのすゝめ（３）" href="newvps3.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="newvps3.html">サーバリニューアルのすゝめ（３）</a></li>
+            <li class="right"><a href="newvps1.html">サーバリニューアルのすゝめ（１）</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+    <div class="section" id="id1">
+<h1>サーバリニューアルのすゝめ（２）</h1>
+<div class="section" id="emacs24">
+<h2>Emacs24を使う</h2>
+<p>Ubuntu 12系では残念ながら標準のapt-getリポジトリにはEmacs24が準備されていない．ググるとヒットするのですが，手順を書いておくと・・・</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install python-software-properties</span>
+<span class="c"># add-apt-repository ppa:cassou/emacs</span>
+<span class="c"># aptitude update</span>
+<span class="c"># aptitude install emacs24 emacs24-el</span>
+</pre></div>
+</div>
+<p>さて，ここからが問題です．どうやってMozcを利用するのか？emacs-mozcをapt-getからインストールしてしまうと，emacs23もインストールしてしまう・・・かといって，野良ビルドするのもイヤだし・・・あぁ野良ビルド版をパッケージっぽく管理してくれるツール<a class="footnote-reference" href="#f1" id="id2">[1]</a>があったな・・・とか</p>
+<p>さんざん悩んだ挙句．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs-mozc</span>
+</pre></div>
+</div>
+<p>してみました．結果，Emacs23もインストールしてしまったものの，emacsのデフォルトパスもemacs24に向いており，emacs24からmozc.elを呼ぶことが出来たのでなんの問題もありませんでした．</p>
+<p class="rubric">脚注</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/emacs.html">emacs</a>, <a href="../../../tags/vps.html">vps</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="newvps3.html">サーバリニューアルのすゝめ（３）</a></li>
+            <li class="right"><a href="newvps1.html">サーバリニューアルのすゝめ（１）</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/english.html">English</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../../05/12/becky.html">Beckyの設定</a>
+        </li><li>
+            <a href="../24/english.html">Study English</a>
+        </li><li>
+            <a href="../21/postfix.html">スパムメール対策</a>
+        </li><li>
+            <a href="../16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
+        </li><li>
+            <a href="newvps4.html">サーバリニューアルのすゝめ（４）</a>
+        </li><li>
+            <a href="newvps3.html">サーバリニューアルのすゝめ（３）</a>
+        </li><li>
+            <a href="#">サーバリニューアルのすゝめ（２）</a>
+        </li><li>
+            <a href="newvps1.html">サーバリニューアルのすゝめ（１）</a>
+        </li><li>
+            <a href="../../../2013/12/17/docomomail.html">ドコモメール</a>
+        </li><li>
+            <a href="../../../2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

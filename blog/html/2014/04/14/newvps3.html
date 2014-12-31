@@ -1,0 +1,270 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>サーバリニューアルのすゝめ（３） &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="サーバリニューアルのすゝめ（２）" href="newvps2.html" /><link rel="prev" title="サーバリニューアルのすゝめ（４）" href="newvps4.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="newvps4.html">サーバリニューアルのすゝめ（４）</a></li>
+            <li class="right"><a href="newvps2.html">サーバリニューアルのすゝめ（２）</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+    <div class="section" id="id1">
+<h1>サーバリニューアルのすゝめ（３）</h1>
+<div class="section" id="postfix">
+<h2>Postfixの準備</h2>
+<p>「カゴヤ・クラウド／VPS」でUbuntuを導入したところ，標準でSendmailが動作していましたが，面倒なのですべてのSendmail関連パッケージを削除しました．</p>
+<p>まずは，インストール・・・</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install postfix</span>
+</pre></div>
+</div>
+<p>とりあえず，Debianパッケージだとローカルのみだとか，イントラネットだとか，メールサーバを配置する場所に応じて初期値となる設定値を埋めてくれます．とりあえず「インターネット上」に設定しておく．</p>
+<div class="section" id="main-cf">
+<h3>main.cfの設定</h3>
+<p>何はなくとも設定ファイル「/etc/postfix/main.cf」をいじります．</p>
+<div class="highlight-python"><div class="highlight"><pre># クライアントに無駄な情報を教えない
+smtpd_banner = $myhostname ESMTP
+
+# IMAP経由でメールを読むので，Maildirに変更
+home_mailbox = Maildir/
+
+# SMPTS＋認証をやるので設定追加
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain = $mydomain
+broken_sasl_auth_clients = yes
+smtpd_recipient_restrictions =
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    permit
+
+smtpd_client_restrictions =
+    permit_mynetworks,
+    check_client_access hash:/etc/postfix/access,
+    # reject_rbl_client all.rbl.jp,
+    reject_rbl_client bl.spamcop.net,
+    # reject_rbl_client list.dsbl.org,
+    # reject_rbl_client sbl-xbl.spamhaus.org,
+    reject_unauth_destination,
+    permit
+
+# RBLでスパム判定したら，レスポンスコードを550に設定
+maps_rbl_reject_code = 550
+default_rbl_reply = $rbl_code &lt;$recipient&gt;: Recipient address rejected: User unknown in local recipient tables
+</pre></div>
+</div>
+</div>
+<div class="section" id="sasl2">
+<h3>SASL2の設定</h3>
+<p>SMTPS認証を実施するために，SASL2を利用します．幸い最初からインストールされていましたが，以下のパッケージが必要になります．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install sasl2-bin sasl2-modules</span>
+</pre></div>
+</div>
+<p>これだけで，SASL2は動作しますが，chrootされたPostfixからでも認証結果キャッシュにアクセスできるように設定することを基本になっているようで，Postfixの参照先を変更するか，SASL2のワーキングディレクトリを変更するか，どちらかを実施する必要があります．</p>
+<p>とりあえず後者で設定するならば，SASL2のワーキングディレクトリを「/var/spool/postfix/var/run/saslauthd」に吐き出すよう変更します．</p>
+<div class="highlight-python"><div class="highlight"><pre>（ワーキングディレクトリの変更）
+OPTIONS=&quot;-c -m /var/spool/postfix/var/run/saslauthd&quot;
+</pre></div>
+</div>
+<p>さらに上記ワーキングディレクトリへPostfixアカウントから参照可能となるよう，saslグループにpostfixアカウントを追加します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># usermod -a -G sasl postfix</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="master-cf">
+<h3>master.cfの設定</h3>
+<p>SMTPSをListenするために，「/etc/postfix/master.cf」を変更します．コメントアウトを外すだけ．</p>
+<div class="highlight-python"><div class="highlight"><pre>submission inet n       -       -       -       -       smtpd
+    -o syslog_name=postfix/submission
+    -o smtpd_tls_security_level=encrypt
+    -o smtpd_sasl_auth_enable=yes
+    -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+    -o milter_macro_daemon_name=ORIGINATING
+smtps     inet  n       -       -       -       -       smtpd
+    -o syslog_name=postfix/smtps
+    -o smtpd_tls_wrappermode=yes
+    -o smtpd_sasl_auth_enable=yes
+    -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+    -o milter_macro_daemon_name=ORIGINATING
+</pre></div>
+</div>
+<p>さらに，SASL2を参照して認証する場合の設定を「/etc/postfix/sasl/smtpd.conf」に記載します．</p>
+<div class="highlight-python"><div class="highlight"><pre>pwcheck_method: saslauthd
+mech_list: plain login
+</pre></div>
+</div>
+<p>必要なサービスを再起動してください．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/init.d/saslauthd restart</span>
+<span class="c"># /etc/init.d/postfix restart</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dovecot">
+<h2>Dovecotの準備</h2>
+<p>以前は何が何でもCourier-IMAPを利用していましたが，最近はDovecotを利用するようになりました．</p>
+<p>まずは，Dovecotのインストール</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install dovecot-imapd dovecot-common</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>メールディレクトリ設定</h3>
+<p>Courier-IMAPと同様に利用するためにはひと工夫が必要なので，設定ファイル「/etc/dovecot/conf.d/10-mail.conf」を編集します．</p>
+<div class="highlight-python"><div class="highlight"><pre>（メールディレクトリをMaildirに変更）
+mail_location = maildir:~/Maildir
+
+（Courier-IMAPと同じメールボックス設定にする）
+namespace inbox {
+    separator = .
+    prefix = INBOX.
+    inbox = yes
+}
+</pre></div>
+</div>
+<p>あとは，サービスを再起動しておけばOK．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/init.d/dovecot restart</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/vps.html">vps</a>, <a href="../../../tags/postfix.html">postfix</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="newvps4.html">サーバリニューアルのすゝめ（４）</a></li>
+            <li class="right"><a href="newvps2.html">サーバリニューアルのすゝめ（２）</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/english.html">English</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../../05/12/becky.html">Beckyの設定</a>
+        </li><li>
+            <a href="../24/english.html">Study English</a>
+        </li><li>
+            <a href="../21/postfix.html">スパムメール対策</a>
+        </li><li>
+            <a href="../16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
+        </li><li>
+            <a href="newvps4.html">サーバリニューアルのすゝめ（４）</a>
+        </li><li>
+            <a href="#">サーバリニューアルのすゝめ（３）</a>
+        </li><li>
+            <a href="newvps2.html">サーバリニューアルのすゝめ（２）</a>
+        </li><li>
+            <a href="newvps1.html">サーバリニューアルのすゝめ（１）</a>
+        </li><li>
+            <a href="../../../2013/12/17/docomomail.html">ドコモメール</a>
+        </li><li>
+            <a href="../../../2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

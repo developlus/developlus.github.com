@@ -1,0 +1,817 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>ページ 2 &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="_static/main.css" type="text/css">
+            <link rel="stylesheet" href="_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="_static/plugins.js"></script>
+        <script src="_static/main.js"></script>
+        <link rel="prev" title="次の投稿" href="index.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="_static/underscore.js"></script><script type="text/javascript" src="_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="index.html">次の投稿</a></li>
+            <li class="right"></li>
+        </ul><div class="timestamp postmeta">
+            <span>November 27, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a></h1>
+<p>普段の生活でターミナルが無いと生活しにくいものです．まだまだ，TeraTerm，を使っているひとも少なくないと思いますが・・・</p>
+<p>かれこれ１０年以上愛用している「Cygwin ＋ ckターミナルエミュレータ」がおすすめです．もはやこれを手放すことができません．Windows上で生活していながら，かゆいところに手が届きます．</p>
+<p>あとは，Windows版Emacsがサクサク動いてくれれば，Linux環境を手放すことができそうです．</p>
+<div class="section" id="id1">
+<h2>Cygwinのインストール</h2>
+<p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
+<p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
+<ul class="simple"><li>Devel<ul><li>gcc-core　・・・ちょっとコンパイルするときに</li>
+<li>gcc-g++　・・・ちょっとコンパイルするときに</li>
+<li>git　・・・gitからソース落とすときに</li>
+<li>make　・・・ちょっとコンパイルするときに</li>
+<li>subversion　・・・ソース管理するために</li>
+</ul></li>
+<li>Editors<ul><li>vim　・・・何はなくとも必要</li>
+</ul></li>
+<li>Net<ul><li>inetutils　・・・nslookupとか含まれてたはず</li>
+<li>nc　・・・簡易ファイル転送とか使えるから</li>
+<li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
+<li>openssh　・・・何はなくとも必要</li>
+</ul></li>
+<li>Utils<ul><li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
+</ul></li>
+<li>Web<ul><li>w3m　・・・Emacs＋w3m-modeで使う</li>
+</ul></li>
+<li>X11<ul><li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
+</ul></li>
+</ul></div>
+<div class="section" id="id2">
+<h2>Cygwinの環境変数</h2>
+<p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
+<div class="highlight-python"><div class="highlight"><pre>HOME  =  C:\Cygwin\home\UserName
+</pre></div>
+</div>
+<p>と設定されていれば問題ないかと．</p>
+</div>
+<div class="section" id="ck">
+<h2>ckのインストール</h2>
+<p><a class="reference external" href="http://www.geocities.jp/meir000/ck/">Cygwin ck terminal emulator</a>はCygwin上で動作するターミナルエミュレータです．何年か前に突如配布サイトが消失してしまって，この世の終わりかと思いましたが，現在は定期的に更新されています．ありがたい限りです．</p>
+<p>配布ファイルを展開し，「ck.app.dll/ck.con.exe/ck.exe」の３点のファイルをCygwinインストールディレクトリ配下の「/bin」にコピーします．さらに「ck.exe」のショートカットを作成しましょう．ショートカットのリンク先を</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\ck.exe -dir C:\cygwin\home\UserName
+</pre></div>
+</div>
+<p>のようにしておくと，起動直後にホームディレクトリをカレントディレクトリとして設定することが可能です．</p>
+<p>また，ホームディレクトリに「.ck.config.js」を配置すると動作設定を細かに設定することが可能です．詳細については，配布ファイルに含まれているドキュメントを確認してください．</p>
+</div>
+<div class="section" id="id3">
+<h2>ckの便利な設定</h2>
+<p>私がckをカスタマイズしている部分を紹介します．</p>
+<div class="highlight-python"><div class="highlight"><pre>Config.window.position_x = -1;
+Config.window.position_y = 0;
+Config.window.cols = 120;
+Config.window.rows = 65;
+
+Config.window.transparent     = 0xCC;
+
+Config.window.font_name = "MS Gothic";
+// Config.window.font_name = "MeryoKe_Console";
+// ※MeiryoKe_consoleはWindows8以降で含まれる6.12でないと
+//   利用することができないらしい・・・
+
+Config.window.color_foreground    = 0x00CC00;
+
+Config.accelkey.paste            = Keys.CtrlL  | Keys.ShiftL | Keys.P;
+// Ctrl+Shift+p で貼り付け，Ctrl+yでもいいかも
+
+function user_cmd_ime_off(window){
+  if(window.ImeState)
+  window.ImeState = false;
+  return false;
+}
+AccelKeys.add(Keys.Escape, user_cmd_ime_off);
+</pre></div>
+</div>
+<p>ck上でvimを開くことが多いのですが，IMEがonになっていると，vimのコマンドモードで反応してくれなくなるのですが，「Esc」を押してコマンドモードに移行した瞬間にIMEをoffにすることが可能ですので，vim＋日本語環境の煩わしさから少しだけ開放されます．</p>
+</div>
+<div class="section" id="x">
+<h2>Xサーバの自動起動</h2>
+<p>LinuxからEmacsウィンドウを転送してくるために，Cygwin付属のXサーバを常時起動させておきます．貧弱なマシンだと少々重いかもしれませんが，私は気にしません．</p>
+<div class="highlight-python"><div class="highlight"><pre>%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
+</pre></div>
+</div>
+<p>に，X起動用のショートカット作成します．起動用のショートカットは，「スタートメニュー＞すべてのプログラム＞Cygwin-X＞XWin Server」を参考にしてください．リンク先は</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c /usr/bin/startxwin.exe
+</pre></div>
+</div>
+<p>このような感じです．</p>
+<p>また，デフォルトでXサーバを起動すると，無駄にXtermが起動されたりするので，デフォルトでは何も起動しないように設定するため，Cygwinのホームディレクトリに「.startxwinrc」および「.XWinrc」という空ファイルを配置してください．すると，Xサーバのみが単体で起動されます．</p>
+</div>
+<div class="section" id="emacs">
+<h2>Emacsの呼び出し</h2>
+<p>Windows上の仮想マシンとして起動しているLinuxのEmacsを呼び出します．Linux側にX転送設定を書いても良いのですが，面倒ですのでSSHサーバのX転送機能を利用します．といっても，特に設定は不要のはず・・・</p>
+<p>Windows上に下記のようなショートカットを作成してください．</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c  ~/bin/remacs
+</pre></div>
+</div>
+<p>さらに，ホームディレクトリ配下の「bin」ディレクトリに，emacsというシェルスクリプトを作成します．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cat ~/bin/remacs
+#!/bin/sh
+ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
+</pre></div>
+</div>
+<p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
+<p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/cygwin.html">Cygwin</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/cygwin.html">cygwin</a>, <a href="tags/emacs.html">emacs</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 20, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/20/emacs.html">Emacsのすゝめ</a></h1>
+<p>ほぼメーラ専属となってしまいましたが，Emacs＋Wanderlustでメールの読み書きをしています．今回はLubuntuで，Emacs24とWanderlust2.15系の組み合わせで，メールを読み書きするまでの手順を紹介します．</p>
+<div class="section" id="id1">
+<h2>Emacsのインストール</h2>
+<p>Emacsのインストール自体はお手軽です．Emacs23系でも十分に満足していたのですが，Emacs24系からLispパッケージの管理が楽になるとのことで，Emacs24を使うことにします．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs24 emacs-mozc</span>
+</pre></div>
+</div>
+<p>「emacs-mozc」はかな漢字変換を行うLispです．中身は「mozc_server」と「mozc_emacs_helper」というサーバクライアントプロセス間で通信して，Emacsがかな漢字変換結果を受け取るシステムのようです．Mozcは野良コンパイルは面倒なので，パッケージ管理（aptitude）でさくっと入れてしまいます．</p>
+<p>その他，使っているLispはこんなもの．</p>
+<div class="section" id="init-loader-el">
+<h3>まず初めにinit-loader.elする</h3>
+<p>前は，「.emacs」に記述していましたが，WindowsでNtemacsを使ったり，Linux上でEmacs使ったり設定の切り替えが面倒になってきました．最初は頑張って</p>
+<div class="highlight-python"><div class="highlight"><pre>(cond
+  ((and (equal system-type 'windows-nt) (= emacs-major-version23))
+    (load "~/.emacs.d/init-ntemacs23.el))
+  ((= emacs-major-version 23)
+    (load "~/.emacs.d/init-23.el))
+  ((= emacs-major-version 24)
+    (load "~/.emacs.d/init-24.el))
+)
+</pre></div>
+</div>
+<p>みたいなことを書いていたのですが，プラットフォーム毎に各々のファイルを更新しなければならないためストレスいっぱいでした．</p>
+<p>そこで目をつけたのが「init-loader.el」です．</p>
+<div class="highlight-python"><div class="highlight"><pre>(when (locate-library "init-loader")
+  (require 'init-loader)
+  (setq init-loader-show-log-after-init nil)
+  (init-loader-load "~/.emacs.d/inits"))
+</pre></div>
+</div>
+<p>「~/.emacs.d/inits」ディレクトリ配下に配置されているLispを次々とロードしてくれます．プレフィックスに「linux-」が付いているとLinuxプラットフォームでだけ読み込む．「windows-」が付いているとWindowsプラットフォームでだけ読み込む．あとは，プレフィックスに数字２桁をつけると番号が若い順に読み込むようです．</p>
+<p>詳細は，<a class="reference external" href="https://github.com/developlus/home/tree/master/.emacs.d/">こちら(.emacs.d配下)</a>に公開しているので実際に見てもらったほうが早いかと．</p>
+</div>
+</div>
+<div class="section" id="wanderlust">
+<h2>Wanderlustのインストール</h2>
+<p>Ubuntuのパッケージ管理（aptitude）でも簡単にWanderlusutをインストールできるのですが，せっかくなので最新版をインストールする手順をご紹介．</p>
+<p>Wanderlustの製作者であり配布元である<a class="reference external" href="http://www.gohome.org/wl/index.ja.html">本家</a>は更新が途絶えております．いまは，Github上で管理されているのでこちらを取得します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/local/src/</span>
+<span class="c"># git clone https://github.com/wanderlust/wanderlust</span>
+<span class="c"># git clone https://github.com/wanderlust/apel</span>
+<span class="c"># git clone https://github.com/wanderlust/flim</span>
+<span class="c"># git clone https://github.com/wanderlust/semi</span>
+<span class="c"># cd apel</span>
+<span class="c"># make</span>
+<span class="c"># make install</span>
+</pre></div>
+</div>
+<p>という具合に，「apel/flim/semi/wanderlust」の順番でインストールしていくのですが，何も考えずにインストールしようとすると，Lispの格納先が「/usr/local/share/emacs/site-lisp」および，「/usr/local/share/emacs/24.3/site-lisp」になります．変更したければ，「make」時の引数に「LISPDIR=」などでインストールパスを変更することが可能です．どこの環境でも同じものを利用したいのであれば「~/.emacs.d/site-lisp」に配置しておくのもありかと思います．詳細にてついては「Makefile」の先頭を確認してください．私の場合は，環境を変えたら最新のものを使いたいので，毎度インストールしなおしていますね．</p>
+<p>なお，Lisp配置先のディレクトリで再帰的に「load-path」に組み込めるように「subdirs.el」というファイルを「site-lisp」ディレクトリ配下に作成しておきます．</p>
+<div class="highlight-python"><div class="highlight"><pre># cat /usr/local/share/emacs/site-lisp/subdirs.el
+;; -*- no-byte-compile: t -*-
+(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+  (normal-top-level-add-subdirs-to-load-path))
+</pre></div>
+</div>
+<p>バージョン依存の「/usr/local/share/emacs/24.3/site-lisp/」のほうも同様です．これを置いておかないと，「flim，semi」を続けてバイトコンパイルすることができないと思います．もちろん，「init.el」で「load-path」に含めておいてください．</p>
+<p>あとは，ホームディレクトリに「.wl/.folder/.address/.signature」などのファイルを配置すれば準備完了です．</p>
+<p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
+<p>細かな設定の内容については別の機会に・・・</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/emacs.html">Emacs</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/emacs.html">emacs</a>, <a href="tags/wanderlust.html">Wanderlust</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 11, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/11/vps.html">VPSのすゝめ</a></h1>
+<p>以前は自宅サーバとしてキューブ型PCを置いて，テレビ録画＋メール＋Webもろもろのサーバとして利用していました．しかし，昨今はVPSもワンコインでレンタルできる時代です．</p>
+<p>ちなみに，自宅サーバを運用していたときの月額電気量はおおよそ500円程度＋固定IPアドレス500円の費用がかかっていました．</p>
+<p>2010年〜2011年は「<a class="reference external" href="mailto:ServersMan%40VPS">ServersMan<span>@</span>VPS</a>」の最安プランを利用していました．しかしまぁ，使い勝手に不満がありまして現在は「カゴヤ・クラウド」に乗り換えています．特に不満は無いのですが，さらに他社のサービスも活気づいてきているので，更なる乗り換え先を模索しています．</p>
+<p>そのための参考情報</p>
+<div class="section" id="vps-201311">
+<h2>VPSプロバイダ（2013年11月調べ）</h2>
+<table border="1" class="docutils"><colgroup><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/></colgroup><thead valign="bottom"><tr class="row-odd"><th class="head">プロバイダ</th>
+<th class="head">Type</th>
+<th class="head">CPU</th>
+<th class="head">Mem</th>
+<th class="head">HDD</th>
+<th class="head">月額</th>
+<th class="head">初期</th>
+</tr></thead><tbody valign="top"><tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
+<td>OpenVZ</td>
+<td>3Core</td>
+<td>1GB</td>
+<td>200GB</td>
+<td>840</td>
+<td>0</td>
+</tr><tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>1GB</td>
+<td>50GB</td>
+<td>490</td>
+<td>0</td>
+</tr><tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>2GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr><tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
+<td>OpenVZ</td>
+<td>1Core</td>
+<td>1GB</td>
+<td>80GB</td>
+<td>780</td>
+<td>0</td>
+</tr><tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>512MB</td>
+<td>100GB</td>
+<td>800</td>
+<td>1600</td>
+</tr><tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>976</td>
+<td>0</td>
+</tr><tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
+<td>KVM</td>
+<td>3Core</td>
+<td>2GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr><tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>940</td>
+<td>0</td>
+</tr><tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>2GB</td>
+<td>55GB</td>
+<td>866</td>
+<td>1575</td>
+</tr><tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr><tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
+<td>Xen</td>
+<td>？</td>
+<td>512MB</td>
+<td>50GB</td>
+<td>472</td>
+<td>0</td>
+</tr></tbody></table><p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
+<p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
+<p>完全仮想化</p>
+<blockquote>
+<div><p>完全にH/Wがエミュレートされているので，インストールするOSも自由，カーネルの選択も自由，何でも好き勝手にできるかと思います．H/Wがエミュレートされる分，ホストマシンのCPUパワーを使うことになるため，動作が重いはずだった・・・が，現状はCPU自体がエミュレート処理をバイパスしてくれる仕組みができたため，快適に利用できる．</p>
+<p>※プロバイダによっては，インストールするOSを制限している場合もあるかとは思います．</p>
+</div></blockquote>
+<p>準仮想化</p>
+<blockquote>
+<div>完全仮想化に比べてややこしい．H/Wをエミュレートする過程で，仮想化クライアントにとって都合のよいデバイスとしてH/Wをエミュレートする．なので，クライアントマシンに対しては専用のドライバが必要となる．</div></blockquote>
+<p>コンテナ型仮想化</p>
+<blockquote>
+<div><p>果たして「コンテナ型仮想化」がどの程度の市民権を獲得しているか不明ですが，OpenVZのような仮想化方式はこう呼ばれているようです．</p>
+<p>OSをコンテナ化するための仕組みで，カーネル自体がカスタマイズされている．コンテナ化されたOSはひとつのプロセスとしてホストマシン上で動作する．</p>
+<p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
+</div></blockquote>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/vps.html">vps</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 08, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/08/lubuntu.html">Lubuntuのすゝめ</a></h1>
+<p>Lubuntuに特化した話ではないですが，Ubuntuを使う場合に私はこんな設定をしている・・・という内容を紹介します．</p>
+<div class="section" id="id1">
+<h2>インストール</h2>
+<p>簡単すぎるので省略します．インストールディスクさえマウントできれば，あとは淡々とインストールするだけなので．</p>
+<p>そのうち，物理マシンのHDDではなくUSBにインストールする方法でも考えたいな・・・と．</p>
+</div>
+<div class="section" id="id2">
+<h2>まずはじめにアップデート</h2>
+<p>インストールしたら必ずやることと．</p>
+<p>Debian系のパッケージ管理といえば「apt-get」ですが，これが少し拡張された「aptitude」を利用しています．そこまで大きな違いは無いようですが，パッケージの依存関係が管理されており，パッケージを削除する際には，関連パッケージもまとめて削除してくれるようです．</p>
+<div class="section" id="id3">
+<h3>プロキシの設定</h3>
+<p>会社で利用していると，プロキシ経由でなければインターネット側に抜けられないのでプロキシの設定をします．RedHat系で「yum」を利用するのであれば，環境変数（http_proxy）でも書いておけばいいのですが，Ubuntuでは不足なので設定を追加します．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo vi /etc/apt/apt/apt.conf.d/00proxy
+Acquire::http::proxy "http://proxy.server.co.jp:8080;
+Acquire::https::proxy "http://proxy.server.co.jp:8080;
+Acquire::ftp::proxy "http://proxy.server.co.jp:8080;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>更新の実行</h3>
+<p>あとは「aptitude」を準備して，更新を実行するだけです．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
+$ sudo apt-get install aptitude
+$ sudo apt-get autoclean
+$ audo aptitude update
+$ audo aptitude safe-upgrade
+$ auto aptitude autoclean
+</pre></div>
+</div>
+<p>時間がかかりますが，ほっとけば終わります．</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>必要なパッケージの追加</h2>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install openssh-server
+$ sudo aptitude install vim
+</pre></div>
+</div>
+<p>必要になったタイミングでおいおい準備していきます．</p>
+</div>
+<div class="section" id="os-windows">
+<h2>ホストOS（Windows）ディレクトリの参照</h2>
+<p>Lubuntu側のメーラ（Emacs）でメールを受けて，添付ファイルをホストOS側に渡して，Office製品で編集する．なんてパターンが多々あります．Windows側からLubuntu側のファイルをSamba経由で参照しても良いのですが，私の場合はLubuntu側からWindowsのファイルシステムをCIFS経由で参照しています．</p>
+<p>その方法は・・・</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install cifs-utils
+$ sudo aptitude install autofs
+$ sudo vi /etc/auto.master
+・・・追記・・・
+/mnt/host   /etc/auto.host
+
+$ sudo vi /etc/auto.host
+Users   -fstype=cifs,rw,uid={USER},gid={GID},credentials=/home/{USER}/.host.cifs     ://host/Users
+
+$ vi ~/.host.cifs
+username={USER}
+password={PASS}
+$ chmod 400 ~/.host.cifs
+</pre></div>
+</div>
+<p>こんな感じで，AutofsでホストOS側の共有フォルダを参照するようにします．もちろんホストOS側では，C:Uesrs以下を共有名「Users」で共有しておく必要があります．CIFSの認証用ファイルをホームディレクトリ配下に配置しておきます．パーミッションに気をつけましょう．（どうせ自分しかVMさわらないですけどね）</p>
+<p>さらに，Windowsのホームディレクトリ「c:Usersusername」配下のよく利用するディレクトリへのシンボリックリンクを作成しておくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ln -s /mnt/host/host/Users/{USER}/Desktop ~/
+$ ln -s /mnt/host/host/Users/{USER}/Downloads ~/
+$ ln -s /mnt/host/host/Users/{USER}/Documents ~/
+</pre></div>
+</div>
+<p>これで，メーラから添付ファイルを保存する先を「~/Desktop」などに指定すれば，さくさくWindows側からファイルを操作することが可能です．</p>
+<p>ここでは，autofsによる自動マウントで実現していますが，「/etc/fstab」に記述してしまっても良いかもしれません．ただ，パスワードをそのまま書くのは気持ち悪いので，「crendentials」だけ別ファイルに切り出したほうが，少しだけ安心できます．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/lubuntu.html">lubuntu</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 07, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/07/linux.html">作業用Linuxマシンのすゝめ</a></h1>
+<p>私は，メール・テキストの編集などはEmacsを利用したいタイプです．なお，ターミナルエミュレータ的なものが無いと生活出来ません．シェル（bash）を使いたいし，grepやawkやsed，簡単な設定ファイルはvi/vimを使いたいのです．</p>
+<p>しかし，会社での生活環境はWindowsしか許されていません．正確にはLinuxも許されていますが，社内の共通的な業務はWindowsでないと困ることが多々あります．</p>
+<p>そこで，会社の生活環境PCに，Cygwin＋ck（ターミナルエミュレータ），Emacs24＋Wanderlust（Mewライクなメーラ）をインストールして生活しています．</p>
+<p>しかし，これでも不便を感じることが多いのです．というのも，Emacsが結構落ちるのです．原因は不明，あとWanderlustでメールを書いて送信した直後にフリーズとか・・・．ちなみに，Linuxで同じことをしていても，なんの問題もありません．非常に快適です．</p>
+<p>そんなわけで，会社の生活環境PCに仮想環境（VMWare Server/もうサポートが終わりました）を構築し，VM中にLinuxをインストールして利用しています．私が使いやすいと感じる妥協ポイントを紹介していきます．</p>
+<div class="section" id="id1">
+<h2>仮想環境の選択</h2>
+<p>上記で書いたとおり，VMWare Serverを利用していますが，この製品はサポートが終了しています．なぜこれを選択しているのか・・・</p>
+<div class="section" id="vmware-server">
+<h3>VMWare Server</h3>
+<p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
+<ul class="simple"><li>長所<ul><li>Windowsサービスとして仮想マシンを動作可能</li>
+<li>操作はWeb GUIから</li>
+</ul></li>
+<li>短所<ul><li>サポートが終了している</li>
+<li>UIは英語のみ</li>
+</ul></li>
+</ul></div>
+<div class="section" id="vmware-player-vmware-player-plus">
+<h3>VMWare Player（もといVMWare Player Plus）</h3>
+<p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
+<ul class="simple"><li>長所<ul><li>インストールが簡単</li>
+<li>UI/UXが良い．シンプルで直感的に使える</li>
+</ul></li>
+<li>短所<ul><li>GUIが表示される</li>
+</ul></li>
+</ul><p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
+</div>
+<div class="section" id="virtual-box-oracle">
+<h3>Virtual Box （Oracle）</h3>
+<p>Oracle（旧Sun）が提供する仮想環境です．</p>
+<ul class="simple"><li>長所<ul><li>UIは洗練されてきて使いやすい模様</li>
+<li>仮想N/WのNATでポートフォワーディングができる</li>
+</ul></li>
+<li>短所<ul><li>GUIが表示される</li>
+<li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
+</ul></li>
+</ul><p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Linuxの選択</h2>
+<p>Linuxで何を利用するか・・・以前は，CentOSを利用していました．一時期，CentOSのコミュニティが荒れていた時は，Scientific Linuxに浮気していました．</p>
+<p>しかし，このCnetOSですが．とにかくBoot時間が長いのです．Ubuntuを少し触った時に痛感しました．VMWare ServerからサービスとしてVMを自動起動してくるのですが，WindowsにログオンしてもLinuxのBootが完了していない時間が長すぎて少々イライラします．</p>
+<p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>
+<p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
+<p>次回，Lubuntuの設定に続く．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/lubuntu.html">lubuntu</a>, <a href="tags/vm.html">vm</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 06, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/06/tinkerer.html">Tinkererの設定</a></h1>
+<p>Tinkerrの初期設定については，様々なサイトで紹介されているので省略する．ただし，頭が真っ白な状態では現状のサイト構成辿りつけなかったのでポイントだけ記録しておきます．</p>
+<div class="section" id="id1">
+<h2>日本語設定</h2>
+<div class="section" id="id2">
+<h3>ビルドについて</h3>
+<div class="highlight-python"><div class="highlight"><pre>$ tinkerer -b
+</pre></div>
+</div>
+<p>を事項すると，Unicode関連のエラーが発生する場合があった．そもそもPythonに慣れていないので，この事象が意味不明だったが単純に文字列の定義に誤りがあった．</p>
+<div class="highlight-python"><div class="highlight"><pre>$vim conf.py
+---snip---
+description = '脳内情報'  # コンパイルエラー
+description = u'脳内情報' # 文字列がUnicodeであることをマークする
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>記事中の日本語について</h3>
+<p>これらの記事はEmacs（rst-mode）で記述しており，「auto-fill-mode」を有効にしています．なので，ReStドキュメント本体は適切な箇所で自動改行されています．</p>
+<p>この状態で何も考えずにコンテンツをビルドすると，改行が挿入された箇所が不自然に半角スペースに変換された状態となり，サイトの見た目が美しくありません．どうせビルド時に改行を[&amp;nbsp;]に置換しているんだろうな・・・とはあたりがつくものの，どこの設定を調節すれば良いのかサッパリでしたが，おおよそ自分が悩んでいる事象は世の中の先人も悩んでいるはずです．</p>
+<p>そんなわけで，ちょっとインターネットの力を借りると・・・これ</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir _exts
+$ cd _exts
+$ wget http://dl.dropbox.com/u/218108/files/japanesesupport.py
+$ cd ../
+$ vi conf.py
+---snip---
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus',
+'japanesesupport']
+</pre></div>
+</div>
+<p>これだけで完了です．</p>
+<p>詳細についてはこちら・・・<a class="reference external" href="http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html">http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html</a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>テーマについて</h2>
+<p>デフォルトのテーマでは味気ない．そこでテーマを変更します．デフォルトで提供されているテーマは以下の通り．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ls -l /usr/local/lib
+$ ls -l /usr/local/lib/python2.7/dist-packages/tinkerer/themes/
+合計 28
+drwxr-sr-x 4 root staff 4096 11月  5 11:59 boilerplate
+drwxr-sr-x 3 root staff 4096 11月  5 14:56 dark
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 flat
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 minimal5
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 modern5
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 responsive
+</pre></div>
+</div>
+<p>私は，「dark」を利用しています．しかし，少々見にくいというか，見出しが単調なので少しだけCSSを変更して，オリジナルテーマとしました．（ライセンス的にOKなのか確かめてないのですが，きっと大丈夫・・・）</p>
+<p>オリジナルテーマは「_themes」というディレクトリに配置して置くと良いです．</p>
+<div class="highlight-css"><div class="highlight"><pre>$ mkdir _themes
+$ cp -rfp /usr/local/lib/python2.7/dist-packages/tinkerer/themes/dark ./developlus
+---Modified developlus/static/dark.css
+$ diff original-dark/static/dark.css  developlus/static/dark.css
+355a356
+&gt;     text-decoration: underline;
+359a361
+&gt;     background: #ccc;
+382a385,392
+&gt; /* Custom Developlus */
+&gt; .widget h1 {
+&gt;     font-size: 16px;
+&gt;     border-left: #ccc solid 6px;
+&gt;     border-bottom: #ccc solid 2px;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+388c398
+&lt;     padding: 30px 0;
+---
+&gt;     padding: 20px 0;
+393a404,434
+&gt;     border-left: #666 solid 8px;
+&gt;     border-bottom: #666 solid 2px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article h2 {
+&gt;     font-size: 1.2em;
+&gt;     line-height: 1.2;
+&gt;     border-left: #666 solid 6px;
+&gt;     border-bottom: #666 dashed 2px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article h3 {
+&gt;     font-size: 1em;
+&gt;     line-height: 1.2;
+&gt;     border-left: #666 solid 2px;
+&gt;     border-bottom: #666 dotted 1px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article p {
+&gt;     padding-left: 1em;
+&gt; }
+&gt;
+&gt; .main article pre {
+&gt;     margin-left: 1em;
+&gt;
+</pre></div>
+</div>
+<p>こんな感じです．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/sphinx.html">sphinx</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 06, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/06/rest.html">ReSTフォーマットの復習</a></h1>
+<p>タイトルは復習ですが，私は今から勉強します．後で読み返したら「復習」になるでしょう．</p>
+<div class="section" id="id1">
+<h2>ReSTについて</h2>
+<p>そもそも「REST」って言われると，全然別のものを想像してしまうのですが，「reStructured Text」の略の様です．</p>
+<p>詳細については以下で・・・<a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a></p>
+</div>
+<div class="section" id="id2">
+<h2>ReST フォーマット</h2>
+<p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
+<p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/sphinx.html">sphinx</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 05, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub</a></h1>
+<p>Web UIで執筆するCMSやブログシステムに耐えられなくて，さまざまなドキュメント管理ツールを試した結果，ReST（reStructured Text）にたどり着く．</p>
+<p>ReSTを整形するツールである「Sphinx」，さらにSphinxを利用するブログ構築を支援する「Tinkerer」を使って，今後のドキュメントを管理していく．</p>
+<div class="section" id="tinkerer">
+<h2>Tinkerer</h2>
+<p><a class="reference external" href="http://tinkerer.me/">http://tinkerer.me/</a></p>
+<p>コマンド一つでブログのテンプレートの作成，ドキュメントのビルドを実行することが可能です．生成されるドキュメントは静的なものなので，どこにでも引っ越し可能です．</p>
+</div>
+<div class="section" id="github">
+<h2>GitHub</h2>
+<p><a class="reference external" href="https://github.com/">https://github.com/</a></p>
+<p>言わずとしれた分散リポジトリ管理システムです．無料で個人のリポジトリを作成できることから巷でも人気のようですが，自分で書いたソースコードをインターネットな世界に晒す勇気がなくて躊躇していました．お仕事のソース管理はSubversionで十分でしたし．</p>
+<p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
+<p>GitHub上をマスターとして，個人のサーバ上にリポジトリのコピーをおいておけば，編集は一箇所で済むし，バックアップも不要．一石二鳥です．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/sphinx.html">sphinx</a>, <a href="tags/github.html">github</a></span>
+        </div>
+        </div><div class="archive_link">
+        <a href="archive.html"> &mdash; ブログアーカイブ &mdash; </a>
+    </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="index.html">次の投稿</a></li>
+            <li class="right"></li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/english.html">English</a> (1)</li><li><a href="categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="2014/05/12/becky.html">Beckyの設定</a>
+        </li><li>
+            <a href="2014/04/24/english.html">Study English</a>
+        </li><li>
+            <a href="2014/04/21/postfix.html">スパムメール対策</a>
+        </li><li>
+            <a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
+        </li><li>
+            <a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
+        </li><li>
+            <a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
+        </li><li>
+            <a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
+        </li><li>
+            <a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
+        </li><li>
+            <a href="2013/12/17/docomomail.html">ドコモメール</a>
+        </li><li>
+            <a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

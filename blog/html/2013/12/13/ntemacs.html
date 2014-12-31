@@ -1,0 +1,202 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>NTEmacsのすゝめ &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Cygwinのすゝめ" href="../../11/27/cygwin.html" /><link rel="prev" title="ドコモメール" href="../17/docomomail.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../17/docomomail.html">ドコモメール</a></li>
+            <li class="right"><a href="../../11/27/cygwin.html">Cygwinのすゝめ</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>December 13, 2013</span>
+        </div>
+    <div class="section" id="ntemacs">
+<h1>NTEmacsのすゝめ</h1>
+<p>Windows版のEmacs（Ntemacs/gnupack emacs）を利用する際の便利な設定を紹介します．既にCygwinを利用していることが前提ですが，Cygwinがなくても応用できるかと・・・</p>
+<div class="section" id="id1">
+<h2>NTEmacsのインストール</h2>
+<p>NTEmacsはIME用のパッチが，gnupackから提供されており，かつパッチのみを適用したNTEmacsが<a class="reference external" href="http://cha.la.coocan.jp/doc/NTEmacs.html">こちら</a>から提供されています．</p>
+<p>もしくは，<a class="reference external" href="http://sourceforge.jp/projects/gnupack/">gnupack</a>からEmacs単体でも提供されているので，どちらを利用しても構わないと思います．</p>
+<p>取得したEmacsのパッケージを回答して，Cygwinから[/usr/local/emacs/24.3]みたいなディレクトリに格納します．バージョンアップごとにLispを差し替えるのは面倒なので，以下のようにシンボリックリンクを貼ってくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>drwxr-xr-x+ 1 24.3/
+lrwxrwxrwx  1 bin -&gt; /usr/local/emacs/24.3/bin/
+lrwxrwxrwx  1 etc -&gt; /usr/local/emacs/24.3/etc/
+lrwxrwxrwx  1 info -&gt; /usr/local/emacs/24.3/info/
+lrwxrwxrwx  1 leim -&gt; /usr/local/emacs/24.3/leim/
+lrwxrwxrwx  1 lisp -&gt; /usr/local/emacs/24.3/lisp/
+lrwxrwxrwx  1 site-lisp -&gt; /usr/local/emacs/24.3/site-lisp/
+</pre></div>
+</div>
+<p>[site-lisp]までリンクにしていますが，site-lispはバージョンごとに共通で問題無いと思います．</p>
+<p><strong>2014/01/28：追記</strong></p>
+<p>上記のようにシンボリックで対応すると，各種Lispをインストールする際に正しくインストールできません．そのため，Windowsのリンク機能（ジャンクション）で対応する必要があります．詳細については，次の節を参照してください．</p>
+</div>
+<div class="section" id="windows">
+<h2>Windowsのディレクトリに細工</h2>
+<p>EmacsからるとCygwin上のファイルパスとWindows上のファイルパスが異なるので，Windows側に細工してあげます．</p>
+<p>Windowsのコマンドプロンプト（スタートメニュー＞すべてのプログラム＞アクセサリ＞コマンドプロンプト）を管理者権限（右クリックして「管理者として実行」）で起動します．</p>
+<p>Windowsでいうディレクトリへのシンボリックリンクのようなもの，ジャンクションを設定します．</p>
+<div class="highlight-python"><div class="highlight"><pre>mklink /J usr c:\cygwin\usr
+mklink /J home c:\cygwin\home
+mklink /J bin c:\cygwin\bin
+</pre></div>
+</div>
+<p>こうしておくことで，Emacsからファイルを開く際に，Cygwinから見えるファイルパスと，Windowsから見えるファイルパスがほぼ同じに見えるので，厄介事が少なくなります．</p>
+</div>
+<div class="section" id="ime">
+<h2>IMEの有効化</h2>
+<p>NTEmacs上でIMEの入力を便利にするために，EmacsのIMEパッチを有効にする必要があります．</p>
+<div class="highlight-python"><div class="highlight"><pre>;; Win32IME用のパッチを有効化
+(w32-ime-initialize)
+(setq default-input-method &quot;W32-IME&quot;)
+;;モードライン行の表示
+(setq-default w32-ime-mode-line-state-indicator &quot;[--]&quot;)
+(setq w32-ime-mode-line-state-indicator-list &#39;(&quot;[--]&quot; &quot;[あ]&quot; &quot;[--]&quot;))
+;;カーソルカラー
+(add-hook &#39;input-method-activate-hook   ;; IME ON/OFF時のカーソルカラー
+   (lambda () (set-cursor-color &quot;firebrick&quot;)))
+(add-hook &#39;input-method-inactivate-hook ;; IME OFF時の初期カーソルカラー
+   (lambda () (set-cursor-color &quot;white&quot;)))
+</pre></div>
+</div>
+<p>これで完了．</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/emacs.html">Emacs</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/emacs.html">emacs</a>, <a href="../../../tags/cygwin.html">cygwin</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../17/docomomail.html">ドコモメール</a></li>
+            <li class="right"><a href="../../11/27/cygwin.html">Cygwinのすゝめ</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/english.html">English</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../../../2014/05/12/becky.html">Beckyの設定</a>
+        </li><li>
+            <a href="../../../2014/04/24/english.html">Study English</a>
+        </li><li>
+            <a href="../../../2014/04/21/postfix.html">スパムメール対策</a>
+        </li><li>
+            <a href="../../../2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
+        </li><li>
+            <a href="../../../2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
+        </li><li>
+            <a href="../../../2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
+        </li><li>
+            <a href="../../../2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
+        </li><li>
+            <a href="../../../2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
+        </li><li>
+            <a href="../17/docomomail.html">ドコモメール</a>
+        </li><li>
+            <a href="#">NTEmacsのすゝめ</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

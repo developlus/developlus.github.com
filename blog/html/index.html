@@ -28,7 +28,7 @@
         <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="_static/plugins.js"></script>
         <script src="_static/main.js"></script>
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+        <link rel="next" title="前の投稿" href="page2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '1.5',
@@ -79,130 +79,190 @@
     </header>
 </div>
 
-<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><div class="timestamp postmeta">
-            <span>November 27, 2013</span>
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="page2.html">前の投稿</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>May 12, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a></h1>
-<p>普段の生活でターミナルが無いと生活しにくいものです．まだまだ，TeraTerm，を使っているひとも少なくないと思いますが・・・</p>
-<p>かれこれ１０年以上愛用している「Cygwin ＋ ckターミナルエミュレータ」がおすすめです．もはやこれを手放すことができません．Windows上で生活していながら，かゆいところに手が届きます．</p>
-<p>あとは，Windows版Emacsがサクサク動いてくれれば，Linux環境を手放すことができそうです．</p>
-<div class="section" id="id1">
-<h2>Cygwinのインストール</h2>
-<p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
-<p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
-<ul class="simple">
-<li>Devel<ul>
-<li>gcc-core　・・・ちょっとコンパイルするときに</li>
-<li>gcc-g++　・・・ちょっとコンパイルするときに</li>
-<li>git　・・・gitからソース落とすときに</li>
-<li>make　・・・ちょっとコンパイルするときに</li>
-<li>subversion　・・・ソース管理するために</li>
-</ul>
-</li>
-<li>Editors<ul>
-<li>vim　・・・何はなくとも必要</li>
-</ul>
-</li>
-<li>Net<ul>
-<li>inetutils　・・・nslookupとか含まれてたはず</li>
-<li>nc　・・・簡易ファイル転送とか使えるから</li>
-<li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
-<li>openssh　・・・何はなくとも必要</li>
-</ul>
-</li>
-<li>Utils<ul>
-<li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
-</ul>
-</li>
-<li>Web<ul>
-<li>w3m　・・・Emacs＋w3m-modeで使う</li>
-</ul>
-</li>
-<li>X11<ul>
-<li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>Cygwinの環境変数</h2>
-<p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
-<div class="highlight-python"><div class="highlight"><pre>HOME  =  C:\Cygwin\home\UserName
+            <h1><a href="2014/05/12/becky.html">Beckyの設定</a></h1>
+<p>これまでBecky!を利用していて困ったことはなかったのですが，メールサーバをCourier-IMAPサーバからDovecotに変更して気が付きました．</p>
+<p>これまで，Courier-IMAPサーバで標準でIMAPのメールディレクトリPrefixに「INBOX」が付いていたと思います．これで閲覧していると，受信箱の下に各振り分けフォルダがぶら下がって見えるので，慣れもあってしっくりきていました．</p>
+<p>見え方は</p>
+<ul class="simple"><li>受信箱（20）<ul><li>00_振り分けフォルダ１</li>
+<li>01_振り分けフォルダ２</li>
+</ul></li>
+<li>送信箱<ul><li>草稿</li>
+<li>送信済み</li>
+<li>リマインダ</li>
+</ul></li>
+<li>ごみ箱</li>
+</ul><p>しかし，いつからBecky!のバージョンアップ以降でしょうか，もしくはBecky!を入れ替えて設定がクリアされてしまったからでしょうか・・・「ごみ箱」にアクセスすると</p>
+<div class="highlight-python"><div class="highlight"><pre>0061 NO Client tried to access nonexistent namespace.  (Mailbox
+name should probably be prefixed with: INBOX.)
 </pre></div>
 </div>
-<p>と設定されていれば問題ないかと．</p>
-</div>
-<div class="section" id="ck">
-<h2>ckのインストール</h2>
-<p><a class="reference external" href="http://www.geocities.jp/meir000/ck/">Cygwin ck terminal emulator</a>はCygwin上で動作するターミナルエミュレータです．何年か前に突如配布サイトが消失してしまって，この世の終わりかと思いましたが，現在は定期的に更新されています．ありがたい限りです．</p>
-<p>配布ファイルを展開し，「ck.app.dll/ck.con.exe/ck.exe」の３点のファイルをCygwinインストールディレクトリ配下の「/bin」にコピーします．さらに「ck.exe」のショートカットを作成しましょう．ショートカットのリンク先を</p>
-<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\ck.exe -dir C:\cygwin\home\UserName
+<p>といったようなエラーが発生するようになりました．</p>
+<p>Dovecotの設定で「prefix = INBOX.」を削除してあげるとエラーは止められるのですが，フォルダツリーの見え方が変わってしまいます．</p>
+<p>どうするかというと，Becky!のサーバ設定＞詳細において．</p>
+<div class="highlight-python"><div class="highlight"><pre>ごみ箱のフォルダ名：　INBOX.Trash
+草稿のフォルダ名：　　INBOX.Draft
+送信済みのフォルダ名：INBOX.Sent
 </pre></div>
 </div>
-<p>のようにしておくと，起動直後にホームディレクトリをカレントディレクトリとして設定することが可能です．</p>
-<p>また，ホームディレクトリに「.ck.config.js」を配置すると動作設定を細かに設定することが可能です．詳細については，配布ファイルに含まれているドキュメントを確認してください．</p>
+<p>これで解決です．</p>
+<div class="section" id="thunderbird">
+<h2>Thunderbirdの場合</h2>
+<p>ちなみに，Thunderbirdの場合は，ごみ箱や送信済みトレイとして自動的に探してくれます．しかし，Prefixに「INBOX」をつけていても，受信トレイの配下にフォルダツリーが構成されません．</p>
+<p>ためにし，受信トレイの下にフォルダを作成してみると．</p>
+<div class="highlight-python"><div class="highlight"><pre>.INBOX.folderName
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h2>ckの便利な設定</h2>
-<p>私がckをカスタマイズしている部分を紹介します．</p>
-<div class="highlight-python"><div class="highlight"><pre>Config.window.position_x = -1;
-Config.window.position_y = 0;
-Config.window.cols = 120;
-Config.window.rows = 65;
+<p>といったようなディレクトリが，Maildir配下に作成されてしまいます．PrefixにINBOXが付いているので，そのままMaildir直下のディレクトリを受信トレイ配下に並べてくれても良さそうなのですが・・・</p>
+<p>まぁ，普段はWanderlustでしかメールを書くことがないので気にしない．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/dovecot.html">dovecot</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 24, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/24/english.html">Study English</a></h1>
+<p>ここ最近，仕事で英語を使う機会が増えすぎて，本気で英語を勉強しなければならない状況に陥ってきたので，その時時で勉強した英語をメモってく．</p>
+<ul><li><p class="first">investigate</p>
+<div class="line-block">
+<div class="line">〜調査，研究する</div>
+<div class="line">（仕事のなかでよく使うし，よく耳にする．）</div>
+</div>
+</li>
+<li><p class="first">未解決問題・議題</p>
+<ul class="simple"><li>moot question（議論の余地がある，疑義）</li>
+<li>moot point（議論の余地があるポイント）</li>
+<li>outstanding problem（係争問題）</li>
+<li>open issue（未解決事項）</li>
+<li>unsolved problem（未解決問題）</li>
+<li>unsolved issue（未解決事項）</li>
+</ul><p>（いろいろな言い回しがあるので気をつける）</p>
+</li>
+<li><p class="first">apology</p>
+<div class="line-block">
+<div class="line">わび，謝罪</div>
+<div class="line">例：My apologies for 〜　（〜で申し訳ありません）</div>
+</div>
+</li>
+<li><p class="first">suit me (us)</p>
+<div class="line-block">
+<div class="line">私達に都合がいい</div>
+<div class="line">例：It suits me.（いいよ．おっけー）</div>
+<div class="line">　　Is suits me fine.（相手の依頼・おすすめを受けるとき）</div>
+<div class="line">　　Either way suits me.（どうでもいい，投げやりな様）</div>
+</div>
+</li>
+<li><p class="first">further</p>
+<div class="line-block">
+<div class="line">もっと遠く，さらに進んで</div>
+<div class="line">例：further advancement of consultations</div>
+<div class="line">　　（さらに協議を進める）</div>
+</div>
+</li>
+<li><p class="first">inquire</p>
+<div class="line-block">
+<div class="line">尋ねる，問い合わせる</div>
+<div class="line">例：I inquire of him 〜（彼に問い合わせる）</div>
+<div class="line">　　I inquire of him whether he can do〜</div>
+<div class="line">　　（彼が〜できるか問う）</div>
+</div>
+</li>
+<li><p class="first">constitution</p>
+<div class="line-block">
+<div class="line">憲法・規約／構成，構造，組織／体格，体質，気質</div>
+</div>
+</li>
+<li><p class="first">For practically</p>
+<div class="line-block">
+<div class="line">実用的に，現実的に</div>
+</div>
+</li>
+</ul>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/english.html">English</a></span>
+        </div>
+        
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 21, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/21/postfix.html">スパムメール対策</a></h1>
+<p>サーバをリニューアルしたのは良いものの，メールサーバの設定を手抜きしてしまった．RBLを沢山登録しておいたら，Twitterからのメールすら届かない始末．</p>
+<p>手作業でチェックした結果，以下のRBL設定のみ残すこととしました．</p>
+<div class="highlight-python"><div class="highlight"><pre>smtpd_client_restrictions =
+     permit_mynetworks,
+     check_client_access hash:/etc/postfix/access,
+     #reject_rbl_client all.rbl.jp,
+     reject_rbl_client bl.spamcop.net,
+     reject_rbl_client sbl-xbl.spamhaus.org,
+     reject_rbl_client xbl.spamhaus.org,
+     reject_rbl_client cbl.abuseat.org,
+     reject_rbl_client psbl.surriel.com,
+     reject_unauth_destination,
+     permit
+</pre></div>
+</div>
+<p>だいぶ少なくなってしまった．</p>
+<p>これでもスパム送信をやめてくれないホストは，そもそもSMTP Connectを拒否ってしまいます．ただ，手探りでスパム送信元を探すのも面倒なので，メールログを解析してくれるツールを導入します．Postfixのログといえば，「pflogsumm」です．</p>
+<p>サクっとインストールして，Cronに登録します．</p>
+<div class="highlight-python"><div class="highlight"><pre># aptitude install pflogsumm
+# vim /etc/cron.daily/pflogsumm
 
-Config.window.transparent     = 0xCC;
-
-Config.window.font_name = "MS Gothic";
-// Config.window.font_name = "MeryoKe_Console";
-// ※MeiryoKe_consoleはWindows8以降で含まれる6.12でないと
-//   利用することができないらしい・・・
-
-Config.window.color_foreground    = 0x00CC00;
-
-Config.accelkey.paste            = Keys.CtrlL  | Keys.ShiftL | Keys.P;
-// Ctrl+Shift+p で貼り付け，Ctrl+yでもいいかも
-
-function user_cmd_ime_off(window){
-  if(window.ImeState)
-  window.ImeState = false;
-  return false;
-}
-AccelKeys.add(Keys.Escape, user_cmd_ime_off);
-</pre></div>
-</div>
-<p>ck上でvimを開くことが多いのですが，IMEがonになっていると，vimのコマンドモードで反応してくれなくなるのですが，「Esc」を押してコマンドモードに移行した瞬間にIMEをoffにすることが可能ですので，vim＋日本語環境の煩わしさから少しだけ開放されます．</p>
-</div>
-<div class="section" id="x">
-<h2>Xサーバの自動起動</h2>
-<p>LinuxからEmacsウィンドウを転送してくるために，Cygwin付属のXサーバを常時起動させておきます．貧弱なマシンだと少々重いかもしれませんが，私は気にしません．</p>
-<div class="highlight-python"><div class="highlight"><pre>%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
-</pre></div>
-</div>
-<p>に，X起動用のショートカット作成します．起動用のショートカットは，「スタートメニュー＞すべてのプログラム＞Cygwin-X＞XWin Server」を参考にしてください．リンク先は</p>
-<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c /usr/bin/startxwin.exe
-</pre></div>
-</div>
-<p>このような感じです．</p>
-<p>また，デフォルトでXサーバを起動すると，無駄にXtermが起動されたりするので，デフォルトでは何も起動しないように設定するため，Cygwinのホームディレクトリに「.startxwinrc」および「.XWinrc」という空ファイルを配置してください．すると，Xサーバのみが単体で起動されます．</p>
-</div>
-<div class="section" id="emacs">
-<h2>Emacsの呼び出し</h2>
-<p>Windows上の仮想マシンとして起動しているLinuxのEmacsを呼び出します．Linux側にX転送設定を書いても良いのですが，面倒ですのでSSHサーバのX転送機能を利用します．といっても，特に設定は不要のはず・・・</p>
-<p>Windows上に下記のようなショートカットを作成してください．</p>
-<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c  ~/bin/remacs
-</pre></div>
-</div>
-<p>さらに，ホームディレクトリ配下の「bin」ディレクトリに，emacsというシェルスクリプトを作成します．</p>
-<div class="highlight-python"><div class="highlight"><pre>$ cat ~/bin/remacs
 #!/bin/sh
-ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
+/usr/bin/perl /usr/sbin/pflogsumm --verbose_msg_detail -e -d
+yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
+
+# chmod +x /etc/cron.daily/pflogsumm
 </pre></div>
 </div>
-<p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
-<p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
+<p>以上です．</p>
+<p>あとは，毎日メールログ解析結果がメールで届くので，「message rejectdetail」に記載されているログにおいて，明らかにスパム（変なドメイン，海外ドメイン）の送信元IPを「/etc/postfix/access」でREJECTしてしまう．</p>
+<p>main.cfに以下のような設定が必要です．</p>
+<div class="highlight-python"><div class="highlight"><pre>smtp_client_restrictions =
+    check_client_access hash:/etc/postfix/access
+</pre></div>
 </div>
+<p>さらに，accessファイルはハッシュ化しておく必要があるので．</p>
+<div class="highlight-python"><div class="highlight"><pre># vim /etc/postfix/access
+（拒否しているIP自分で確認してください）
+203.190.62.96   REJECT
+182.48.33.218   REJECT
+163.43.162.90   REJECT
+110.165.4.16    REJECT
+97.88.229.119   REJECT
+87.246.193.114  REJECT
 
+# postmap /etc/postfix/access
+</pre></div>
+</div>
+<p>こんな感じです．</p>
         </div>
         <div class="postmeta">
         <div class="author">
@@ -211,235 +271,39 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
         <div class="categories">
             <span>
                 カテゴリー:
-                <a href="categories/cygwin.html">Cygwin</a></span>
+                <a href="categories/blog.html">Blog</a></span>
         </div>
         <div class="tags">
             <span>
                 タグ:
-                <a href="tags/cygwin.html">cygwin</a>, <a href="tags/emacs.html">emacs</a></span>
+                <a href="tags/postfix.html">postfix</a></span>
         </div>
         </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 20, 2013</span>
+            <span>April 16, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/20/emacs.html">Emacsのすゝめ</a></h1>
-<p>ほぼメーラ専属となってしまいましたが，Emacs＋Wanderlustでメールの読み書きをしています．今回はLubuntuで，Emacs24とWanderlust2.15系の組み合わせで，メールを読み書きするまでの手順を紹介します．</p>
-<div class="section" id="id1">
-<h2>Emacsのインストール</h2>
-<p>Emacsのインストール自体はお手軽です．Emacs23系でも十分に満足していたのですが，Emacs24系からLispパッケージの管理が楽になるとのことで，Emacs24を使うことにします．</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs24 emacs-mozc</span>
+            <h1><a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a></h1>
+<div class="section" id="ipv6">
+<h2>IPv6無効化</h2>
+<p>以外とハマりやすいのがIPv6関連．ローカルにHTTP Proxy（Squid）をたてて，プロキシサーバにしようとしたところ，設定は間違っていないのになぜかWebアクセスできない・・・と悩んで，ログを確認してみると，DIRECTアクセス先の指定がIPv6になっている．しかし，IPv6 Readyな環境ではないのでもちろんタイムアウトします．</p>
+<p>そんなときは，IPv6を利用しないように設定します．</p>
+<p>設定は簡単「/etc/sysctl.conf」の末尾あたりに設定を追加．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">disable_ipv6</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">disable_ipv6</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_syncookies</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">icmp_echo_ignore_broadcasts</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">lo</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">venet0</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">lo</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">venet0</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>「emacs-mozc」はかな漢字変換を行うLispです．中身は「mozc_server」と「mozc_emacs_helper」というサーバクライアントプロセス間で通信して，Emacsがかな漢字変換結果を受け取るシステムのようです．Mozcは野良コンパイルは面倒なので，パッケージ管理（aptitude）でさくっと入れてしまいます．</p>
-<p>その他，使っているLispはこんなもの．</p>
-<div class="section" id="init-loader-el">
-<h3>まず初めにinit-loader.elする</h3>
-<p>前は，「.emacs」に記述していましたが，WindowsでNtemacsを使ったり，Linux上でEmacs使ったり設定の切り替えが面倒になってきました．最初は頑張って</p>
-<div class="highlight-python"><div class="highlight"><pre>(cond
-  ((and (equal system-type 'windows-nt) (= emacs-major-version23))
-    (load "~/.emacs.d/init-ntemacs23.el))
-  ((= emacs-major-version 23)
-    (load "~/.emacs.d/init-23.el))
-  ((= emacs-major-version 24)
-    (load "~/.emacs.d/init-24.el))
-)
-</pre></div>
+<p>まぁ，関係無さそうな設定も含まれていますが，ちなみにvenet0はVPSのNICです．</p>
 </div>
-<p>みたいなことを書いていたのですが，プラットフォーム毎に各々のファイルを更新しなければならないためストレスいっぱいでした．</p>
-<p>そこで目をつけたのが「init-loader.el」です．</p>
-<div class="highlight-python"><div class="highlight"><pre>(when (locate-library "init-loader")
-  (require 'init-loader)
-  (setq init-loader-show-log-after-init nil)
-  (init-loader-load "~/.emacs.d/inits"))
-</pre></div>
-</div>
-<p>「~/.emacs.d/inits」ディレクトリ配下に配置されているLispを次々とロードしてくれます．プレフィックスに「linux-」が付いているとLinuxプラットフォームでだけ読み込む．「windows-」が付いているとWindowsプラットフォームでだけ読み込む．あとは，プレフィックスに数字２桁をつけると番号が若い順に読み込むようです．</p>
-<p>詳細は，<a class="reference external" href="https://github.com/developlus/home/tree/master/.emacs.d/">こちら(.emacs.d配下)</a>に公開しているので実際に見てもらったほうが早いかと．</p>
-</div>
-</div>
-<div class="section" id="wanderlust">
-<h2>Wanderlustのインストール</h2>
-<p>Ubuntuのパッケージ管理（aptitude）でも簡単にWanderlusutをインストールできるのですが，せっかくなので最新版をインストールする手順をご紹介．</p>
-<p>Wanderlustの製作者であり配布元である<a class="reference external" href="http://www.gohome.org/wl/index.ja.html">本家</a>は更新が途絶えております．いまは，Github上で管理されているのでこちらを取得します．</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/local/src/</span>
-<span class="c"># git clone https://github.com/wanderlust/wanderlust</span>
-<span class="c"># git clone https://github.com/wanderlust/apel</span>
-<span class="c"># git clone https://github.com/wanderlust/flim</span>
-<span class="c"># git clone https://github.com/wanderlust/semi</span>
-<span class="c"># cd apel</span>
-<span class="c"># make</span>
-<span class="c"># make install</span>
-</pre></div>
-</div>
-<p>という具合に，「apel/flim/semi/wanderlust」の順番でインストールしていくのですが，何も考えずにインストールしようとすると，Lispの格納先が「/usr/local/share/emacs/site-lisp」および，「/usr/local/share/emacs/24.3/site-lisp」になります．変更したければ，「make」時の引数に「LISPDIR=」などでインストールパスを変更することが可能です．どこの環境でも同じものを利用したいのであれば「~/.emacs.d/site-lisp」に配置しておくのもありかと思います．詳細にてついては「Makefile」の先頭を確認してください．私の場合は，環境を変えたら最新のものを使いたいので，毎度インストールしなおしていますね．</p>
-<p>なお，Lisp配置先のディレクトリで再帰的に「load-path」に組み込めるように「subdirs.el」というファイルを「site-lisp」ディレクトリ配下に作成しておきます．</p>
-<div class="highlight-python"><div class="highlight"><pre># cat /usr/local/share/emacs/site-lisp/subdirs.el
-;; -*- no-byte-compile: t -*-
-(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-  (normal-top-level-add-subdirs-to-load-path))
-</pre></div>
-</div>
-<p>バージョン依存の「/usr/local/share/emacs/24.3/site-lisp/」のほうも同様です．これを置いておかないと，「flim，semi」を続けてバイトコンパイルすることができないと思います．もちろん，「init.el」で「load-path」に含めておいてください．</p>
-<p>あとは，ホームディレクトリに「.wl/.folder/.address/.signature」などのファイルを配置すれば準備完了です．</p>
-<p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
-<p>細かな設定の内容については別の機会に・・・</p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/emacs.html">Emacs</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/emacs.html">emacs</a>, <a href="tags/wanderlust.html">Wanderlust</a></span>
-        </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 11, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/11/vps.html">VPSのすゝめ</a></h1>
-<p>以前は自宅サーバとしてキューブ型PCを置いて，テレビ録画＋メール＋Webもろもろのサーバとして利用していました．しかし，昨今はVPSもワンコインでレンタルできる時代です．</p>
-<p>ちなみに，自宅サーバを運用していたときの月額電気量はおおよそ500円程度＋固定IPアドレス500円の費用がかかっていました．</p>
-<p>2010年〜2011年は「<a class="reference external" href="mailto:ServersMan%40VPS">ServersMan<span>@</span>VPS</a>」の最安プランを利用していました．しかしまぁ，使い勝手に不満がありまして現在は「カゴヤ・クラウド」に乗り換えています．特に不満は無いのですが，さらに他社のサービスも活気づいてきているので，更なる乗り換え先を模索しています．</p>
-<p>そのための参考情報</p>
-<div class="section" id="vps-201311">
-<h2>VPSプロバイダ（2013年11月調べ）</h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%"/>
-<col width="14%"/>
-<col width="14%"/>
-<col width="14%"/>
-<col width="14%"/>
-<col width="14%"/>
-<col width="14%"/>
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">プロバイダ</th>
-<th class="head">Type</th>
-<th class="head">CPU</th>
-<th class="head">Mem</th>
-<th class="head">HDD</th>
-<th class="head">月額</th>
-<th class="head">初期</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
-<td>OpenVZ</td>
-<td>3Core</td>
-<td>1GB</td>
-<td>200GB</td>
-<td>840</td>
-<td>0</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
-<td>OpenVZ</td>
-<td>？</td>
-<td>1GB</td>
-<td>50GB</td>
-<td>490</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
-<td>OpenVZ</td>
-<td>？</td>
-<td>2GB</td>
-<td>100GB</td>
-<td>980</td>
-<td>0</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
-<td>OpenVZ</td>
-<td>1Core</td>
-<td>1GB</td>
-<td>80GB</td>
-<td>780</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
-<td>OpenVZ</td>
-<td>？</td>
-<td>512MB</td>
-<td>100GB</td>
-<td>800</td>
-<td>1600</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
-<td>KVM</td>
-<td>2Core</td>
-<td>1GB</td>
-<td>100GB</td>
-<td>976</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
-<td>KVM</td>
-<td>3Core</td>
-<td>2GB</td>
-<td>100GB</td>
-<td>980</td>
-<td>0</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
-<td>KVM</td>
-<td>2Core</td>
-<td>1GB</td>
-<td>100GB</td>
-<td>940</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
-<td>KVM</td>
-<td>2Core</td>
-<td>2GB</td>
-<td>55GB</td>
-<td>866</td>
-<td>1575</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
-<td>KVM</td>
-<td>2Core</td>
-<td>1GB</td>
-<td>100GB</td>
-<td>980</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
-<td>Xen</td>
-<td>？</td>
-<td>512MB</td>
-<td>50GB</td>
-<td>472</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
-<p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
-<p>完全仮想化</p>
-<blockquote>
-<div><p>完全にH/Wがエミュレートされているので，インストールするOSも自由，カーネルの選択も自由，何でも好き勝手にできるかと思います．H/Wがエミュレートされる分，ホストマシンのCPUパワーを使うことになるため，動作が重いはずだった・・・が，現状はCPU自体がエミュレート処理をバイパスしてくれる仕組みができたため，快適に利用できる．</p>
-<p>※プロバイダによっては，インストールするOSを制限している場合もあるかとは思います．</p>
-</div></blockquote>
-<p>準仮想化</p>
-<blockquote>
-<div>完全仮想化に比べてややこしい．H/Wをエミュレートする過程で，仮想化クライアントにとって都合のよいデバイスとしてH/Wをエミュレートする．なので，クライアントマシンに対しては専用のドライバが必要となる．</div></blockquote>
-<p>コンテナ型仮想化</p>
-<blockquote>
-<div><p>果たして「コンテナ型仮想化」がどの程度の市民権を獲得しているか不明ですが，OpenVZのような仮想化方式はこう呼ばれているようです．</p>
-<p>OSをコンテナ化するための仕組みで，カーネル自体がカスタマイズされている．コンテナ化されたOSはひとつのプロセスとしてホストマシン上で動作する．</p>
-<p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
-</div></blockquote>
-</div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -456,365 +320,62 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
                 <a href="tags/vps.html">vps</a></span>
         </div>
         </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 08, 2013</span>
+            <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2013/11/08/lubuntu.html">Lubuntuのすゝめ</a></h1>
-<p>Lubuntuに特化した話ではないですが，Ubuntuを使う場合に私はこんな設定をしている・・・という内容を紹介します．</p>
-<div class="section" id="id1">
-<h2>インストール</h2>
-<p>簡単すぎるので省略します．インストールディスクさえマウントできれば，あとは淡々とインストールするだけなので．</p>
-<p>そのうち，物理マシンのHDDではなくUSBにインストールする方法でも考えたいな・・・と．</p>
-</div>
-<div class="section" id="id2">
-<h2>まずはじめにアップデート</h2>
-<p>インストールしたら必ずやることと．</p>
-<p>Debian系のパッケージ管理といえば「apt-get」ですが，これが少し拡張された「aptitude」を利用しています．そこまで大きな違いは無いようですが，パッケージの依存関係が管理されており，パッケージを削除する際には，関連パッケージもまとめて削除してくれるようです．</p>
-<div class="section" id="id3">
-<h3>プロキシの設定</h3>
-<p>会社で利用していると，プロキシ経由でなければインターネット側に抜けられないのでプロキシの設定をします．RedHat系で「yum」を利用するのであれば，環境変数（http_proxy）でも書いておけばいいのですが，Ubuntuでは不足なので設定を追加します．</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo vi /etc/apt/apt/apt.conf.d/00proxy
-Acquire::http::proxy "http://proxy.server.co.jp:8080;
-Acquire::https::proxy "http://proxy.server.co.jp:8080;
-Acquire::ftp::proxy "http://proxy.server.co.jp:8080;
+            <h1><a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a></h1>
+<div class="section" id="stone">
+<h2>パケットリピータ（Stone）</h2>
+<p>Stoneを利用するとプロキシ経由でしたインターネットにアクセスできない環境から外部のサーバにSSH出来たりします．</p>
+<p>褒められたことはではありませんが，会社などセキュリティ条件が厳しい環境からでも，外部にトンネル掘れるわけですね．</p>
+<p>早速インストール・・・といっても，Ubuntuだと標準でリポジトリに・・・</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install stone</span>
 </pre></div>
 </div>
+<p>あとは起動スクリプト的なものを準備しておくだけです．ただし，会社のプロキシがHTTPSな接続の許可ポートが443しかないので，あたかもHTTPS通信をしているように見せかけるためには443でListenする必要があります．</p>
+<p>うまく設定すれば，本物のHTTPSとStoneを切り分けこともできるようですが，面倒なのでそこまでは求めません．</p>
 </div>
-<div class="section" id="id4">
-<h3>更新の実行</h3>
-<p>あとは「aptitude」を準備して，更新を実行するだけです．</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
-$ sudo apt-get install aptitude
-$ sudo apt-get autoclean
-$ audo aptitude update
-$ audo aptitude safe-upgrade
-$ auto aptitude autoclean
-</pre></div>
-</div>
-<p>時間がかかりますが，ほっとけば終わります．</p>
-</div>
-</div>
-<div class="section" id="id5">
-<h2>必要なパッケージの追加</h2>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install openssh-server
-$ sudo aptitude install vim
-</pre></div>
-</div>
-<p>必要になったタイミングでおいおい準備していきます．</p>
-</div>
-<div class="section" id="os-windows">
-<h2>ホストOS（Windows）ディレクトリの参照</h2>
-<p>Lubuntu側のメーラ（Emacs）でメールを受けて，添付ファイルをホストOS側に渡して，Office製品で編集する．なんてパターンが多々あります．Windows側からLubuntu側のファイルをSamba経由で参照しても良いのですが，私の場合はLubuntu側からWindowsのファイルシステムをCIFS経由で参照しています．</p>
-<p>その方法は・・・</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install cifs-utils
-$ sudo aptitude install autofs
-$ sudo vi /etc/auto.master
-・・・追記・・・
-/mnt/host   /etc/auto.host
+<div class="section" id="etc-init-d-stone">
+<h2>起動スクリプト（/etc/init.d/stone）</h2>
+<div class="highlight-python"><div class="highlight"><pre>#! /bin/sh
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="Stone Server"
+NAME=stone
+DAEMON=/usr/bin/$NAME
+DAEMON_ARGS="-z certkey=/etc/ssl/stone/stone.pem -l -D localhost:10022 443"
+SCRIPTNAME=/etc/init.d/$NAME
+KILL=/usr/bin/killall
 
-$ sudo vi /etc/auto.host
-Users   -fstype=cifs,rw,uid={USER},gid={GID},credentials=/home/{USER}/.host.cifs     ://host/Users
+[ -x "$DAEMON" ] || exit 0
 
-$ vi ~/.host.cifs
-username={USER}
-password={PASS}
-$ chmod 400 ~/.host.cifs
+case "$1" in
+  start)
+    echo "Starting $DESC:" "$NAME"
+    $DAEMON $DAEMON_ARGS
+  ;;
+  stop)
+    echo "Stopping $DESC:" "$NAME"
+    $KILL $NAME
+  ;;
+  *)
+    echo "Usage: $SCRIPTNAME {start|stop}" &gt;&amp;2
+    exit 3
+  ;;
+esac
 </pre></div>
-</div>
-<p>こんな感じで，AutofsでホストOS側の共有フォルダを参照するようにします．もちろんホストOS側では，C:Uesrs以下を共有名「Users」で共有しておく必要があります．CIFSの認証用ファイルをホームディレクトリ配下に配置しておきます．パーミッションに気をつけましょう．（どうせ自分しかVMさわらないですけどね）</p>
-<p>さらに，Windowsのホームディレクトリ「c:Usersusername」配下のよく利用するディレクトリへのシンボリックリンクを作成しておくと便利です．</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ln -s /mnt/host/host/Users/{USER}/Desktop ~/
-$ ln -s /mnt/host/host/Users/{USER}/Downloads ~/
-$ ln -s /mnt/host/host/Users/{USER}/Documents ~/
-</pre></div>
-</div>
-<p>これで，メーラから添付ファイルを保存する先を「~/Desktop」などに指定すれば，さくさくWindows側からファイルを操作することが可能です．</p>
-<p>ここでは，autofsによる自動マウントで実現していますが，「/etc/fstab」に記述してしまっても良いかもしれません．ただ，パスワードをそのまま書くのは気持ち悪いので，「crendentials」だけ別ファイルに切り出したほうが，少しだけ安心できます．</p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/linux.html">Linux</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/lubuntu.html">lubuntu</a></span>
-        </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 07, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/07/linux.html">作業用Linuxマシンのすゝめ</a></h1>
-<p>私は，メール・テキストの編集などはEmacsを利用したいタイプです．なお，ターミナルエミュレータ的なものが無いと生活出来ません．シェル（bash）を使いたいし，grepやawkやsed，簡単な設定ファイルはvi/vimを使いたいのです．</p>
-<p>しかし，会社での生活環境はWindowsしか許されていません．正確にはLinuxも許されていますが，社内の共通的な業務はWindowsでないと困ることが多々あります．</p>
-<p>そこで，会社の生活環境PCに，Cygwin＋ck（ターミナルエミュレータ），Emacs24＋Wanderlust（Mewライクなメーラ）をインストールして生活しています．</p>
-<p>しかし，これでも不便を感じることが多いのです．というのも，Emacsが結構落ちるのです．原因は不明，あとWanderlustでメールを書いて送信した直後にフリーズとか・・・．ちなみに，Linuxで同じことをしていても，なんの問題もありません．非常に快適です．</p>
-<p>そんなわけで，会社の生活環境PCに仮想環境（VMWare Server/もうサポートが終わりました）を構築し，VM中にLinuxをインストールして利用しています．私が使いやすいと感じる妥協ポイントを紹介していきます．</p>
-<div class="section" id="id1">
-<h2>仮想環境の選択</h2>
-<p>上記で書いたとおり，VMWare Serverを利用していますが，この製品はサポートが終了しています．なぜこれを選択しているのか・・・</p>
-<div class="section" id="vmware-server">
-<h3>VMWare Server</h3>
-<p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
-<ul class="simple">
-<li>長所<ul>
-<li>Windowsサービスとして仮想マシンを動作可能</li>
-<li>操作はWeb GUIから</li>
-</ul>
-</li>
-<li>短所<ul>
-<li>サポートが終了している</li>
-<li>UIは英語のみ</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="vmware-player-vmware-player-plus">
-<h3>VMWare Player（もといVMWare Player Plus）</h3>
-<p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
-<ul class="simple">
-<li>長所<ul>
-<li>インストールが簡単</li>
-<li>UI/UXが良い．シンプルで直感的に使える</li>
-</ul>
-</li>
-<li>短所<ul>
-<li>GUIが表示される</li>
-</ul>
-</li>
-</ul>
-<p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
-</div>
-<div class="section" id="virtual-box-oracle">
-<h3>Virtual Box （Oracle）</h3>
-<p>Oracle（旧Sun）が提供する仮想環境です．</p>
-<ul class="simple">
-<li>長所<ul>
-<li>UIは洗練されてきて使いやすい模様</li>
-<li>仮想N/WのNATでポートフォワーディングができる</li>
-</ul>
-</li>
-<li>短所<ul>
-<li>GUIが表示される</li>
-<li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
-</ul>
-</li>
-</ul>
-<p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Linuxの選択</h2>
-<p>Linuxで何を利用するか・・・以前は，CentOSを利用していました．一時期，CentOSのコミュニティが荒れていた時は，Scientific Linuxに浮気していました．</p>
-<p>しかし，このCnetOSですが．とにかくBoot時間が長いのです．Ubuntuを少し触った時に痛感しました．VMWare ServerからサービスとしてVMを自動起動してくるのですが，WindowsにログオンしてもLinuxのBootが完了していない時間が長すぎて少々イライラします．</p>
-<p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>
-<p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
-<p>次回，Lubuntuの設定に続く．</p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/linux.html">Linux</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/lubuntu.html">lubuntu</a>, <a href="tags/vm.html">vm</a></span>
-        </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 06, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/06/tinkerer.html">Tinkererの設定</a></h1>
-<p>Tinkerrの初期設定については，様々なサイトで紹介されているので省略する．ただし，頭が真っ白な状態では現状のサイト構成辿りつけなかったのでポイントだけ記録しておきます．</p>
-<div class="section" id="id1">
-<h2>日本語設定</h2>
-<div class="section" id="id2">
-<h3>ビルドについて</h3>
-<div class="highlight-python"><div class="highlight"><pre>$ tinkerer -b
+<h2>証明書の準備</h2>
+<p>Stone用の証明書を準備する必要があります．ほんもののHTTPS通信と見せかけるためには，きちんと証明書を作っておく必要があります．</p>
+<p>なお，OpenSSLの使い方は忘れやすいのでメモです．数年前までPKIの専門家（仮）だった知識を活かして，一撃で自己署名証明書の発行方法を記します．</p>
+<p>全部１行で</p>
+<div class="highlight-python"><div class="highlight"><pre># openssl req -new -x509 -days 3650 -newkey rsa:2048 -nodes \
+-keyout server.key -out server.crt -subj 'CN=cat.developlus.jp'
 </pre></div>
 </div>
-<p>を事項すると，Unicode関連のエラーが発生する場合があった．そもそもPythonに慣れていないので，この事象が意味不明だったが単純に文字列の定義に誤りがあった．</p>
-<div class="highlight-python"><div class="highlight"><pre>$vim conf.py
----snip---
-description = '脳内情報'  # コンパイルエラー
-description = u'脳内情報' # 文字列がUnicodeであることをマークする
-</pre></div>
+<p>これで，「server.key」（パスフレーズなし）と「server.crt」が生成されます．</p>
 </div>
-</div>
-<div class="section" id="id3">
-<h3>記事中の日本語について</h3>
-<p>これらの記事はEmacs（rst-mode）で記述しており，「auto-fill-mode」を有効にしています．なので，ReStドキュメント本体は適切な箇所で自動改行されています．</p>
-<p>この状態で何も考えずにコンテンツをビルドすると，改行が挿入された箇所が不自然に半角スペースに変換された状態となり，サイトの見た目が美しくありません．どうせビルド時に改行を[&amp;nbsp;]に置換しているんだろうな・・・とはあたりがつくものの，どこの設定を調節すれば良いのかサッパリでしたが，おおよそ自分が悩んでいる事象は世の中の先人も悩んでいるはずです．</p>
-<p>そんなわけで，ちょっとインターネットの力を借りると・・・これ</p>
-<div class="highlight-python"><div class="highlight"><pre>$ mkdir _exts
-$ cd _exts
-$ wget http://dl.dropbox.com/u/218108/files/japanesesupport.py
-$ cd ../
-$ vi conf.py
----snip---
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus',
-'japanesesupport']
-</pre></div>
-</div>
-<p>これだけで完了です．</p>
-<p>詳細についてはこちら・・・<a class="reference external" href="http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html">http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html</a></p>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>テーマについて</h2>
-<p>デフォルトのテーマでは味気ない．そこでテーマを変更します．デフォルトで提供されているテーマは以下の通り．</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ls -l /usr/local/lib
-$ ls -l /usr/local/lib/python2.7/dist-packages/tinkerer/themes/
-合計 28
-drwxr-sr-x 4 root staff 4096 11月  5 11:59 boilerplate
-drwxr-sr-x 3 root staff 4096 11月  5 14:56 dark
-drwxr-sr-x 3 root staff 4096 11月  5 11:59 flat
-drwxr-sr-x 3 root staff 4096 11月  5 11:59 minimal5
-drwxr-sr-x 3 root staff 4096 11月  5 11:59 modern5
-drwxr-sr-x 3 root staff 4096 11月  5 11:59 responsive
-</pre></div>
-</div>
-<p>私は，「dark」を利用しています．しかし，少々見にくいというか，見出しが単調なので少しだけCSSを変更して，オリジナルテーマとしました．（ライセンス的にOKなのか確かめてないのですが，きっと大丈夫・・・）</p>
-<p>オリジナルテーマは「_themes」というディレクトリに配置して置くと良いです．</p>
-<div class="highlight-css"><div class="highlight"><pre>$ mkdir _themes
-$ cp -rfp /usr/local/lib/python2.7/dist-packages/tinkerer/themes/dark ./developlus
----Modified developlus/static/dark.css
-$ diff original-dark/static/dark.css  developlus/static/dark.css
-355a356
-&gt;     text-decoration: underline;
-359a361
-&gt;     background: #ccc;
-382a385,392
-&gt; /* Custom Developlus */
-&gt; .widget h1 {
-&gt;     font-size: 16px;
-&gt;     border-left: #ccc solid 6px;
-&gt;     border-bottom: #ccc solid 2px;
-&gt;     padding-left: 0.4em;
-&gt; }
-&gt;
-388c398
-&lt;     padding: 30px 0;
----
-&gt;     padding: 20px 0;
-393a404,434
-&gt;     border-left: #666 solid 8px;
-&gt;     border-bottom: #666 solid 2px;
-&gt;     text-decoration: none;
-&gt;     padding-left: 0.4em;
-&gt; }
-&gt;
-&gt; .main article h2 {
-&gt;     font-size: 1.2em;
-&gt;     line-height: 1.2;
-&gt;     border-left: #666 solid 6px;
-&gt;     border-bottom: #666 dashed 2px;
-&gt;     text-decoration: none;
-&gt;     padding-left: 0.4em;
-&gt; }
-&gt;
-&gt; .main article h3 {
-&gt;     font-size: 1em;
-&gt;     line-height: 1.2;
-&gt;     border-left: #666 solid 2px;
-&gt;     border-bottom: #666 dotted 1px;
-&gt;     text-decoration: none;
-&gt;     padding-left: 0.4em;
-&gt; }
-&gt;
-&gt; .main article p {
-&gt;     padding-left: 1em;
-&gt; }
-&gt;
-&gt; .main article pre {
-&gt;     margin-left: 1em;
-&gt;
-</pre></div>
-</div>
-<p>こんな感じです．</p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/linux.html">Linux</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/sphinx.html">sphinx</a></span>
-        </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 06, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/06/rest.html">ReSTフォーマットの復習</a></h1>
-<p>タイトルは復習ですが，私は今から勉強します．後で読み返したら「復習」になるでしょう．</p>
-<div class="section" id="id1">
-<h2>ReSTについて</h2>
-<p>そもそも「REST」って言われると，全然別のものを想像してしまうのですが，「reStructured Text」の略の様です．</p>
-<p>詳細については以下で・・・<a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a></p>
-</div>
-<div class="section" id="id2">
-<h2>ReST フォーマット</h2>
-<p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
-<p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
-</div>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/linux.html">Linux</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/sphinx.html">sphinx</a></span>
-        </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 05, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub</a></h1>
-<p>Web UIで執筆するCMSやブログシステムに耐えられなくて，さまざまなドキュメント管理ツールを試した結果，ReST（reStructured Text）にたどり着く．</p>
-<p>ReSTを整形するツールである「Sphinx」，さらにSphinxを利用するブログ構築を支援する「Tinkerer」を使って，今後のドキュメントを管理していく．</p>
-<div class="section" id="tinkerer">
-<h2>Tinkerer</h2>
-<p><a class="reference external" href="http://tinkerer.me/">http://tinkerer.me/</a></p>
-<p>コマンド一つでブログのテンプレートの作成，ドキュメントのビルドを実行することが可能です．生成されるドキュメントは静的なものなので，どこにでも引っ越し可能です．</p>
-</div>
-<div class="section" id="github">
-<h2>GitHub</h2>
-<p><a class="reference external" href="https://github.com/">https://github.com/</a></p>
-<p>言わずとしれた分散リポジトリ管理システムです．無料で個人のリポジトリを作成できることから巷でも人気のようですが，自分で書いたソースコードをインターネットな世界に晒す勇気がなくて躊躇していました．お仕事のソース管理はSubversionで十分でしたし．</p>
-<p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
-<p>GitHub上をマスターとして，個人のサーバ上にリポジトリのコピーをおいておけば，編集は一箇所で済むし，バックアップも不要．一石二鳥です．</p>
-</div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -828,32 +389,375 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
         <div class="tags">
             <span>
                 タグ:
-                <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/sphinx.html">sphinx</a>, <a href="tags/github.html">github</a></span>
+                <a href="tags/stone.html">stone</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a></h1>
+<div class="section" id="postfix">
+<h2>Postfixの準備</h2>
+<p>「カゴヤ・クラウド／VPS」でUbuntuを導入したところ，標準でSendmailが動作していましたが，面倒なのですべてのSendmail関連パッケージを削除しました．</p>
+<p>まずは，インストール・・・</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install postfix</span>
+</pre></div>
+</div>
+<p>とりあえず，Debianパッケージだとローカルのみだとか，イントラネットだとか，メールサーバを配置する場所に応じて初期値となる設定値を埋めてくれます．とりあえず「インターネット上」に設定しておく．</p>
+<div class="section" id="main-cf">
+<h3>main.cfの設定</h3>
+<p>何はなくとも設定ファイル「/etc/postfix/main.cf」をいじります．</p>
+<div class="highlight-python"><div class="highlight"><pre># クライアントに無駄な情報を教えない
+smtpd_banner = $myhostname ESMTP
+
+# IMAP経由でメールを読むので，Maildirに変更
+home_mailbox = Maildir/
+
+# SMPTS＋認証をやるので設定追加
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain = $mydomain
+broken_sasl_auth_clients = yes
+smtpd_recipient_restrictions =
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    permit
+
+smtpd_client_restrictions =
+    permit_mynetworks,
+    check_client_access hash:/etc/postfix/access,
+    # reject_rbl_client all.rbl.jp,
+    reject_rbl_client bl.spamcop.net,
+    # reject_rbl_client list.dsbl.org,
+    # reject_rbl_client sbl-xbl.spamhaus.org,
+    reject_unauth_destination,
+    permit
+
+# RBLでスパム判定したら，レスポンスコードを550に設定
+maps_rbl_reject_code = 550
+default_rbl_reply = $rbl_code &lt;$recipient&gt;: Recipient address rejected: User unknown in local recipient tables
+</pre></div>
+</div>
+</div>
+<div class="section" id="sasl2">
+<h3>SASL2の設定</h3>
+<p>SMTPS認証を実施するために，SASL2を利用します．幸い最初からインストールされていましたが，以下のパッケージが必要になります．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install sasl2-bin sasl2-modules</span>
+</pre></div>
+</div>
+<p>これだけで，SASL2は動作しますが，chrootされたPostfixからでも認証結果キャッシュにアクセスできるように設定することを基本になっているようで，Postfixの参照先を変更するか，SASL2のワーキングディレクトリを変更するか，どちらかを実施する必要があります．</p>
+<p>とりあえず後者で設定するならば，SASL2のワーキングディレクトリを「/var/spool/postfix/var/run/saslauthd」に吐き出すよう変更します．</p>
+<div class="highlight-python"><div class="highlight"><pre>（ワーキングディレクトリの変更）
+OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd"
+</pre></div>
+</div>
+<p>さらに上記ワーキングディレクトリへPostfixアカウントから参照可能となるよう，saslグループにpostfixアカウントを追加します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># usermod -a -G sasl postfix</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="master-cf">
+<h3>master.cfの設定</h3>
+<p>SMTPSをListenするために，「/etc/postfix/master.cf」を変更します．コメントアウトを外すだけ．</p>
+<div class="highlight-python"><div class="highlight"><pre>submission inet n       -       -       -       -       smtpd
+    -o syslog_name=postfix/submission
+    -o smtpd_tls_security_level=encrypt
+    -o smtpd_sasl_auth_enable=yes
+    -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+    -o milter_macro_daemon_name=ORIGINATING
+smtps     inet  n       -       -       -       -       smtpd
+    -o syslog_name=postfix/smtps
+    -o smtpd_tls_wrappermode=yes
+    -o smtpd_sasl_auth_enable=yes
+    -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+    -o milter_macro_daemon_name=ORIGINATING
+</pre></div>
+</div>
+<p>さらに，SASL2を参照して認証する場合の設定を「/etc/postfix/sasl/smtpd.conf」に記載します．</p>
+<div class="highlight-python"><div class="highlight"><pre>pwcheck_method: saslauthd
+mech_list: plain login
+</pre></div>
+</div>
+<p>必要なサービスを再起動してください．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/init.d/saslauthd restart</span>
+<span class="c"># /etc/init.d/postfix restart</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dovecot">
+<h2>Dovecotの準備</h2>
+<p>以前は何が何でもCourier-IMAPを利用していましたが，最近はDovecotを利用するようになりました．</p>
+<p>まずは，Dovecotのインストール</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install dovecot-imapd dovecot-common</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>メールディレクトリ設定</h3>
+<p>Courier-IMAPと同様に利用するためにはひと工夫が必要なので，設定ファイル「/etc/dovecot/conf.d/10-mail.conf」を編集します．</p>
+<div class="highlight-python"><div class="highlight"><pre>（メールディレクトリをMaildirに変更）
+mail_location = maildir:~/Maildir
+
+（Courier-IMAPと同じメールボックス設定にする）
+namespace inbox {
+    separator = .
+    prefix = INBOX.
+    inbox = yes
+}
+</pre></div>
+</div>
+<p>あとは，サービスを再起動しておけばOK．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># /etc/init.d/dovecot restart</span>
+</pre></div>
+</div>
+</div>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/vps.html">vps</a>, <a href="tags/postfix.html">postfix</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a></h1>
+<div class="section" id="emacs24">
+<h2>Emacs24を使う</h2>
+<p>Ubuntu 12系では残念ながら標準のapt-getリポジトリにはEmacs24が準備されていない．ググるとヒットするのですが，手順を書いておくと・・・</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install python-software-properties</span>
+<span class="c"># add-apt-repository ppa:cassou/emacs</span>
+<span class="c"># aptitude update</span>
+<span class="c"># aptitude install emacs24 emacs24-el</span>
+</pre></div>
+</div>
+<p>さて，ここからが問題です．どうやってMozcを利用するのか？emacs-mozcをapt-getからインストールしてしまうと，emacs23もインストールしてしまう・・・かといって，野良ビルドするのもイヤだし・・・あぁ野良ビルド版をパッケージっぽく管理してくれるツール<a class="footnote-reference" href="#f1" id="id2">[1]</a>があったな・・・とか</p>
+<p>さんざん悩んだ挙句．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs-mozc</span>
+</pre></div>
+</div>
+<p>してみました．結果，Emacs23もインストールしてしまったものの，emacsのデフォルトパスもemacs24に向いており，emacs24からmozc.elを呼ぶことが出来たのでなんの問題もありませんでした．</p>
+<p class="rubric">脚注</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none"><colgroup><col class="label"/><col/></colgroup><tbody valign="top"><tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr></tbody></table></div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/emacs.html">emacs</a>, <a href="tags/vps.html">vps</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a></h1>
+<p>VPS上で構築していたサーバのPythonを3.3系にアップデートしたところ，なにを間違ってしまったのかいろいろなライブラリが利用できなくなってしまった．スナップショットを取っておけばよかったものの・・・時すでに遅し．ものはついでなので，メールサーバ＋メーリングリストのリニューアル＋Webコンテンツの統合のためにサーバ自体をリニューアルする．きっと時間はかからないはず．</p>
+<div class="section" id="vps">
+<h2>VPSサーバの増設</h2>
+<p>「カゴヤ・クラウド／VPS」であれば，サーバを増設しても日単位の課金．新規サーバを増設して，旧サーバからの移行が完了するまでの数日間分の利用料金のみＯＫなはずです．</p>
+<p>何かしらハマるはずなので，４〜５日といったところでしょうか・・・</p>
+<p>今回は・・・Ubuntu 13系で行きたいところですが，LTSである12系しか準備されていません．OpenVZの痛いところです．</p>
+<div class="highlight-python"><div class="highlight"><pre>root@cat:~# cat /etc/issue
+Ubuntu 12.04.4 LTS \n \l
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh">
+<h2>SSHサーバ</h2>
+<p>確か通常のディストリビューションからUbuntu系をインストールすると，SSHサーバはインストールされていなかったと思いますが，「カゴヤ・クラウド／VPS」で作成されたインスタンスでは最初からSSHサーバが起動されています．</p>
+<p>経験上，Webサーバを公開しているとブルートフォースアタックを受けるので，sshdの待ち受けポートを変更しておきます．</p>
+<div class="highlight-python"><div class="highlight"><pre>root@cat:~# vim /etc/ssh/sshd_config
+
+Port 22 ⇒ 10022
+※わたしは10022は使っていませんが・・・
+</pre></div>
+</div>
+<p>これで，22番ポートのListenを止めておけば無駄な攻撃を受けなくて済みます．</p>
+<p>ついで，SSHクライアントで毎度ポートを設定するのも面倒なので，[.ssh/config]に接続情報を記載しておくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>user@host&gt; vim ~/.ssh/config
+
+Host cat
+  HostName cat.developlus.jp
+  User user
+  Port 10022
+</pre></div>
+</div>
+<p>実際には，「ProxyCommand」とか，「GatewayPorts」とか「LocalForward」とか沢山の設定を書いています．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/vps.html">vps</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 17, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/12/17/docomomail.html">ドコモメール</a></h1>
+<p>本日（2013/12/17）より，ドコモメールがIMAP経由で利用できるようになりました．ついに「@docomo.ne.jp」ドメインのメールアドレスを，簡単に利用できるようになりました．</p>
+<div class="section" id="id2">
+<h2>スマフォ側の設定</h2>
+<p>私の場合は，SPモードメールを「Communicase」で受信するように設定していましたが，Communicaseのアカウント設定で「アカウント毎設定＞ドコモ＞受信＞ドコモのメール受信」という設定項目で</p>
+<ul class="simple"><li>このアプリで受信する</li>
+<li>spモードメールアプリで受信する</li>
+</ul><p>という２択の設定が存在するので，後者「spモードメールアプリ」で受信する」を選択します．</p>
+<p>さらに，ドコモアプリケーションマネージャ（「システム設定＞ドコモサービス＞アプリケーション管理」あたりから呼び出すことが可能です．）より，ドコモメール用のアプリ（ドコモメール）をインストールする必要があります．</p>
+<blockquote>
+<div>私の場合，ドコモアプリケーションマネージャをOffにしていたので，ちょっと引っかかりました．一度docomo IDを有効にして，メールの受信を開始してしまえば，Gmail向けのメーラアプリでも受信できると思います．（プッシュでの受信が可能かどうかは知らないですが）</div></blockquote>
+</div>
+<div class="section" id="imap">
+<h2>IMAPクライアントの設定</h2>
+<p>IMAPクライアント側の設定情報については，<a class="reference external" href="https://www.nttdocomo.co.jp/service/docomo_cloud/docomo_mail/function/other/index.html">公式</a>に記載があるので確認してください．</p>
+<p>概要としては，</p>
+<ul class="simple"><li>メールサーバ<ul><li>IMAP(imaps): imap.spmode.ne.jp:993</li>
+<li>SMTP(smtps): smtp.spmode.ne.jp:465</li>
+</ul></li>
+</ul><p>SMTPSの認証は，PLAIN/LOGINのどちらかのようです．絵文字なメールは確認していませんが，デコメ（？）を送るとHTMLメールになるようで，通常のメーラでも問題なく表示できそうです．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/docomo.html">docomo</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 13, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a></h1>
+<p>Windows版のEmacs（Ntemacs/gnupack emacs）を利用する際の便利な設定を紹介します．既にCygwinを利用していることが前提ですが，Cygwinがなくても応用できるかと・・・</p>
+<div class="section" id="id1">
+<h2>NTEmacsのインストール</h2>
+<p>NTEmacsはIME用のパッチが，gnupackから提供されており，かつパッチのみを適用したNTEmacsが<a class="reference external" href="http://cha.la.coocan.jp/doc/NTEmacs.html">こちら</a>から提供されています．</p>
+<p>もしくは，<a class="reference external" href="http://sourceforge.jp/projects/gnupack/">gnupack</a>からEmacs単体でも提供されているので，どちらを利用しても構わないと思います．</p>
+<p>取得したEmacsのパッケージを回答して，Cygwinから[/usr/local/emacs/24.3]みたいなディレクトリに格納します．バージョンアップごとにLispを差し替えるのは面倒なので，以下のようにシンボリックリンクを貼ってくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>drwxr-xr-x+ 1 24.3/
+lrwxrwxrwx  1 bin -&gt; /usr/local/emacs/24.3/bin/
+lrwxrwxrwx  1 etc -&gt; /usr/local/emacs/24.3/etc/
+lrwxrwxrwx  1 info -&gt; /usr/local/emacs/24.3/info/
+lrwxrwxrwx  1 leim -&gt; /usr/local/emacs/24.3/leim/
+lrwxrwxrwx  1 lisp -&gt; /usr/local/emacs/24.3/lisp/
+lrwxrwxrwx  1 site-lisp -&gt; /usr/local/emacs/24.3/site-lisp/
+</pre></div>
+</div>
+<p>[site-lisp]までリンクにしていますが，site-lispはバージョンごとに共通で問題無いと思います．</p>
+<p><strong>2014/01/28：追記</strong></p>
+<p>上記のようにシンボリックで対応すると，各種Lispをインストールする際に正しくインストールできません．そのため，Windowsのリンク機能（ジャンクション）で対応する必要があります．詳細については，次の節を参照してください．</p>
+</div>
+<div class="section" id="windows">
+<h2>Windowsのディレクトリに細工</h2>
+<p>EmacsからるとCygwin上のファイルパスとWindows上のファイルパスが異なるので，Windows側に細工してあげます．</p>
+<p>Windowsのコマンドプロンプト（スタートメニュー＞すべてのプログラム＞アクセサリ＞コマンドプロンプト）を管理者権限（右クリックして「管理者として実行」）で起動します．</p>
+<p>Windowsでいうディレクトリへのシンボリックリンクのようなもの，ジャンクションを設定します．</p>
+<div class="highlight-python"><div class="highlight"><pre>mklink /J usr c:\cygwin\usr
+mklink /J home c:\cygwin\home
+mklink /J bin c:\cygwin\bin
+</pre></div>
+</div>
+<p>こうしておくことで，Emacsからファイルを開く際に，Cygwinから見えるファイルパスと，Windowsから見えるファイルパスがほぼ同じに見えるので，厄介事が少なくなります．</p>
+</div>
+<div class="section" id="ime">
+<h2>IMEの有効化</h2>
+<p>NTEmacs上でIMEの入力を便利にするために，EmacsのIMEパッチを有効にする必要があります．</p>
+<div class="highlight-python"><div class="highlight"><pre>;; Win32IME用のパッチを有効化
+(w32-ime-initialize)
+(setq default-input-method "W32-IME")
+;;モードライン行の表示
+(setq-default w32-ime-mode-line-state-indicator "[--]")
+(setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+;;カーソルカラー
+(add-hook 'input-method-activate-hook   ;; IME ON/OFF時のカーソルカラー
+   (lambda () (set-cursor-color "firebrick")))
+(add-hook 'input-method-inactivate-hook ;; IME OFF時の初期カーソルカラー
+   (lambda () (set-cursor-color "white")))
+</pre></div>
+</div>
+<p>これで完了．</p>
+</div>
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/emacs.html">Emacs</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/emacs.html">emacs</a>, <a href="tags/cygwin.html">cygwin</a></span>
         </div>
         </div><div class="archive_link">
         <a href="archive.html"> &mdash; ブログアーカイブ &mdash; </a>
-    </div></article><aside class="sidebar"><section><div class="widget">
+    </div><ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="page2.html">前の投稿</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="categories/blog.html">Blog</a> (2)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (1)</li><li><a href="categories/linux.html">Linux</a> (4)</li></ul>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/english.html">English</a> (1)</li><li><a href="categories/linux.html">Linux</a> (4)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (1), <a href="tags/emacs.html">emacs</a> (2), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (1), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a>
+            <a href="2014/05/12/becky.html">Beckyの設定</a>
         </li><li>
-            <a href="2013/11/20/emacs.html">Emacsのすゝめ</a>
+            <a href="2014/04/24/english.html">Study English</a>
         </li><li>
-            <a href="2013/11/11/vps.html">VPSのすゝめ</a>
+            <a href="2014/04/21/postfix.html">スパムメール対策</a>
         </li><li>
-            <a href="2013/11/08/lubuntu.html">Lubuntuのすゝめ</a>
+            <a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
         </li><li>
-            <a href="2013/11/07/linux.html">作業用Linuxマシンのすゝめ</a>
+            <a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
         </li><li>
-            <a href="2013/11/06/tinkerer.html">Tinkererの設定</a>
+            <a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
         </li><li>
-            <a href="2013/11/06/rest.html">ReSTフォーマットの復習</a>
+            <a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
         </li><li>
-            <a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub</a>
+            <a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
+        </li><li>
+            <a href="2013/12/17/docomomail.html">ドコモメール</a>
+        </li><li>
+            <a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
