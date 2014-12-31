@@ -5,7 +5,6 @@ Sitemap
    :maxdepth: 1
 
    2014/05/12/becky
-   2014/04/24/english
    2014/04/21/postfix
    2014/04/16/newvps5
    2014/04/14/newvps4

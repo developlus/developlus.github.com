@@ -145,82 +145,6 @@ name should probably be prefixed with: INBOX.)
                 <a href="tags/dovecot.html">dovecot</a></span>
         </div>
         </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>April 24, 2014</span>
-        </div>
-        <div class="section">
-            <h1><a href="2014/04/24/english.html">Study English</a></h1>
-<p>ここ最近，仕事で英語を使う機会が増えすぎて，本気で英語を勉強しなければならない状況に陥ってきたので，その時時で勉強した英語をメモってく．</p>
-<ul>
-<li><p class="first">investigate</p>
-<div class="line-block">
-<div class="line">〜調査，研究する</div>
-<div class="line">（仕事のなかでよく使うし，よく耳にする．）</div>
-</div>
-</li>
-<li><p class="first">未解決問題・議題</p>
-<ul class="simple">
-<li>moot question（議論の余地がある，疑義）</li>
-<li>moot point（議論の余地があるポイント）</li>
-<li>outstanding problem（係争問題）</li>
-<li>open issue（未解決事項）</li>
-<li>unsolved problem（未解決問題）</li>
-<li>unsolved issue（未解決事項）</li>
-</ul>
-<p>（いろいろな言い回しがあるので気をつける）</p>
-</li>
-<li><p class="first">apology</p>
-<div class="line-block">
-<div class="line">わび，謝罪</div>
-<div class="line">例：My apologies for 〜　（〜で申し訳ありません）</div>
-</div>
-</li>
-<li><p class="first">suit me (us)</p>
-<div class="line-block">
-<div class="line">私達に都合がいい</div>
-<div class="line">例：It suits me.（いいよ．おっけー）</div>
-<div class="line">　　Is suits me fine.（相手の依頼・おすすめを受けるとき）</div>
-<div class="line">　　Either way suits me.（どうでもいい，投げやりな様）</div>
-</div>
-</li>
-<li><p class="first">further</p>
-<div class="line-block">
-<div class="line">もっと遠く，さらに進んで</div>
-<div class="line">例：further advancement of consultations</div>
-<div class="line">　　（さらに協議を進める）</div>
-</div>
-</li>
-<li><p class="first">inquire</p>
-<div class="line-block">
-<div class="line">尋ねる，問い合わせる</div>
-<div class="line">例：I inquire of him 〜（彼に問い合わせる）</div>
-<div class="line">　　I inquire of him whether he can do〜</div>
-<div class="line">　　（彼が〜できるか問う）</div>
-</div>
-</li>
-<li><p class="first">constitution</p>
-<div class="line-block">
-<div class="line">憲法・規約／構成，構造，組織／体格，体質，気質</div>
-</div>
-</li>
-<li><p class="first">For practically</p>
-<div class="line-block">
-<div class="line">実用的に，現実的に</div>
-</div>
-</li>
-</ul>
-
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/english.html">English</a></span>
-        </div>
-        
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>April 21, 2014</span>
         </div>
         <div class="section">
@@ -758,6 +682,145 @@ mklink /J bin c:\cygwin\bin
                 タグ:
                 <a href="tags/emacs.html">emacs</a>, <a href="tags/cygwin.html">cygwin</a></span>
         </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>November 27, 2013</span>
+        </div>
+        <div class="section">
+            <h1><a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a></h1>
+<p>普段の生活でターミナルが無いと生活しにくいものです．まだまだ，TeraTerm，を使っているひとも少なくないと思いますが・・・</p>
+<p>かれこれ１０年以上愛用している「Cygwin ＋ ckターミナルエミュレータ」がおすすめです．もはやこれを手放すことができません．Windows上で生活していながら，かゆいところに手が届きます．</p>
+<p>あとは，Windows版Emacsがサクサク動いてくれれば，Linux環境を手放すことができそうです．</p>
+<div class="section" id="id1">
+<h2>Cygwinのインストール</h2>
+<p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
+<p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
+<ul class="simple">
+<li>Devel<ul>
+<li>gcc-core　・・・ちょっとコンパイルするときに</li>
+<li>gcc-g++　・・・ちょっとコンパイルするときに</li>
+<li>git　・・・gitからソース落とすときに</li>
+<li>make　・・・ちょっとコンパイルするときに</li>
+<li>subversion　・・・ソース管理するために</li>
+</ul>
+</li>
+<li>Editors<ul>
+<li>vim　・・・何はなくとも必要</li>
+</ul>
+</li>
+<li>Net<ul>
+<li>inetutils　・・・nslookupとか含まれてたはず</li>
+<li>nc　・・・簡易ファイル転送とか使えるから</li>
+<li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
+<li>openssh　・・・何はなくとも必要</li>
+</ul>
+</li>
+<li>Utils<ul>
+<li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
+</ul>
+</li>
+<li>Web<ul>
+<li>w3m　・・・Emacs＋w3m-modeで使う</li>
+</ul>
+</li>
+<li>X11<ul>
+<li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Cygwinの環境変数</h2>
+<p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
+<div class="highlight-python"><div class="highlight"><pre>HOME  =  C:\Cygwin\home\UserName
+</pre></div>
+</div>
+<p>と設定されていれば問題ないかと．</p>
+</div>
+<div class="section" id="ck">
+<h2>ckのインストール</h2>
+<p><a class="reference external" href="http://www.geocities.jp/meir000/ck/">Cygwin ck terminal emulator</a>はCygwin上で動作するターミナルエミュレータです．何年か前に突如配布サイトが消失してしまって，この世の終わりかと思いましたが，現在は定期的に更新されています．ありがたい限りです．</p>
+<p>配布ファイルを展開し，「ck.app.dll/ck.con.exe/ck.exe」の３点のファイルをCygwinインストールディレクトリ配下の「/bin」にコピーします．さらに「ck.exe」のショートカットを作成しましょう．ショートカットのリンク先を</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\ck.exe -dir C:\cygwin\home\UserName
+</pre></div>
+</div>
+<p>のようにしておくと，起動直後にホームディレクトリをカレントディレクトリとして設定することが可能です．</p>
+<p>また，ホームディレクトリに「.ck.config.js」を配置すると動作設定を細かに設定することが可能です．詳細については，配布ファイルに含まれているドキュメントを確認してください．</p>
+</div>
+<div class="section" id="id3">
+<h2>ckの便利な設定</h2>
+<p>私がckをカスタマイズしている部分を紹介します．</p>
+<div class="highlight-python"><div class="highlight"><pre>Config.window.position_x = -1;
+Config.window.position_y = 0;
+Config.window.cols = 120;
+Config.window.rows = 65;
+
+Config.window.transparent     = 0xCC;
+
+Config.window.font_name = "MS Gothic";
+// Config.window.font_name = "MeryoKe_Console";
+// ※MeiryoKe_consoleはWindows8以降で含まれる6.12でないと
+//   利用することができないらしい・・・
+
+Config.window.color_foreground    = 0x00CC00;
+
+Config.accelkey.paste            = Keys.CtrlL  | Keys.ShiftL | Keys.P;
+// Ctrl+Shift+p で貼り付け，Ctrl+yでもいいかも
+
+function user_cmd_ime_off(window){
+  if(window.ImeState)
+  window.ImeState = false;
+  return false;
+}
+AccelKeys.add(Keys.Escape, user_cmd_ime_off);
+</pre></div>
+</div>
+<p>ck上でvimを開くことが多いのですが，IMEがonになっていると，vimのコマンドモードで反応してくれなくなるのですが，「Esc」を押してコマンドモードに移行した瞬間にIMEをoffにすることが可能ですので，vim＋日本語環境の煩わしさから少しだけ開放されます．</p>
+</div>
+<div class="section" id="x">
+<h2>Xサーバの自動起動</h2>
+<p>LinuxからEmacsウィンドウを転送してくるために，Cygwin付属のXサーバを常時起動させておきます．貧弱なマシンだと少々重いかもしれませんが，私は気にしません．</p>
+<div class="highlight-python"><div class="highlight"><pre>%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
+</pre></div>
+</div>
+<p>に，X起動用のショートカット作成します．起動用のショートカットは，「スタートメニュー＞すべてのプログラム＞Cygwin-X＞XWin Server」を参考にしてください．リンク先は</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c /usr/bin/startxwin.exe
+</pre></div>
+</div>
+<p>このような感じです．</p>
+<p>また，デフォルトでXサーバを起動すると，無駄にXtermが起動されたりするので，デフォルトでは何も起動しないように設定するため，Cygwinのホームディレクトリに「.startxwinrc」および「.XWinrc」という空ファイルを配置してください．すると，Xサーバのみが単体で起動されます．</p>
+</div>
+<div class="section" id="emacs">
+<h2>Emacsの呼び出し</h2>
+<p>Windows上の仮想マシンとして起動しているLinuxのEmacsを呼び出します．Linux側にX転送設定を書いても良いのですが，面倒ですのでSSHサーバのX転送機能を利用します．といっても，特に設定は不要のはず・・・</p>
+<p>Windows上に下記のようなショートカットを作成してください．</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\cygwin\bin\run.exe /usr/bin/bash.exe -l -c  ~/bin/remacs
+</pre></div>
+</div>
+<p>さらに，ホームディレクトリ配下の「bin」ディレクトリに，emacsというシェルスクリプトを作成します．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cat ~/bin/remacs
+#!/bin/sh
+ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
+</pre></div>
+</div>
+<p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
+<p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/cygwin.html">Cygwin</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/cygwin.html">cygwin</a>, <a href="tags/emacs.html">emacs</a></span>
+        </div>
         </div><div class="archive_link">
         <a href="archive.html"> &mdash; ブログアーカイブ &mdash; </a>
     </div><ul class="related clearfix">
@@ -765,14 +828,12 @@ mklink /J bin c:\cygwin\bin
             <li class="right"><a href="page2.html">前の投稿</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/english.html">English</a> (1)</li><li><a href="categories/linux.html">Linux</a> (4)</li></ul>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (2)</li><li><a href="categories/linux.html">Linux</a> (4)</li></ul>
 </div></section><section><div class="widget">
     <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (4), <a href="tags/github.html">github</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (2), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
             <a href="2014/05/12/becky.html">Beckyの設定</a>
-        </li><li>
-            <a href="2014/04/24/english.html">Study English</a>
         </li><li>
             <a href="2014/04/21/postfix.html">スパムメール対策</a>
         </li><li>
@@ -789,6 +850,8 @@ mklink /J bin c:\cygwin\bin
             <a href="2013/12/17/docomomail.html">ドコモメール</a>
         </li><li>
             <a href="2013/12/13/ntemacs.html">NTEmacsのすゝめ</a>
+        </li><li>
+            <a href="2013/11/27/cygwin.html">Cygwinのすゝめ</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
