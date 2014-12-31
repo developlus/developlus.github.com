@@ -94,26 +94,40 @@
 <h2>Cygwinのインストール</h2>
 <p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
 <p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
-<ul class="simple"><li>Devel<ul><li>gcc-core　・・・ちょっとコンパイルするときに</li>
+<ul class="simple">
+<li>Devel<ul>
+<li>gcc-core　・・・ちょっとコンパイルするときに</li>
 <li>gcc-g++　・・・ちょっとコンパイルするときに</li>
 <li>git　・・・gitからソース落とすときに</li>
 <li>make　・・・ちょっとコンパイルするときに</li>
 <li>subversion　・・・ソース管理するために</li>
-</ul></li>
-<li>Editors<ul><li>vim　・・・何はなくとも必要</li>
-</ul></li>
-<li>Net<ul><li>inetutils　・・・nslookupとか含まれてたはず</li>
+</ul>
+</li>
+<li>Editors<ul>
+<li>vim　・・・何はなくとも必要</li>
+</ul>
+</li>
+<li>Net<ul>
+<li>inetutils　・・・nslookupとか含まれてたはず</li>
 <li>nc　・・・簡易ファイル転送とか使えるから</li>
 <li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
 <li>openssh　・・・何はなくとも必要</li>
-</ul></li>
-<li>Utils<ul><li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
-</ul></li>
-<li>Web<ul><li>w3m　・・・Emacs＋w3m-modeで使う</li>
-</ul></li>
-<li>X11<ul><li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+<li>Utils<ul>
+<li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
+</ul>
+</li>
+<li>Web<ul>
+<li>w3m　・・・Emacs＋w3m-modeで使う</li>
+</ul>
+</li>
+<li>X11<ul>
+<li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="id2">
 <h2>Cygwinの環境変数</h2>
 <p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
@@ -191,6 +205,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
 <p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -272,6 +287,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
 <p>細かな設定の内容については別の機会に・・・</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -298,91 +314,118 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>そのための参考情報</p>
 <div class="section" id="vps-201311">
 <h2>VPSプロバイダ（2013年11月調べ）</h2>
-<table border="1" class="docutils"><colgroup><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/></colgroup><thead valign="bottom"><tr class="row-odd"><th class="head">プロバイダ</th>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロバイダ</th>
 <th class="head">Type</th>
 <th class="head">CPU</th>
 <th class="head">Mem</th>
 <th class="head">HDD</th>
 <th class="head">月額</th>
 <th class="head">初期</th>
-</tr></thead><tbody valign="top"><tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
 <td>OpenVZ</td>
 <td>3Core</td>
 <td>1GB</td>
 <td>200GB</td>
 <td>840</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>1GB</td>
 <td>50GB</td>
 <td>490</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
 <td>OpenVZ</td>
 <td>1Core</td>
 <td>1GB</td>
 <td>80GB</td>
 <td>780</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>512MB</td>
 <td>100GB</td>
 <td>800</td>
 <td>1600</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>976</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
 <td>KVM</td>
 <td>3Core</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>940</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>2GB</td>
 <td>55GB</td>
 <td>866</td>
 <td>1575</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
 <td>Xen</td>
 <td>？</td>
 <td>512MB</td>
 <td>50GB</td>
 <td>472</td>
 <td>0</td>
-</tr></tbody></table><p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
+</tr>
+</tbody>
+</table>
+<p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
 <p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
 <p>完全仮想化</p>
 <blockquote>
@@ -399,6 +442,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
 </div></blockquote>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -490,6 +534,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>これで，メーラから添付ファイルを保存する先を「~/Desktop」などに指定すれば，さくさくWindows側からファイルを操作することが可能です．</p>
 <p>ここでは，autofsによる自動マウントで実現していますが，「/etc/fstab」に記述してしまっても良いかもしれません．ただ，パスワードをそのまま書くのは気持ち悪いので，「crendentials」だけ別ファイルに切り出したほうが，少しだけ安心できます．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -521,33 +566,51 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <div class="section" id="vmware-server">
 <h3>VMWare Server</h3>
 <p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
-<ul class="simple"><li>長所<ul><li>Windowsサービスとして仮想マシンを動作可能</li>
+<ul class="simple">
+<li>長所<ul>
+<li>Windowsサービスとして仮想マシンを動作可能</li>
 <li>操作はWeb GUIから</li>
-</ul></li>
-<li>短所<ul><li>サポートが終了している</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>サポートが終了している</li>
 <li>UIは英語のみ</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="vmware-player-vmware-player-plus">
 <h3>VMWare Player（もといVMWare Player Plus）</h3>
 <p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
-<ul class="simple"><li>長所<ul><li>インストールが簡単</li>
+<ul class="simple">
+<li>長所<ul>
+<li>インストールが簡単</li>
 <li>UI/UXが良い．シンプルで直感的に使える</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
-</ul></li>
-</ul><p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
+</ul>
+</li>
+</ul>
+<p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
 </div>
 <div class="section" id="virtual-box-oracle">
 <h3>Virtual Box （Oracle）</h3>
 <p>Oracle（旧Sun）が提供する仮想環境です．</p>
-<ul class="simple"><li>長所<ul><li>UIは洗練されてきて使いやすい模様</li>
+<ul class="simple">
+<li>長所<ul>
+<li>UIは洗練されてきて使いやすい模様</li>
 <li>仮想N/WのNATでポートフォワーディングができる</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
 <li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
-</ul></li>
-</ul><p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
+</ul>
+</li>
+</ul>
+<p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -558,6 +621,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
 <p>次回，Lubuntuの設定に続く．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -686,6 +750,7 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 </div>
 <p>こんな感じです．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -717,6 +782,7 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 <p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
 <p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -751,6 +817,7 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 <p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
 <p>GitHub上をマスターとして，個人のサーバ上にリポジトリのコピーをおいておけば，編集は一箇所で済むし，バックアップも不要．一石二鳥です．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">

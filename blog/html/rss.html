@@ -15,15 +15,21 @@
 <p>これまでBecky!を利用していて困ったことはなかったのですが，メールサーバをCourier-IMAPサーバからDovecotに変更して気が付きました．</p>
 <p>これまで，Courier-IMAPサーバで標準でIMAPのメールディレクトリPrefixに「INBOX」が付いていたと思います．これで閲覧していると，受信箱の下に各振り分けフォルダがぶら下がって見えるので，慣れもあってしっくりきていました．</p>
 <p>見え方は</p>
-<ul class="simple"><li>受信箱（20）<ul><li>00_振り分けフォルダ１</li>
+<ul class="simple">
+<li>受信箱（20）<ul>
+<li>00_振り分けフォルダ１</li>
 <li>01_振り分けフォルダ２</li>
-</ul></li>
-<li>送信箱<ul><li>草稿</li>
+</ul>
+</li>
+<li>送信箱<ul>
+<li>草稿</li>
 <li>送信済み</li>
 <li>リマインダ</li>
-</ul></li>
+</ul>
+</li>
 <li>ごみ箱</li>
-</ul><p>しかし，いつからBecky!のバージョンアップ以降でしょうか，もしくはBecky!を入れ替えて設定がクリアされてしまったからでしょうか・・・「ごみ箱」にアクセスすると</p>
+</ul>
+<p>しかし，いつからBecky!のバージョンアップ以降でしょうか，もしくはBecky!を入れ替えて設定がクリアされてしまったからでしょうか・・・「ごみ箱」にアクセスすると</p>
 <div class="highlight-python"><div class="highlight"><pre>0061 NO Client tried to access nonexistent namespace.  (Mailbox
 name should probably be prefixed with: INBOX.)
 </pre></div>
@@ -46,7 +52,8 @@ name should probably be prefixed with: INBOX.)
 </div>
 <p>といったようなディレクトリが，Maildir配下に作成されてしまいます．PrefixにINBOXが付いているので，そのままMaildir直下のディレクトリを受信トレイ配下に並べてくれても良さそうなのですが・・・</p>
 <p>まぁ，普段はWanderlustでしかメールを書くことがないので気にしない．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 12 May 2014 00:00:00 +0900</pubDate>
         </item>
@@ -57,20 +64,23 @@ name should probably be prefixed with: INBOX.)
             <title><![CDATA[Study English]]></title>
             <description><![CDATA[<h1>Study English</h1>
 <p>ここ最近，仕事で英語を使う機会が増えすぎて，本気で英語を勉強しなければならない状況に陥ってきたので，その時時で勉強した英語をメモってく．</p>
-<ul><li><p class="first">investigate</p>
+<ul>
+<li><p class="first">investigate</p>
 <div class="line-block">
 <div class="line">〜調査，研究する</div>
 <div class="line">（仕事のなかでよく使うし，よく耳にする．）</div>
 </div>
 </li>
 <li><p class="first">未解決問題・議題</p>
-<ul class="simple"><li>moot question（議論の余地がある，疑義）</li>
+<ul class="simple">
+<li>moot question（議論の余地がある，疑義）</li>
 <li>moot point（議論の余地があるポイント）</li>
 <li>outstanding problem（係争問題）</li>
 <li>open issue（未解決事項）</li>
 <li>unsolved problem（未解決問題）</li>
 <li>unsolved issue（未解決事項）</li>
-</ul><p>（いろいろな言い回しがあるので気をつける）</p>
+</ul>
+<p>（いろいろな言い回しがあるので気をつける）</p>
 </li>
 <li><p class="first">apology</p>
 <div class="line-block">
@@ -111,7 +121,8 @@ name should probably be prefixed with: INBOX.)
 <div class="line">実用的に，現実的に</div>
 </div>
 </li>
-</ul>]]></description>
+</ul>
+]]></description>
             <category><![CDATA[ English ]]></category>
              <pubDate>Thu, 24 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -169,7 +180,8 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 # postmap /etc/postfix/access
 </pre></div>
 </div>
-<p>こんな感じです．</p>]]></description>
+<p>こんな感じです．</p>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 21 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -199,7 +211,8 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 </pre></div>
 </div>
 <p>まぁ，関係無さそうな設定も含まれていますが，ちなみにvenet0はVPSのNICです．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Wed, 16 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -260,7 +273,8 @@ esac
 </pre></div>
 </div>
 <p>これで，「server.key」（パスフレーズなし）と「server.crt」が生成されます．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 14 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -386,7 +400,8 @@ namespace inbox {
 </pre></div>
 </div>
 </div>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 14 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -412,7 +427,14 @@ namespace inbox {
 </div>
 <p>してみました．結果，Emacs23もインストールしてしまったものの，emacsのデフォルトパスもemacs24に向いており，emacs24からmozc.elを呼ぶことが出来たのでなんの問題もありませんでした．</p>
 <p class="rubric">脚注</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none"><colgroup><col class="label"/><col/></colgroup><tbody valign="top"><tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr></tbody></table></div>]]></description>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label"/><col/></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr>
+</tbody>
+</table>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 14 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -454,7 +476,8 @@ Host cat
 </pre></div>
 </div>
 <p>実際には，「ProxyCommand」とか，「GatewayPorts」とか「LocalForward」とか沢山の設定を書いています．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 14 Apr 2014 00:00:00 +0900</pubDate>
         </item>
@@ -468,9 +491,11 @@ Host cat
 <div class="section" id="id2">
 <h2>スマフォ側の設定</h2>
 <p>私の場合は，SPモードメールを「Communicase」で受信するように設定していましたが，Communicaseのアカウント設定で「アカウント毎設定＞ドコモ＞受信＞ドコモのメール受信」という設定項目で</p>
-<ul class="simple"><li>このアプリで受信する</li>
+<ul class="simple">
+<li>このアプリで受信する</li>
 <li>spモードメールアプリで受信する</li>
-</ul><p>という２択の設定が存在するので，後者「spモードメールアプリ」で受信する」を選択します．</p>
+</ul>
+<p>という２択の設定が存在するので，後者「spモードメールアプリ」で受信する」を選択します．</p>
 <p>さらに，ドコモアプリケーションマネージャ（「システム設定＞ドコモサービス＞アプリケーション管理」あたりから呼び出すことが可能です．）より，ドコモメール用のアプリ（ドコモメール）をインストールする必要があります．</p>
 <blockquote>
 <div>私の場合，ドコモアプリケーションマネージャをOffにしていたので，ちょっと引っかかりました．一度docomo IDを有効にして，メールの受信を開始してしまえば，Gmail向けのメーラアプリでも受信できると思います．（プッシュでの受信が可能かどうかは知らないですが）</div></blockquote>
@@ -479,11 +504,16 @@ Host cat
 <h2>IMAPクライアントの設定</h2>
 <p>IMAPクライアント側の設定情報については，<a class="reference external" href="https://www.nttdocomo.co.jp/service/docomo_cloud/docomo_mail/function/other/index.html">公式</a>に記載があるので確認してください．</p>
 <p>概要としては，</p>
-<ul class="simple"><li>メールサーバ<ul><li>IMAP(imaps): imap.spmode.ne.jp:993</li>
+<ul class="simple">
+<li>メールサーバ<ul>
+<li>IMAP(imaps): imap.spmode.ne.jp:993</li>
 <li>SMTP(smtps): smtp.spmode.ne.jp:465</li>
-</ul></li>
-</ul><p>SMTPSの認証は，PLAIN/LOGINのどちらかのようです．絵文字なメールは確認していませんが，デコメ（？）を送るとHTMLメールになるようで，通常のメーラでも問題なく表示できそうです．</p>
-</div>]]></description>
+</ul>
+</li>
+</ul>
+<p>SMTPSの認証は，PLAIN/LOGINのどちらかのようです．絵文字なメールは確認していませんが，デコメ（？）を送るとHTMLメールになるようで，通常のメーラでも問題なく表示できそうです．</p>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Tue, 17 Dec 2013 00:00:00 +0900</pubDate>
         </item>
@@ -541,7 +571,8 @@ mklink /J bin c:\cygwin\bin
 </pre></div>
 </div>
 <p>これで完了．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Emacs ]]></category>
              <pubDate>Fri, 13 Dec 2013 00:00:00 +0900</pubDate>
         </item>
@@ -558,26 +589,40 @@ mklink /J bin c:\cygwin\bin
 <h2>Cygwinのインストール</h2>
 <p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
 <p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
-<ul class="simple"><li>Devel<ul><li>gcc-core　・・・ちょっとコンパイルするときに</li>
+<ul class="simple">
+<li>Devel<ul>
+<li>gcc-core　・・・ちょっとコンパイルするときに</li>
 <li>gcc-g++　・・・ちょっとコンパイルするときに</li>
 <li>git　・・・gitからソース落とすときに</li>
 <li>make　・・・ちょっとコンパイルするときに</li>
 <li>subversion　・・・ソース管理するために</li>
-</ul></li>
-<li>Editors<ul><li>vim　・・・何はなくとも必要</li>
-</ul></li>
-<li>Net<ul><li>inetutils　・・・nslookupとか含まれてたはず</li>
+</ul>
+</li>
+<li>Editors<ul>
+<li>vim　・・・何はなくとも必要</li>
+</ul>
+</li>
+<li>Net<ul>
+<li>inetutils　・・・nslookupとか含まれてたはず</li>
 <li>nc　・・・簡易ファイル転送とか使えるから</li>
 <li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
 <li>openssh　・・・何はなくとも必要</li>
-</ul></li>
-<li>Utils<ul><li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
-</ul></li>
-<li>Web<ul><li>w3m　・・・Emacs＋w3m-modeで使う</li>
-</ul></li>
-<li>X11<ul><li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+<li>Utils<ul>
+<li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
+</ul>
+</li>
+<li>Web<ul>
+<li>w3m　・・・Emacs＋w3m-modeで使う</li>
+</ul>
+</li>
+<li>X11<ul>
+<li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="id2">
 <h2>Cygwinの環境変数</h2>
 <p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
@@ -654,7 +699,8 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 </div>
 <p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
 <p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Cygwin ]]></category>
              <pubDate>Wed, 27 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -724,7 +770,8 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>あとは，ホームディレクトリに「.wl/.folder/.address/.signature」などのファイルを配置すれば準備完了です．</p>
 <p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
 <p>細かな設定の内容については別の機会に・・・</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Emacs ]]></category>
              <pubDate>Wed, 20 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -740,91 +787,118 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>そのための参考情報</p>
 <div class="section" id="vps-201311">
 <h2>VPSプロバイダ（2013年11月調べ）</h2>
-<table border="1" class="docutils"><colgroup><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/></colgroup><thead valign="bottom"><tr class="row-odd"><th class="head">プロバイダ</th>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロバイダ</th>
 <th class="head">Type</th>
 <th class="head">CPU</th>
 <th class="head">Mem</th>
 <th class="head">HDD</th>
 <th class="head">月額</th>
 <th class="head">初期</th>
-</tr></thead><tbody valign="top"><tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
 <td>OpenVZ</td>
 <td>3Core</td>
 <td>1GB</td>
 <td>200GB</td>
 <td>840</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>1GB</td>
 <td>50GB</td>
 <td>490</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
 <td>OpenVZ</td>
 <td>1Core</td>
 <td>1GB</td>
 <td>80GB</td>
 <td>780</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>512MB</td>
 <td>100GB</td>
 <td>800</td>
 <td>1600</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>976</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
 <td>KVM</td>
 <td>3Core</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>940</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>2GB</td>
 <td>55GB</td>
 <td>866</td>
 <td>1575</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
 <td>Xen</td>
 <td>？</td>
 <td>512MB</td>
 <td>50GB</td>
 <td>472</td>
 <td>0</td>
-</tr></tbody></table><p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
+</tr>
+</tbody>
+</table>
+<p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
 <p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
 <p>完全仮想化</p>
 <blockquote>
@@ -840,7 +914,8 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>OSをコンテナ化するための仕組みで，カーネル自体がカスタマイズされている．コンテナ化されたOSはひとつのプロセスとしてホストマシン上で動作する．</p>
 <p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
 </div></blockquote>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Mon, 11 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -920,7 +995,8 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 </div>
 <p>これで，メーラから添付ファイルを保存する先を「~/Desktop」などに指定すれば，さくさくWindows側からファイルを操作することが可能です．</p>
 <p>ここでは，autofsによる自動マウントで実現していますが，「/etc/fstab」に記述してしまっても良いかもしれません．ただ，パスワードをそのまま書くのは気持ち悪いので，「crendentials」だけ別ファイルに切り出したほうが，少しだけ安心できます．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Linux ]]></category>
              <pubDate>Fri, 08 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -941,33 +1017,51 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <div class="section" id="vmware-server">
 <h3>VMWare Server</h3>
 <p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
-<ul class="simple"><li>長所<ul><li>Windowsサービスとして仮想マシンを動作可能</li>
+<ul class="simple">
+<li>長所<ul>
+<li>Windowsサービスとして仮想マシンを動作可能</li>
 <li>操作はWeb GUIから</li>
-</ul></li>
-<li>短所<ul><li>サポートが終了している</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>サポートが終了している</li>
 <li>UIは英語のみ</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="vmware-player-vmware-player-plus">
 <h3>VMWare Player（もといVMWare Player Plus）</h3>
 <p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
-<ul class="simple"><li>長所<ul><li>インストールが簡単</li>
+<ul class="simple">
+<li>長所<ul>
+<li>インストールが簡単</li>
 <li>UI/UXが良い．シンプルで直感的に使える</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
-</ul></li>
-</ul><p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
+</ul>
+</li>
+</ul>
+<p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
 </div>
 <div class="section" id="virtual-box-oracle">
 <h3>Virtual Box （Oracle）</h3>
 <p>Oracle（旧Sun）が提供する仮想環境です．</p>
-<ul class="simple"><li>長所<ul><li>UIは洗練されてきて使いやすい模様</li>
+<ul class="simple">
+<li>長所<ul>
+<li>UIは洗練されてきて使いやすい模様</li>
 <li>仮想N/WのNATでポートフォワーディングができる</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
 <li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
-</ul></li>
-</ul><p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
+</ul>
+</li>
+</ul>
+<p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -977,7 +1071,8 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>
 <p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
 <p>次回，Lubuntuの設定に続く．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Linux ]]></category>
              <pubDate>Thu, 07 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -1094,7 +1189,8 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 </pre></div>
 </div>
 <p>こんな感じです．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Linux ]]></category>
              <pubDate>Wed, 06 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -1114,7 +1210,8 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 <h2>ReST フォーマット</h2>
 <p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
 <p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Linux ]]></category>
              <pubDate>Wed, 06 Nov 2013 00:00:00 +0900</pubDate>
         </item>
@@ -1137,7 +1234,8 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 <p>言わずとしれた分散リポジトリ管理システムです．無料で個人のリポジトリを作成できることから巷でも人気のようですが，自分で書いたソースコードをインターネットな世界に晒す勇気がなくて躊躇していました．お仕事のソース管理はSubversionで十分でしたし．</p>
 <p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
 <p>GitHub上をマスターとして，個人のサーバ上にリポジトリのコピーをおいておけば，編集は一箇所で済むし，バックアップも不要．一石二鳥です．</p>
-</div>]]></description>
+</div>
+]]></description>
             <category><![CDATA[ Blog ]]></category>
              <pubDate>Tue, 05 Nov 2013 00:00:00 +0900</pubDate>
         </item>
