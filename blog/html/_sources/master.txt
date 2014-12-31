@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/12/31/mac
    2014/05/12/becky
    2014/04/21/postfix
    2014/04/16/newvps5

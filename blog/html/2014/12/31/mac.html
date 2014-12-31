@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="脳内情報垂れ流し">
         <meta name="viewport" content="width=device-width">
-        <title>サーバリニューアルのすゝめ（５） &mdash; DeveloPlus</title>
+        <title>Mac OSを使う &mdash; DeveloPlus</title>
             <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
@@ -28,7 +28,7 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="サーバリニューアルのすゝめ（４）" href="../14/newvps4.html" /><link rel="prev" title="スパムメール対策" href="../21/postfix.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="next" title="Beckyの設定" href="../../05/12/becky.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
         VERSION:     '1.5',
@@ -80,33 +80,32 @@
 </div>
 
 <div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../21/postfix.html">スパムメール対策</a></li>
-            <li class="right"><a href="../14/newvps4.html">サーバリニューアルのすゝめ（４）</a> &raquo; </li>
+            <li class="left"></li>
+            <li class="right"><a href="../../05/12/becky.html">Beckyの設定</a> &raquo; </li>
         </ul><div class="timestamp postmeta">
-            <span>April 16, 2014</span>
+            <span>December 31, 2014</span>
         </div>
-    <div class="section" id="id1">
-<h1>サーバリニューアルのすゝめ（５）</h1>
-<div class="section" id="ipv6">
-<h2>IPv6無効化</h2>
-<p>以外とハマりやすいのがIPv6関連．ローカルにHTTP Proxy（Squid）をたてて，プロキシサーバにしようとしたところ，設定は間違っていないのになぜかWebアクセスできない・・・と悩んで，ログを確認してみると，DIRECTアクセス先の指定がIPv6になっている．しかし，IPv6 Readyな環境ではないのでもちろんタイムアウトします．</p>
-<p>そんなときは，IPv6を利用しないように設定します．</p>
-<p>設定は簡単「/etc/sysctl.conf」の末尾あたりに設定を追加．</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">disable_ipv6</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">disable_ipv6</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">tcp_syncookies</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">icmp_echo_ignore_broadcasts</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">lo</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">venet0</span><span class="o">.</span><span class="n">accept_redirects</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">lo</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">venet0</span><span class="o">.</span><span class="n">accept_source_route</span><span class="o">=</span><span class="mi">0</span>
-</pre></div>
+    <div class="section" id="mac-os">
+<h1>Mac OSを使う</h1>
+<div class="section" id="id1">
+<h2>背景</h2>
+<p>最近，メインマシンをMac book Pro 13に変更しました．転勤により，ノートPCが貸与されなくなり，仕方なく自分でPCを調達することにしました．</p>
+<p>元々は，Vaio Pro11（Windows 7 64bit）に，Cygwin，VMwareWorkstation（Lubuntu稼働）で，困ることはなかったのですが，唯一困ることはUnix系のCUIツール（シェルスクリプト，Emacs等）をCygwin上で利用する場合は動作が重いこと．Emacsを利用する場合は，VMで動作させるか，Cygwin-Xだけを動作させて他PCで動作しているLubuntuにSSHしてEmacsウィンドウだけを転送してくるような使い方をしていました．</p>
+<p>そんな面倒なことをするくらいならば，最初からEmacsをさくさく利用できる環境がよい．ということで，Macに変更することにしました．</p>
+<p>最初はMacにすることによって，いろいろと戸惑うこともあるかもしれないと思っていましたが，正直なところMacで十分・・・もしくはMacのほうが便利という感想です．</p>
+<p>まずやること・・・</p>
 </div>
-<p>まぁ，関係無さそうな設定も含まれていますが，ちなみにvenet0はVPSのNICです．</p>
+<div class="section" id="id2">
+<h2>日本語入力</h2>
+<p>Macといえば「ことえり」なんでしょうが，いつからか「ことえり」は終了し新たな日本語IMエンジンに変更されたとか・・・</p>
+<p>ただ，Windowsでもそうだったように，豊富な語彙を持っているGoogle日本語入力があれば十分です．（早くiOSにもMozcが実装されないかな・・・）</p>
+<p>&#8216;Google IME &lt;<a class="reference external" href="https://www.google.co.jp/ime/index-mac.html">https://www.google.co.jp/ime/index-mac.html</a>&gt;&#8217;_ からインストールすることが可能です．</p>
+<p>さらに，Windowsでも同様の設定にしていたので，「Ctrl＋Space」でIMをトグルできるように変更します．</p>
+<p>「システム環境設定　＞　キーボード　＞　入力ソース」</p>
+<p>デフォルトのままでは，いろいろなIMが有効になっていると思うので，とりあえず「ひらがな（Google）」と「英数（Google）」のみを残す．</p>
+<p>同様に「システム環境設定　＞　キーボード　＞　ショートカット」</p>
+<p>入力ソースの項目で，「前の入力ソースを選択」に「Ctrl＋Space」を設定する．すると，「Spotlight検索を表示」と競合してしまうので，こちらを「Command＋Space」に変更しておきます．</p>
+<p>Windowsを利用していたときは，「&#8217;Launchy &lt;<a class="reference external" href="http://www.launchy.net/">http://www.launchy.net/</a>&gt;&#8217;_ 」（キーボードのみで操作できるランチャー）を利用し，これのショートカットが「Alt＋Space」だったので，代わりにSpotlightと同様の操作でぴったり．</p>
 </div>
 </div>
 
@@ -117,17 +116,17 @@
         <div class="categories">
             <span>
                 カテゴリー:
-                <a href="../../../categories/blog.html">Blog</a></span>
+                <a href="../../../categories/mac.html">Mac</a></span>
         </div>
         <div class="tags">
             <span>
                 タグ:
-                <a href="../../../tags/vps.html">vps</a></span>
+                <a href="../../../tags/mac.html">mac</a></span>
         </div>
         </div>
     <ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../21/postfix.html">スパムメール対策</a></li>
-            <li class="right"><a href="../14/newvps4.html">サーバリニューアルのすゝめ（４）</a> &raquo; </li>
+            <li class="left"></li>
+            <li class="right"><a href="../../05/12/becky.html">Beckyの設定</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
     <ul><li><a href="../../../categories/blog.html">Blog</a> (10)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (2)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li><li><a href="../../../categories/mac.html">Mac</a> (1)</li></ul>
@@ -135,21 +134,21 @@
     <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (2), <a href="../../../tags/docomo.html">docomo</a> (1), <a href="../../../tags/dovecot.html">dovecot</a> (1), <a href="../../../tags/emacs.html">emacs</a> (4), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/mac.html">mac</a> (1), <a href="../../../tags/postfix.html">postfix</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/stone.html">stone</a> (1), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (5), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
-            <a href="../../12/31/mac.html">Mac OSを使う</a>
+            <a href="#">Mac OSを使う</a>
         </li><li>
             <a href="../../05/12/becky.html">Beckyの設定</a>
         </li><li>
-            <a href="../21/postfix.html">スパムメール対策</a>
+            <a href="../../04/21/postfix.html">スパムメール対策</a>
         </li><li>
-            <a href="#">サーバリニューアルのすゝめ（５）</a>
+            <a href="../../04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a>
         </li><li>
-            <a href="../14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
+            <a href="../../04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a>
         </li><li>
-            <a href="../14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
+            <a href="../../04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
         </li><li>
-            <a href="../14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
+            <a href="../../04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
         </li><li>
-            <a href="../14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
+            <a href="../../04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li><li>
             <a href="../../../2013/12/17/docomomail.html">ドコモメール</a>
         </li><li>
