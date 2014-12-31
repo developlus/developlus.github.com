@@ -1,0 +1,283 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>VPSのすゝめ &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Lubuntuのすゝめ" href="../08/lubuntu.html" /><link rel="prev" title="Emacsのすゝめ" href="../20/emacs.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../20/emacs.html">Emacsのすゝめ</a></li>
+            <li class="right"><a href="../08/lubuntu.html">Lubuntuのすゝめ</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>November 11, 2013</span>
+        </div>
+    <div class="section" id="vps">
+<h1>VPSのすゝめ</h1>
+<p>以前は自宅サーバとしてキューブ型PCを置いて，テレビ録画＋メール＋Webもろもろのサーバとして利用していました．しかし，昨今はVPSもワンコインでレンタルできる時代です．</p>
+<p>ちなみに，自宅サーバを運用していたときの月額電気量はおおよそ500円程度＋固定IPアドレス500円の費用がかかっていました．</p>
+<p>2010年〜2011年は「<a class="reference external" href="mailto:ServersMan&#37;&#52;&#48;VPS">ServersMan<span>&#64;</span>VPS</a>」の最安プランを利用していました．しかしまぁ，使い勝手に不満がありまして現在は「カゴヤ・クラウド」に乗り換えています．特に不満は無いのですが，さらに他社のサービスも活気づいてきているので，更なる乗り換え先を模索しています．</p>
+<p>そのための参考情報</p>
+<div class="section" id="vps-201311">
+<h2>VPSプロバイダ（2013年11月調べ）</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロバイダ</th>
+<th class="head">Type</th>
+<th class="head">CPU</th>
+<th class="head">Mem</th>
+<th class="head">HDD</th>
+<th class="head">月額</th>
+<th class="head">初期</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
+<td>OpenVZ</td>
+<td>3Core</td>
+<td>1GB</td>
+<td>200GB</td>
+<td>840</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan&#64;VPS</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>1GB</td>
+<td>50GB</td>
+<td>490</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan&#64;VPS</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>2GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
+<td>OpenVZ</td>
+<td>1Core</td>
+<td>1GB</td>
+<td>80GB</td>
+<td>780</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe&#8217;s</a></td>
+<td>OpenVZ</td>
+<td>？</td>
+<td>512MB</td>
+<td>100GB</td>
+<td>800</td>
+<td>1600</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>976</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
+<td>KVM</td>
+<td>3Core</td>
+<td>2GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>940</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>2GB</td>
+<td>55GB</td>
+<td>866</td>
+<td>1575</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
+<td>KVM</td>
+<td>2Core</td>
+<td>1GB</td>
+<td>100GB</td>
+<td>980</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
+<td>Xen</td>
+<td>？</td>
+<td>512MB</td>
+<td>50GB</td>
+<td>472</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
+<p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
+<p>完全仮想化</p>
+<blockquote>
+<div><p>完全にH/Wがエミュレートされているので，インストールするOSも自由，カーネルの選択も自由，何でも好き勝手にできるかと思います．H/Wがエミュレートされる分，ホストマシンのCPUパワーを使うことになるため，動作が重いはずだった・・・が，現状はCPU自体がエミュレート処理をバイパスしてくれる仕組みができたため，快適に利用できる．</p>
+<p>※プロバイダによっては，インストールするOSを制限している場合もあるかとは思います．</p>
+</div></blockquote>
+<p>準仮想化</p>
+<blockquote>
+<div>完全仮想化に比べてややこしい．H/Wをエミュレートする過程で，仮想化クライアントにとって都合のよいデバイスとしてH/Wをエミュレートする．なので，クライアントマシンに対しては専用のドライバが必要となる．</div></blockquote>
+<p>コンテナ型仮想化</p>
+<blockquote>
+<div><p>果たして「コンテナ型仮想化」がどの程度の市民権を獲得しているか不明ですが，OpenVZのような仮想化方式はこう呼ばれているようです．</p>
+<p>OSをコンテナ化するための仕組みで，カーネル自体がカスタマイズされている．コンテナ化されたOSはひとつのプロセスとしてホストマシン上で動作する．</p>
+<p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
+</div></blockquote>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/vps.html">vps</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../20/emacs.html">Emacsのすゝめ</a></li>
+            <li class="right"><a href="../08/lubuntu.html">Lubuntuのすゝめ</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (2)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (1), <a href="../../../tags/emacs.html">emacs</a> (2), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (1), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../27/cygwin.html">Cygwinのすゝめ</a>
+        </li><li>
+            <a href="../20/emacs.html">Emacsのすゝめ</a>
+        </li><li>
+            <a href="#">VPSのすゝめ</a>
+        </li><li>
+            <a href="../08/lubuntu.html">Lubuntuのすゝめ</a>
+        </li><li>
+            <a href="../07/linux.html">作業用Linuxマシンのすゝめ</a>
+        </li><li>
+            <a href="../06/tinkerer.html">Tinkererの設定</a>
+        </li><li>
+            <a href="../06/rest.html">ReSTフォーマットの復習</a>
+        </li><li>
+            <a href="../05/start.html">Tinkerer(Sphinx) on GitHub</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

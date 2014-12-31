@@ -1,0 +1,257 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>Tinkererの設定 &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="ReSTフォーマットの復習" href="rest.html" /><link rel="prev" title="作業用Linuxマシンのすゝめ" href="../07/linux.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../07/linux.html">作業用Linuxマシンのすゝめ</a></li>
+            <li class="right"><a href="rest.html">ReSTフォーマットの復習</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>November 06, 2013</span>
+        </div>
+    <div class="section" id="tinkerer">
+<h1>Tinkererの設定</h1>
+<p>Tinkerrの初期設定については，様々なサイトで紹介されているので省略する．ただし，頭が真っ白な状態では現状のサイト構成辿りつけなかったのでポイントだけ記録しておきます．</p>
+<div class="section" id="id1">
+<h2>日本語設定</h2>
+<div class="section" id="id2">
+<h3>ビルドについて</h3>
+<div class="highlight-python"><div class="highlight"><pre>$ tinkerer -b
+</pre></div>
+</div>
+<p>を事項すると，Unicode関連のエラーが発生する場合があった．そもそもPythonに慣れていないので，この事象が意味不明だったが単純に文字列の定義に誤りがあった．</p>
+<div class="highlight-python"><div class="highlight"><pre>$vim conf.py
+---snip---
+description = &#39;脳内情報&#39;  # コンパイルエラー
+description = u&#39;脳内情報&#39; # 文字列がUnicodeであることをマークする
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>記事中の日本語について</h3>
+<p>これらの記事はEmacs（rst-mode）で記述しており，「auto-fill-mode」を有効にしています．なので，ReStドキュメント本体は適切な箇所で自動改行されています．</p>
+<p>この状態で何も考えずにコンテンツをビルドすると，改行が挿入された箇所が不自然に半角スペースに変換された状態となり，サイトの見た目が美しくありません．どうせビルド時に改行を[&amp;nbsp;]に置換しているんだろうな・・・とはあたりがつくものの，どこの設定を調節すれば良いのかサッパリでしたが，おおよそ自分が悩んでいる事象は世の中の先人も悩んでいるはずです．</p>
+<p>そんなわけで，ちょっとインターネットの力を借りると・・・これ</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir _exts
+$ cd _exts
+$ wget http://dl.dropbox.com/u/218108/files/japanesesupport.py
+$ cd ../
+$ vi conf.py
+---snip---
+extensions = [&#39;tinkerer.ext.blog&#39;, &#39;tinkerer.ext.disqus&#39;,
+&#39;japanesesupport&#39;]
+</pre></div>
+</div>
+<p>これだけで完了です．</p>
+<p>詳細についてはこちら・・・<a class="reference external" href="http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html">http://www.python.jp/pipermail/sphinx-users/2012-July/000303.html</a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>テーマについて</h2>
+<p>デフォルトのテーマでは味気ない．そこでテーマを変更します．デフォルトで提供されているテーマは以下の通り．</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ls -l /usr/local/lib
+$ ls -l /usr/local/lib/python2.7/dist-packages/tinkerer/themes/
+合計 28
+drwxr-sr-x 4 root staff 4096 11月  5 11:59 boilerplate
+drwxr-sr-x 3 root staff 4096 11月  5 14:56 dark
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 flat
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 minimal5
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 modern5
+drwxr-sr-x 3 root staff 4096 11月  5 11:59 responsive
+</pre></div>
+</div>
+<p>私は，「dark」を利用しています．しかし，少々見にくいというか，見出しが単調なので少しだけCSSを変更して，オリジナルテーマとしました．（ライセンス的にOKなのか確かめてないのですが，きっと大丈夫・・・）</p>
+<p>オリジナルテーマは「_themes」というディレクトリに配置して置くと良いです．</p>
+<div class="highlight-css"><div class="highlight"><pre>$ mkdir _themes
+$ cp -rfp /usr/local/lib/python2.7/dist-packages/tinkerer/themes/dark ./developlus
+---Modified developlus/static/dark.css
+$ diff original-dark/static/dark.css  developlus/static/dark.css
+355a356
+&gt;     text-decoration: underline;
+359a361
+&gt;     background: #ccc;
+382a385,392
+&gt; /* Custom Developlus */
+&gt; .widget h1 {
+&gt;     font-size: 16px;
+&gt;     border-left: #ccc solid 6px;
+&gt;     border-bottom: #ccc solid 2px;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+388c398
+&lt;     padding: 30px 0;
+---
+&gt;     padding: 20px 0;
+393a404,434
+&gt;     border-left: #666 solid 8px;
+&gt;     border-bottom: #666 solid 2px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article h2 {
+&gt;     font-size: 1.2em;
+&gt;     line-height: 1.2;
+&gt;     border-left: #666 solid 6px;
+&gt;     border-bottom: #666 dashed 2px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article h3 {
+&gt;     font-size: 1em;
+&gt;     line-height: 1.2;
+&gt;     border-left: #666 solid 2px;
+&gt;     border-bottom: #666 dotted 1px;
+&gt;     text-decoration: none;
+&gt;     padding-left: 0.4em;
+&gt; }
+&gt;
+&gt; .main article p {
+&gt;     padding-left: 1em;
+&gt; }
+&gt;
+&gt; .main article pre {
+&gt;     margin-left: 1em;
+&gt;
+</pre></div>
+</div>
+<p>こんな感じです．</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/tinkerer.html">tinkerer</a>, <a href="../../../tags/sphinx.html">sphinx</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../07/linux.html">作業用Linuxマシンのすゝめ</a></li>
+            <li class="right"><a href="rest.html">ReSTフォーマットの復習</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (2)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (1), <a href="../../../tags/emacs.html">emacs</a> (2), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (1), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../27/cygwin.html">Cygwinのすゝめ</a>
+        </li><li>
+            <a href="../20/emacs.html">Emacsのすゝめ</a>
+        </li><li>
+            <a href="../11/vps.html">VPSのすゝめ</a>
+        </li><li>
+            <a href="../08/lubuntu.html">Lubuntuのすゝめ</a>
+        </li><li>
+            <a href="../07/linux.html">作業用Linuxマシンのすゝめ</a>
+        </li><li>
+            <a href="#">Tinkererの設定</a>
+        </li><li>
+            <a href="rest.html">ReSTフォーマットの復習</a>
+        </li><li>
+            <a href="../05/start.html">Tinkerer(Sphinx) on GitHub</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

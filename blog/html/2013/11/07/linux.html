@@ -1,0 +1,215 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>作業用Linuxマシンのすゝめ &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Tinkererの設定" href="../06/tinkerer.html" /><link rel="prev" title="Lubuntuのすゝめ" href="../08/lubuntu.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../08/lubuntu.html">Lubuntuのすゝめ</a></li>
+            <li class="right"><a href="../06/tinkerer.html">Tinkererの設定</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>November 07, 2013</span>
+        </div>
+    <div class="section" id="linux">
+<h1>作業用Linuxマシンのすゝめ</h1>
+<p>私は，メール・テキストの編集などはEmacsを利用したいタイプです．なお，ターミナルエミュレータ的なものが無いと生活出来ません．シェル（bash）を使いたいし，grepやawkやsed，簡単な設定ファイルはvi/vimを使いたいのです．</p>
+<p>しかし，会社での生活環境はWindowsしか許されていません．正確にはLinuxも許されていますが，社内の共通的な業務はWindowsでないと困ることが多々あります．</p>
+<p>そこで，会社の生活環境PCに，Cygwin＋ck（ターミナルエミュレータ），Emacs24＋Wanderlust（Mewライクなメーラ）をインストールして生活しています．</p>
+<p>しかし，これでも不便を感じることが多いのです．というのも，Emacsが結構落ちるのです．原因は不明，あとWanderlustでメールを書いて送信した直後にフリーズとか・・・．ちなみに，Linuxで同じことをしていても，なんの問題もありません．非常に快適です．</p>
+<p>そんなわけで，会社の生活環境PCに仮想環境（VMWare Server/もうサポートが終わりました）を構築し，VM中にLinuxをインストールして利用しています．私が使いやすいと感じる妥協ポイントを紹介していきます．</p>
+<div class="section" id="id1">
+<h2>仮想環境の選択</h2>
+<p>上記で書いたとおり，VMWare Serverを利用していますが，この製品はサポートが終了しています．なぜこれを選択しているのか・・・</p>
+<div class="section" id="vmware-server">
+<h3>VMWare Server</h3>
+<p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
+<ul class="simple">
+<li>長所<ul>
+<li>Windowsサービスとして仮想マシンを動作可能</li>
+<li>操作はWeb GUIから</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>サポートが終了している</li>
+<li>UIは英語のみ</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="vmware-player-vmware-player-plus">
+<h3>VMWare Player（もといVMWare Player Plus）</h3>
+<p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
+<ul class="simple">
+<li>長所<ul>
+<li>インストールが簡単</li>
+<li>UI/UXが良い．シンプルで直感的に使える</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
+</ul>
+</li>
+</ul>
+<p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
+</div>
+<div class="section" id="virtual-box-oracle">
+<h3>Virtual Box （Oracle）</h3>
+<p>Oracle（旧Sun）が提供する仮想環境です．</p>
+<ul class="simple">
+<li>長所<ul>
+<li>UIは洗練されてきて使いやすい模様</li>
+<li>仮想N/WのNATでポートフォワーディングができる</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
+<li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
+</ul>
+</li>
+</ul>
+<p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Linuxの選択</h2>
+<p>Linuxで何を利用するか・・・以前は，CentOSを利用していました．一時期，CentOSのコミュニティが荒れていた時は，Scientific Linuxに浮気していました．</p>
+<p>しかし，このCnetOSですが．とにかくBoot時間が長いのです．Ubuntuを少し触った時に痛感しました．VMWare ServerからサービスとしてVMを自動起動してくるのですが，WindowsにログオンしてもLinuxのBootが完了していない時間が長すぎて少々イライラします．</p>
+<p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>
+<p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
+<p>次回，Lubuntuの設定に続く．</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/linux.html">Linux</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/lubuntu.html">lubuntu</a>, <a href="../../../tags/vm.html">vm</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../08/lubuntu.html">Lubuntuのすゝめ</a></li>
+            <li class="right"><a href="../06/tinkerer.html">Tinkererの設定</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (2)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (1), <a href="../../../tags/emacs.html">emacs</a> (2), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (1), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../27/cygwin.html">Cygwinのすゝめ</a>
+        </li><li>
+            <a href="../20/emacs.html">Emacsのすゝめ</a>
+        </li><li>
+            <a href="../11/vps.html">VPSのすゝめ</a>
+        </li><li>
+            <a href="../08/lubuntu.html">Lubuntuのすゝめ</a>
+        </li><li>
+            <a href="#">作業用Linuxマシンのすゝめ</a>
+        </li><li>
+            <a href="../06/tinkerer.html">Tinkererの設定</a>
+        </li><li>
+            <a href="../06/rest.html">ReSTフォーマットの復習</a>
+        </li><li>
+            <a href="../05/start.html">Tinkerer(Sphinx) on GitHub</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

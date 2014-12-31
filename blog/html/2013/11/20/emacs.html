@@ -1,0 +1,210 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="脳内情報垂れ流し">
+        <meta name="viewport" content="width=device-width">
+        <title>Emacsのすゝめ &mdash; DeveloPlus</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/dark.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="VPSのすゝめ" href="../11/vps.html" /><link rel="prev" title="Cygwinのすゝめ" href="../27/cygwin.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="../../../index.html">DeveloPlus</a></h1>
+          <h4></h4>
+        </div>
+        <nav>
+          <ul>
+            <li class="main-nav">
+              <a href="../../../index.html">ホーム</a>
+            </li>
+            <li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li></ul>
+        </nav>
+    </header>
+</div>
+
+<div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../27/cygwin.html">Cygwinのすゝめ</a></li>
+            <li class="right"><a href="../11/vps.html">VPSのすゝめ</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>November 20, 2013</span>
+        </div>
+    <div class="section" id="emacs">
+<h1>Emacsのすゝめ</h1>
+<p>ほぼメーラ専属となってしまいましたが，Emacs＋Wanderlustでメールの読み書きをしています．今回はLubuntuで，Emacs24とWanderlust2.15系の組み合わせで，メールを読み書きするまでの手順を紹介します．</p>
+<div class="section" id="id1">
+<h2>Emacsのインストール</h2>
+<p>Emacsのインストール自体はお手軽です．Emacs23系でも十分に満足していたのですが，Emacs24系からLispパッケージの管理が楽になるとのことで，Emacs24を使うことにします．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs24 emacs-mozc</span>
+</pre></div>
+</div>
+<p>「emacs-mozc」はかな漢字変換を行うLispです．中身は「mozc_server」と「mozc_emacs_helper」というサーバクライアントプロセス間で通信して，Emacsがかな漢字変換結果を受け取るシステムのようです．Mozcは野良コンパイルは面倒なので，パッケージ管理（aptitude）でさくっと入れてしまいます．</p>
+<p>その他，使っているLispはこんなもの．</p>
+<div class="section" id="init-loader-el">
+<h3>まず初めにinit-loader.elする</h3>
+<p>前は，「.emacs」に記述していましたが，WindowsでNtemacsを使ったり，Linux上でEmacs使ったり設定の切り替えが面倒になってきました．最初は頑張って</p>
+<div class="highlight-python"><div class="highlight"><pre>(cond
+  ((and (equal system-type &#39;windows-nt) (= emacs-major-version23))
+    (load &quot;~/.emacs.d/init-ntemacs23.el))
+  ((= emacs-major-version 23)
+    (load &quot;~/.emacs.d/init-23.el))
+  ((= emacs-major-version 24)
+    (load &quot;~/.emacs.d/init-24.el))
+)
+</pre></div>
+</div>
+<p>みたいなことを書いていたのですが，プラットフォーム毎に各々のファイルを更新しなければならないためストレスいっぱいでした．</p>
+<p>そこで目をつけたのが「init-loader.el」です．</p>
+<div class="highlight-python"><div class="highlight"><pre>(when (locate-library &quot;init-loader&quot;)
+  (require &#39;init-loader)
+  (setq init-loader-show-log-after-init nil)
+  (init-loader-load &quot;~/.emacs.d/inits&quot;))
+</pre></div>
+</div>
+<p>「~/.emacs.d/inits」ディレクトリ配下に配置されているLispを次々とロードしてくれます．プレフィックスに「linux-」が付いているとLinuxプラットフォームでだけ読み込む．「windows-」が付いているとWindowsプラットフォームでだけ読み込む．あとは，プレフィックスに数字２桁をつけると番号が若い順に読み込むようです．</p>
+<p>詳細は，<a class="reference external" href="https://github.com/developlus/home/tree/master/.emacs.d/">こちら(.emacs.d配下)</a>に公開しているので実際に見てもらったほうが早いかと．</p>
+</div>
+</div>
+<div class="section" id="wanderlust">
+<h2>Wanderlustのインストール</h2>
+<p>Ubuntuのパッケージ管理（aptitude）でも簡単にWanderlusutをインストールできるのですが，せっかくなので最新版をインストールする手順をご紹介．</p>
+<p>Wanderlustの製作者であり配布元である<a class="reference external" href="http://www.gohome.org/wl/index.ja.html">本家</a>は更新が途絶えております．いまは，Github上で管理されているのでこちらを取得します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/local/src/</span>
+<span class="c"># git clone https://github.com/wanderlust/wanderlust</span>
+<span class="c"># git clone https://github.com/wanderlust/apel</span>
+<span class="c"># git clone https://github.com/wanderlust/flim</span>
+<span class="c"># git clone https://github.com/wanderlust/semi</span>
+<span class="c"># cd apel</span>
+<span class="c"># make</span>
+<span class="c"># make install</span>
+</pre></div>
+</div>
+<p>という具合に，「apel/flim/semi/wanderlust」の順番でインストールしていくのですが，何も考えずにインストールしようとすると，Lispの格納先が「/usr/local/share/emacs/site-lisp」および，「/usr/local/share/emacs/24.3/site-lisp」になります．変更したければ，「make」時の引数に「LISPDIR=」などでインストールパスを変更することが可能です．どこの環境でも同じものを利用したいのであれば「~/.emacs.d/site-lisp」に配置しておくのもありかと思います．詳細にてついては「Makefile」の先頭を確認してください．私の場合は，環境を変えたら最新のものを使いたいので，毎度インストールしなおしていますね．</p>
+<p>なお，Lisp配置先のディレクトリで再帰的に「load-path」に組み込めるように「subdirs.el」というファイルを「site-lisp」ディレクトリ配下に作成しておきます．</p>
+<div class="highlight-python"><div class="highlight"><pre># cat /usr/local/share/emacs/site-lisp/subdirs.el
+;; -*- no-byte-compile: t -*-
+(if (fboundp &#39;normal-top-level-add-subdirs-to-load-path)
+  (normal-top-level-add-subdirs-to-load-path))
+</pre></div>
+</div>
+<p>バージョン依存の「/usr/local/share/emacs/24.3/site-lisp/」のほうも同様です．これを置いておかないと，「flim，semi」を続けてバイトコンパイルすることができないと思います．もちろん，「init.el」で「load-path」に含めておいてください．</p>
+<p>あとは，ホームディレクトリに「.wl/.folder/.address/.signature」などのファイルを配置すれば準備完了です．</p>
+<p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
+<p>細かな設定の内容については別の機会に・・・</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/emacs.html">Emacs</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/emacs.html">emacs</a>, <a href="../../../tags/wanderlust.html">Wanderlust</a></span>
+        </div>
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../27/cygwin.html">Cygwinのすゝめ</a></li>
+            <li class="right"><a href="../11/vps.html">VPSのすゝめ</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/blog.html">Blog</a> (2)</li><li><a href="../../../categories/cygwin.html">Cygwin</a> (1)</li><li><a href="../../../categories/emacs.html">Emacs</a> (1)</li><li><a href="../../../categories/linux.html">Linux</a> (4)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/cygwin.html">cygwin</a> (1), <a href="../../../tags/emacs.html">emacs</a> (2), <a href="../../../tags/github.html">github</a> (1), <a href="../../../tags/lubuntu.html">lubuntu</a> (2), <a href="../../../tags/sphinx.html">sphinx</a> (3), <a href="../../../tags/tinkerer.html">tinkerer</a> (2), <a href="../../../tags/vm.html">vm</a> (1), <a href="../../../tags/vps.html">vps</a> (1), <a href="../../../tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../27/cygwin.html">Cygwinのすゝめ</a>
+        </li><li>
+            <a href="#">Emacsのすゝめ</a>
+        </li><li>
+            <a href="../11/vps.html">VPSのすゝめ</a>
+        </li><li>
+            <a href="../08/lubuntu.html">Lubuntuのすゝめ</a>
+        </li><li>
+            <a href="../07/linux.html">作業用Linuxマシンのすゝめ</a>
+        </li><li>
+            <a href="../06/tinkerer.html">Tinkererの設定</a>
+        </li><li>
+            <a href="../06/rest.html">ReSTフォーマットの復習</a>
+        </li><li>
+            <a href="../05/start.html">Tinkerer(Sphinx) on GitHub</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox" role="search">
+    <h1><a href="#searchbox">Search</a></h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2014, DeveloPlus. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>
