@@ -13,7 +13,7 @@ import tinkerer.paths
 project = u'DeveloPlus'
 
 # Change this to the tagline of your blog
-tagline = u'Unix Linux Mac Emacs'
+tagline = u''
 
 # Change this to the description of your blog
 description = u'脳内情報垂れ流し'
@@ -39,7 +39,7 @@ html_favicon = '_static/tinkerer.ico'
 
 # Pick another Tinkerer theme or use your own
 #html_theme = 'flat'
-html_theme = 'dark'
+html_theme = 'developlus'
 
 # Theme-specific options, see docs
 html_theme_options = {}
