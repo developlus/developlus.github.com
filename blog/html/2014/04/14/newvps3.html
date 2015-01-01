@@ -86,9 +86,9 @@
             <span>April 14, 2014</span>
         </div>
     <div class="section" id="id1">
-<h1>サーバリニューアルのすゝめ（３）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>サーバリニューアルのすゝめ（３）</h1>
 <div class="section" id="postfix">
-<h2>Postfixの準備<a class="headerlink" href="#postfix" title="Permalink to this headline">¶</a></h2>
+<h2>Postfixの準備</h2>
 <p>「カゴヤ・クラウド／VPS」でUbuntuを導入したところ，標準でSendmailが動作していましたが，面倒なのですべてのSendmail関連パッケージを削除しました．</p>
 <p>まずは，インストール・・・</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install postfix</span>
@@ -96,7 +96,7 @@
 </div>
 <p>とりあえず，Debianパッケージだとローカルのみだとか，イントラネットだとか，メールサーバを配置する場所に応じて初期値となる設定値を埋めてくれます．とりあえず「インターネット上」に設定しておく．</p>
 <div class="section" id="main-cf">
-<h3>main.cfの設定<a class="headerlink" href="#main-cf" title="Permalink to this headline">¶</a></h3>
+<h3>main.cfの設定</h3>
 <p>何はなくとも設定ファイル「/etc/postfix/main.cf」をいじります．</p>
 <div class="highlight-python"><div class="highlight"><pre># クライアントに無駄な情報を教えない
 smtpd_banner = $myhostname ESMTP
@@ -132,7 +132,7 @@ default_rbl_reply = $rbl_code &lt;$recipient&gt;: Recipient address rejected: Us
 </div>
 </div>
 <div class="section" id="sasl2">
-<h3>SASL2の設定<a class="headerlink" href="#sasl2" title="Permalink to this headline">¶</a></h3>
+<h3>SASL2の設定</h3>
 <p>SMTPS認証を実施するために，SASL2を利用します．幸い最初からインストールされていましたが，以下のパッケージが必要になります．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install sasl2-bin sasl2-modules</span>
 </pre></div>
@@ -149,7 +149,7 @@ OPTIONS=&quot;-c -m /var/spool/postfix/var/run/saslauthd&quot;
 </div>
 </div>
 <div class="section" id="master-cf">
-<h3>master.cfの設定<a class="headerlink" href="#master-cf" title="Permalink to this headline">¶</a></h3>
+<h3>master.cfの設定</h3>
 <p>SMTPSをListenするために，「/etc/postfix/master.cf」を変更します．コメントアウトを外すだけ．</p>
 <div class="highlight-python"><div class="highlight"><pre>submission inet n       -       -       -       -       smtpd
     -o syslog_name=postfix/submission
@@ -178,14 +178,14 @@ mech_list: plain login
 </div>
 </div>
 <div class="section" id="dovecot">
-<h2>Dovecotの準備<a class="headerlink" href="#dovecot" title="Permalink to this headline">¶</a></h2>
+<h2>Dovecotの準備</h2>
 <p>以前は何が何でもCourier-IMAPを利用していましたが，最近はDovecotを利用するようになりました．</p>
 <p>まずは，Dovecotのインストール</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install dovecot-imapd dovecot-common</span>
 </pre></div>
 </div>
 <div class="section" id="id2">
-<h3>メールディレクトリ設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>メールディレクトリ設定</h3>
 <p>Courier-IMAPと同様に利用するためにはひと工夫が必要なので，設定ファイル「/etc/dovecot/conf.d/10-mail.conf」を編集します．</p>
 <div class="highlight-python"><div class="highlight"><pre>（メールディレクトリをMaildirに変更）
 mail_location = maildir:~/Maildir

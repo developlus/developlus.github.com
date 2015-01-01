@@ -86,17 +86,17 @@
             <span>November 07, 2013</span>
         </div>
     <div class="section" id="linux">
-<h1>作業用Linuxマシンのすゝめ<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<h1>作業用Linuxマシンのすゝめ</h1>
 <p>私は，メール・テキストの編集などはEmacsを利用したいタイプです．なお，ターミナルエミュレータ的なものが無いと生活出来ません．シェル（bash）を使いたいし，grepやawkやsed，簡単な設定ファイルはvi/vimを使いたいのです．</p>
 <p>しかし，会社での生活環境はWindowsしか許されていません．正確にはLinuxも許されていますが，社内の共通的な業務はWindowsでないと困ることが多々あります．</p>
 <p>そこで，会社の生活環境PCに，Cygwin＋ck（ターミナルエミュレータ），Emacs24＋Wanderlust（Mewライクなメーラ）をインストールして生活しています．</p>
 <p>しかし，これでも不便を感じることが多いのです．というのも，Emacsが結構落ちるのです．原因は不明，あとWanderlustでメールを書いて送信した直後にフリーズとか・・・．ちなみに，Linuxで同じことをしていても，なんの問題もありません．非常に快適です．</p>
 <p>そんなわけで，会社の生活環境PCに仮想環境（VMWare Server/もうサポートが終わりました）を構築し，VM中にLinuxをインストールして利用しています．私が使いやすいと感じる妥協ポイントを紹介していきます．</p>
 <div class="section" id="id1">
-<h2>仮想環境の選択<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>仮想環境の選択</h2>
 <p>上記で書いたとおり，VMWare Serverを利用していますが，この製品はサポートが終了しています．なぜこれを選択しているのか・・・</p>
 <div class="section" id="vmware-server">
-<h3>VMWare Server<a class="headerlink" href="#vmware-server" title="Permalink to this headline">¶</a></h3>
+<h3>VMWare Server</h3>
 <p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -112,7 +112,7 @@
 </ul>
 </div>
 <div class="section" id="vmware-player-vmware-player-plus">
-<h3>VMWare Player（もといVMWare Player Plus）<a class="headerlink" href="#vmware-player-vmware-player-plus" title="Permalink to this headline">¶</a></h3>
+<h3>VMWare Player（もといVMWare Player Plus）</h3>
 <p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -128,7 +128,7 @@
 <p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
 </div>
 <div class="section" id="virtual-box-oracle">
-<h3>Virtual Box （Oracle）<a class="headerlink" href="#virtual-box-oracle" title="Permalink to this headline">¶</a></h3>
+<h3>Virtual Box （Oracle）</h3>
 <p>Oracle（旧Sun）が提供する仮想環境です．</p>
 <ul class="simple">
 <li>長所<ul>
@@ -146,7 +146,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Linuxの選択<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>Linuxの選択</h2>
 <p>Linuxで何を利用するか・・・以前は，CentOSを利用していました．一時期，CentOSのコミュニティが荒れていた時は，Scientific Linuxに浮気していました．</p>
 <p>しかし，このCnetOSですが．とにかくBoot時間が長いのです．Ubuntuを少し触った時に痛感しました．VMWare ServerからサービスとしてVMを自動起動してくるのですが，WindowsにログオンしてもLinuxのBootが完了していない時間が長すぎて少々イライラします．</p>
 <p>そこで，Ubuntu系に乗り換えることにしました．他にも選択肢はありました．Puppy Linux，Arch Linux，LinuxBean，Tiny Core Linuxなどなど・・・しかし，日本語環境のサポート，パッケージの豊富さを考えると，Debian系の派生には叶わないようですね・・・</p>

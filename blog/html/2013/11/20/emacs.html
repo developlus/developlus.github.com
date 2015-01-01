@@ -86,10 +86,10 @@
             <span>November 20, 2013</span>
         </div>
     <div class="section" id="emacs">
-<h1>Emacsのすゝめ<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h1>
+<h1>Emacsのすゝめ</h1>
 <p>ほぼメーラ専属となってしまいましたが，Emacs＋Wanderlustでメールの読み書きをしています．今回はLubuntuで，Emacs24とWanderlust2.15系の組み合わせで，メールを読み書きするまでの手順を紹介します．</p>
 <div class="section" id="id1">
-<h2>Emacsのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Emacsのインストール</h2>
 <p>Emacsのインストール自体はお手軽です．Emacs23系でも十分に満足していたのですが，Emacs24系からLispパッケージの管理が楽になるとのことで，Emacs24を使うことにします．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install emacs24 emacs-mozc</span>
 </pre></div>
@@ -97,7 +97,7 @@
 <p>「emacs-mozc」はかな漢字変換を行うLispです．中身は「mozc_server」と「mozc_emacs_helper」というサーバクライアントプロセス間で通信して，Emacsがかな漢字変換結果を受け取るシステムのようです．Mozcは野良コンパイルは面倒なので，パッケージ管理（aptitude）でさくっと入れてしまいます．</p>
 <p>その他，使っているLispはこんなもの．</p>
 <div class="section" id="init-loader-el">
-<h3>まず初めにinit-loader.elする<a class="headerlink" href="#init-loader-el" title="Permalink to this headline">¶</a></h3>
+<h3>まず初めにinit-loader.elする</h3>
 <p>前は，「.emacs」に記述していましたが，WindowsでNtemacsを使ったり，Linux上でEmacs使ったり設定の切り替えが面倒になってきました．最初は頑張って</p>
 <div class="highlight-python"><div class="highlight"><pre>(cond
   ((and (equal system-type &#39;windows-nt) (= emacs-major-version23))
@@ -122,7 +122,7 @@
 </div>
 </div>
 <div class="section" id="wanderlust">
-<h2>Wanderlustのインストール<a class="headerlink" href="#wanderlust" title="Permalink to this headline">¶</a></h2>
+<h2>Wanderlustのインストール</h2>
 <p>Ubuntuのパッケージ管理（aptitude）でも簡単にWanderlusutをインストールできるのですが，せっかくなので最新版をインストールする手順をご紹介．</p>
 <p>Wanderlustの製作者であり配布元である<a class="reference external" href="http://www.gohome.org/wl/index.ja.html">本家</a>は更新が途絶えております．いまは，Github上で管理されているのでこちらを取得します．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># cd /usr/local/src/</span>

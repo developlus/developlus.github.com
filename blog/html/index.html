@@ -86,13 +86,13 @@
             <span>January 01, 2015</span>
         </div>
         <div class="section">
-            <h1><a href="2015/01/01/cask.html">Cask<a class="headerlink" href="#cask" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2015/01/01/cask.html">Cask</a></h1>
 <p>これまでLubuntuでapptitude（apt-get）でLispをインストール出来ていたので，必要最低限のLispパッケージは自分でインストールしていました．特にWanderlustとか・・・</p>
 <p>el-getでパッケージ管理できることは知っていたので，el-getでやるか・・・とググってみると，Caskというパッケージ管理が目につきます．</p>
 <p>Emacs24からパッケージ管理が組み込まれたと言えども，インストール指定なければ毎度エラーが出るし．</p>
 <p>Caskでやれば，パッケージの管理もアップデートも一発ということで，こちらでCaskを試してみる．</p>
 <div class="section" id="id1">
-<h2>Caskのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Caskのインストール</h2>
 <p>まずは<a class="reference external" href="https://github.com/cask/cask">Official Web</a>を参照．こちらにインストール方法も記載してあります．</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; curl -fsSkL https://raw.github.com/cask/cask/master/go | python
 </pre></div>
@@ -103,10 +103,10 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Caskのセットアップ<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>Caskのセットアップ</h2>
 <p><a class="reference external" href="http://cask.readthedocs.org/en/latest/">こちら</a>のドキュメントに使い方が紹介されています．</p>
 <div class="section" id="path">
-<h3>PATHを設定する<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
+<h3>PATHを設定する</h3>
 <div class="highlight-python"><div class="highlight"><pre>export PATH="$HOME/.cask/bin:$PATH"
 </pre></div>
 </div>
@@ -118,7 +118,7 @@
 <p>を実行するように記載されています．cask自体をアップデートする模様．</p>
 </div>
 <div class="section" id="id4">
-<h3>セットアップ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>セットアップ</h3>
 <p>以下の手順でセットアップする模様</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; cask init
 </pre></div>
@@ -140,7 +140,6 @@
 </div>
 </div>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -160,10 +159,10 @@
             <span>December 31, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/12/31/emacs.html">Emacs on MacOS<a class="headerlink" href="#emacs-on-macos" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/12/31/emacs.html">Emacs on MacOS</a></h1>
 <p>Mac OS上でEmacsを使う．これまで，Emacsに関する情報収集するときに，よく「Cocoa Emacs」という単語を目にしていましたが，ついに自分が使う時がきたか・・・</p>
 <div class="section" id="emacs">
-<h2>Emacsをインストールする<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
+<h2>Emacsをインストールする</h2>
 <p>といっても，Homebrewでサクッとインストールすることができる．</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; brew install emacs
 </pre></div>
@@ -176,7 +175,7 @@
 <p>ただ，自分の環境だけなのか？Spotlight検索からEmacsが検索されなかった．「/usr/local/Cellar/emacs/24.4/Emacs.app」を「/Application」配下にコピーすることで解決されるが，手動でコピーするのが気持ち悪かったので，自分のホームディレクトリ配下にある「/home/{UserName}/Application」配下に，「Emacs.app」をコピーして利用することにした．これで，ランチャにも表示されるし，Spotlight検索でも起動できる．</p>
 </div>
 <div class="section" id="id1">
-<h2>キーバインド<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>キーバインド</h2>
 <p>Macのキーボードは特殊・・・というか，Macでは普通なことですが．ちなみに私は，JPキーボードで利用しています．信者な方には，「ハハッ」と言われるでしょうが，もう「＠（アットマーク），「＿（アンダースコア）」のキー配置で混乱してしまうので，JPキーボードでいいのです．Ctrlも標準で「A」の隣に配置されているし．</p>
 <p>ちなみに，WindowsではHHKのJPを利用しているので，なんら違和感はありません．</p>
 <p>Emacsを使っていて困るのが，「Command」と「Option（Alt）」の配置です．HHKでも左手親指を微妙に左にずらした位置・・・つまりCommandキーの位置がAltなわけです．EmacsでMetaキーの役割を果たすAltキーの位置は重要なわけで，これを解決するキーバインドが必須です．</p>
@@ -191,7 +190,6 @@
 <p>これで万事OKです．</p>
 <p>MacでEmacsを使い始めて，これまで利用していた「.emacs.d」ディレクトリ配下が，そのままでは利用できないことが判明したので，色々と変更していきます．その記事はまた別の記事へ．</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -211,11 +209,11 @@
             <span>December 31, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/12/31/mac2.html">Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/12/31/mac2.html">Homebrew</a></h1>
 <p>Mac初心者がいろいろとMacを便利に使う方法を調べた経緯でたどり着いたパッケージ管理システム＝Homebrew．</p>
 <p>「Mac パッケージ管理」でググると一つ目に出てくるので説明する必要は不要なはずですが，自分のための備忘録として作業記録を残しておく．一つ目の目標は，MacでもTinkererを使えるようになること．</p>
 <div class="section" id="id1">
-<h2>Homebrewのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Homebrewのインストール</h2>
 <p>何はなくとも，まずはHomebrewをインストールする．・・・と言いたいところだけれども，Macの開発環境であるXcodeが必要．</p>
 <p>Mac初心者の私にとっては，Xcodeって何？という感じですが，iOSのアプリを作ったりするためには必須という統合開発環境ですね．今はSwiftが流行りだとか・・・</p>
 <p>App StoreからXcodeを見つけてインストールします．私はハマりましたが，Xcodeをインストールしただけでは意味がなくて，一度起動してUserAgreementに同意しましょう．</p>
@@ -236,7 +234,7 @@
 </div>
 </div>
 <div class="section" id="python">
-<h2>Pythonのインストール<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<h2>Pythonのインストール</h2>
 <p>MacにデフォルトでインストールされているPythonでも特に問題はないはずですが，ライブラリ関連でトラブりそうなのでHomebrewでインストールしたものに統一しておく．</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; brew install python
 </pre></div>
@@ -252,7 +250,7 @@ easy_install is /usr/local/bin/easy_install
 <p>「pip-review –auto」で実行すると，pipで管理しているパッケージを自動的にアップデートする．ただ，β版であろうと容赦なくアップデートするので注意が必要．</p>
 </div>
 <div class="section" id="tinkerer">
-<h2>Tinkererのインストール<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h2>
+<h2>Tinkererのインストール</h2>
 <p>ブログを更新するために，Tinkererをインストールする．</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; pip install tinkerer
 </pre></div>
@@ -269,7 +267,6 @@ easy_install is /usr/local/bin/easy_install
 </div>
 <p>いつもどおり！！</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -289,9 +286,9 @@ easy_install is /usr/local/bin/easy_install
             <span>December 31, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/12/31/mac1.html">Mac OSを使う<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/12/31/mac1.html">Mac OSを使う</a></h1>
 <div class="section" id="id1">
-<h2>背景<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>背景</h2>
 <p>最近，メインマシンをMac book Pro 13に変更しました．転勤により，ノートPCが貸与されなくなり，仕方なく自分でPCを調達することにしました．</p>
 <p>元々は，Vaio Pro11（Windows 7 64bit）に，Cygwin，VMwareWorkstation（Lubuntu稼働）で，困ることはなかったのですが，唯一困ることはUnix系のCUIツール（シェルスクリプト，Emacs等）をCygwin上で利用する場合は動作が重いこと．Emacsを利用する場合は，VMで動作させるか，Cygwin-Xだけを動作させて他PCで動作しているLubuntuにSSHしてEmacsウィンドウだけを転送してくるような使い方をしていました．</p>
 <p>そんな面倒なことをするくらいならば，最初からEmacsをさくさく利用できる環境がよい．ということで，Macに変更することにしました．</p>
@@ -299,7 +296,7 @@ easy_install is /usr/local/bin/easy_install
 <p>まずやること・・・</p>
 </div>
 <div class="section" id="id2">
-<h2>日本語入力<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>日本語入力</h2>
 <p>Macといえば「ことえり」なんでしょうが，いつからか「ことえり」は終了し新たな日本語IMエンジンに変更されたとか・・・</p>
 <p>ただ，Windowsでもそうだったように，豊富な語彙を持っているGoogle日本語入力があれば十分です．（早くiOSにもMozcが実装されないかな・・・）</p>
 <p><a class="reference external" href="https://www.google.co.jp/ime/index-mac.html">Google IME</a>からインストールすることが可能です．</p>
@@ -310,7 +307,6 @@ easy_install is /usr/local/bin/easy_install
 <p>入力ソースの項目で，「前の入力ソースを選択」に「Ctrl＋Space」を設定する．すると，「Spotlight検索を表示」と競合してしまうので，こちらを「Command＋Space」に変更しておきます．</p>
 <p>Windowsを利用していたときは，「’Launchy &lt;<a class="reference external" href="http://www.launchy.net/">http://www.launchy.net/</a>&gt;’_ 」（キーボードのみで操作できるランチャー）を利用し，これのショートカットが「Alt＋Space」だったので，代わりにSpotlightと同様の操作でぴったり．</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -330,25 +326,19 @@ easy_install is /usr/local/bin/easy_install
             <span>May 12, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/05/12/becky.html">Beckyの設定<a class="headerlink" href="#becky" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/05/12/becky.html">Beckyの設定</a></h1>
 <p>これまでBecky!を利用していて困ったことはなかったのですが，メールサーバをCourier-IMAPサーバからDovecotに変更して気が付きました．</p>
 <p>これまで，Courier-IMAPサーバで標準でIMAPのメールディレクトリPrefixに「INBOX」が付いていたと思います．これで閲覧していると，受信箱の下に各振り分けフォルダがぶら下がって見えるので，慣れもあってしっくりきていました．</p>
 <p>見え方は</p>
-<ul class="simple">
-<li>受信箱（20）<ul>
-<li>00_振り分けフォルダ１</li>
+<ul class="simple"><li>受信箱（20）<ul><li>00_振り分けフォルダ１</li>
 <li>01_振り分けフォルダ２</li>
-</ul>
-</li>
-<li>送信箱<ul>
-<li>草稿</li>
+</ul></li>
+<li>送信箱<ul><li>草稿</li>
 <li>送信済み</li>
 <li>リマインダ</li>
-</ul>
-</li>
+</ul></li>
 <li>ごみ箱</li>
-</ul>
-<p>しかし，いつからBecky!のバージョンアップ以降でしょうか，もしくはBecky!を入れ替えて設定がクリアされてしまったからでしょうか・・・「ごみ箱」にアクセスすると</p>
+</ul><p>しかし，いつからBecky!のバージョンアップ以降でしょうか，もしくはBecky!を入れ替えて設定がクリアされてしまったからでしょうか・・・「ごみ箱」にアクセスすると</p>
 <div class="highlight-python"><div class="highlight"><pre>0061 NO Client tried to access nonexistent namespace.  (Mailbox
 name should probably be prefixed with: INBOX.)
 </pre></div>
@@ -363,7 +353,7 @@ name should probably be prefixed with: INBOX.)
 </div>
 <p>これで解決です．</p>
 <div class="section" id="thunderbird">
-<h2>Thunderbirdの場合<a class="headerlink" href="#thunderbird" title="Permalink to this headline">¶</a></h2>
+<h2>Thunderbirdの場合</h2>
 <p>ちなみに，Thunderbirdの場合は，ごみ箱や送信済みトレイとして自動的に探してくれます．しかし，Prefixに「INBOX」をつけていても，受信トレイの配下にフォルダツリーが構成されません．</p>
 <p>ためにし，受信トレイの下にフォルダを作成してみると．</p>
 <div class="highlight-python"><div class="highlight"><pre>.INBOX.folderName
@@ -372,7 +362,6 @@ name should probably be prefixed with: INBOX.)
 <p>といったようなディレクトリが，Maildir配下に作成されてしまいます．PrefixにINBOXが付いているので，そのままMaildir直下のディレクトリを受信トレイ配下に並べてくれても良さそうなのですが・・・</p>
 <p>まぁ，普段はWanderlustでしかメールを書くことがないので気にしない．</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -392,7 +381,7 @@ name should probably be prefixed with: INBOX.)
             <span>April 21, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/21/postfix.html">スパムメール対策<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/04/21/postfix.html">スパムメール対策</a></h1>
 <p>サーバをリニューアルしたのは良いものの，メールサーバの設定を手抜きしてしまった．RBLを沢山登録しておいたら，Twitterからのメールすら届かない始末．</p>
 <p>手作業でチェックした結果，以下のRBL設定のみ残すこととしました．</p>
 <div class="highlight-python"><div class="highlight"><pre>smtpd_client_restrictions =
@@ -442,7 +431,6 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 </pre></div>
 </div>
 <p>こんな感じです．</p>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -462,9 +450,9 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
             <span>April 16, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/04/16/newvps5.html">サーバリニューアルのすゝめ（５）</a></h1>
 <div class="section" id="ipv6">
-<h2>IPv6無効化<a class="headerlink" href="#ipv6" title="Permalink to this headline">¶</a></h2>
+<h2>IPv6無効化</h2>
 <p>以外とハマりやすいのがIPv6関連．ローカルにHTTP Proxy（Squid）をたてて，プロキシサーバにしようとしたところ，設定は間違っていないのになぜかWebアクセスできない・・・と悩んで，ログを確認してみると，DIRECTアクセス先の指定がIPv6になっている．しかし，IPv6 Readyな環境ではないのでもちろんタイムアウトします．</p>
 <p>そんなときは，IPv6を利用しないように設定します．</p>
 <p>設定は簡単「/etc/sysctl.conf」の末尾あたりに設定を追加．</p>
@@ -484,7 +472,6 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 </div>
 <p>まぁ，関係無さそうな設定も含まれていますが，ちなみにvenet0はVPSのNICです．</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -504,9 +491,9 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/04/14/newvps4.html">サーバリニューアルのすゝめ（４）</a></h1>
 <div class="section" id="stone">
-<h2>パケットリピータ（Stone）<a class="headerlink" href="#stone" title="Permalink to this headline">¶</a></h2>
+<h2>パケットリピータ（Stone）</h2>
 <p>Stoneを利用するとプロキシ経由でしたインターネットにアクセスできない環境から外部のサーバにSSH出来たりします．</p>
 <p>褒められたことはではありませんが，会社などセキュリティ条件が厳しい環境からでも，外部にトンネル掘れるわけですね．</p>
 <p>早速インストール・・・といっても，Ubuntuだと標準でリポジトリに・・・</p>
@@ -517,7 +504,7 @@ yesterday /var/log/mail.log | mail -s 'Logwatch for Postfix' root
 <p>うまく設定すれば，本物のHTTPSとStoneを切り分けこともできるようですが，面倒なのでそこまでは求めません．</p>
 </div>
 <div class="section" id="etc-init-d-stone">
-<h2>起動スクリプト（/etc/init.d/stone）<a class="headerlink" href="#etc-init-d-stone" title="Permalink to this headline">¶</a></h2>
+<h2>起動スクリプト（/etc/init.d/stone）</h2>
 <div class="highlight-python"><div class="highlight"><pre>#! /bin/sh
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Stone Server"
@@ -547,7 +534,7 @@ esac
 </div>
 </div>
 <div class="section" id="id2">
-<h2>証明書の準備<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>証明書の準備</h2>
 <p>Stone用の証明書を準備する必要があります．ほんもののHTTPS通信と見せかけるためには，きちんと証明書を作っておく必要があります．</p>
 <p>なお，OpenSSLの使い方は忘れやすいのでメモです．数年前までPKIの専門家（仮）だった知識を活かして，一撃で自己署名証明書の発行方法を記します．</p>
 <p>全部１行で</p>
@@ -557,7 +544,6 @@ esac
 </div>
 <p>これで，「server.key」（パスフレーズなし）と「server.crt」が生成されます．</p>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -577,9 +563,9 @@ esac
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a></h1>
 <div class="section" id="postfix">
-<h2>Postfixの準備<a class="headerlink" href="#postfix" title="Permalink to this headline">¶</a></h2>
+<h2>Postfixの準備</h2>
 <p>「カゴヤ・クラウド／VPS」でUbuntuを導入したところ，標準でSendmailが動作していましたが，面倒なのですべてのSendmail関連パッケージを削除しました．</p>
 <p>まずは，インストール・・・</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install postfix</span>
@@ -587,7 +573,7 @@ esac
 </div>
 <p>とりあえず，Debianパッケージだとローカルのみだとか，イントラネットだとか，メールサーバを配置する場所に応じて初期値となる設定値を埋めてくれます．とりあえず「インターネット上」に設定しておく．</p>
 <div class="section" id="main-cf">
-<h3>main.cfの設定<a class="headerlink" href="#main-cf" title="Permalink to this headline">¶</a></h3>
+<h3>main.cfの設定</h3>
 <p>何はなくとも設定ファイル「/etc/postfix/main.cf」をいじります．</p>
 <div class="highlight-python"><div class="highlight"><pre># クライアントに無駄な情報を教えない
 smtpd_banner = $myhostname ESMTP
@@ -623,7 +609,7 @@ default_rbl_reply = $rbl_code &lt;$recipient&gt;: Recipient address rejected: Us
 </div>
 </div>
 <div class="section" id="sasl2">
-<h3>SASL2の設定<a class="headerlink" href="#sasl2" title="Permalink to this headline">¶</a></h3>
+<h3>SASL2の設定</h3>
 <p>SMTPS認証を実施するために，SASL2を利用します．幸い最初からインストールされていましたが，以下のパッケージが必要になります．</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install sasl2-bin sasl2-modules</span>
 </pre></div>
@@ -640,7 +626,7 @@ OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd"
 </div>
 </div>
 <div class="section" id="master-cf">
-<h3>master.cfの設定<a class="headerlink" href="#master-cf" title="Permalink to this headline">¶</a></h3>
+<h3>master.cfの設定</h3>
 <p>SMTPSをListenするために，「/etc/postfix/master.cf」を変更します．コメントアウトを外すだけ．</p>
 <div class="highlight-python"><div class="highlight"><pre>submission inet n       -       -       -       -       smtpd
     -o syslog_name=postfix/submission
@@ -669,14 +655,14 @@ mech_list: plain login
 </div>
 </div>
 <div class="section" id="dovecot">
-<h2>Dovecotの準備<a class="headerlink" href="#dovecot" title="Permalink to this headline">¶</a></h2>
+<h2>Dovecotの準備</h2>
 <p>以前は何が何でもCourier-IMAPを利用していましたが，最近はDovecotを利用するようになりました．</p>
 <p>まずは，Dovecotのインストール</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install dovecot-imapd dovecot-common</span>
 </pre></div>
 </div>
 <div class="section" id="id2">
-<h3>メールディレクトリ設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>メールディレクトリ設定</h3>
 <p>Courier-IMAPと同様に利用するためにはひと工夫が必要なので，設定ファイル「/etc/dovecot/conf.d/10-mail.conf」を編集します．</p>
 <div class="highlight-python"><div class="highlight"><pre>（メールディレクトリをMaildirに変更）
 mail_location = maildir:~/Maildir
@@ -695,7 +681,6 @@ namespace inbox {
 </div>
 </div>
 </div>
-
         </div>
         <div class="postmeta">
         <div class="author">
@@ -715,9 +700,9 @@ namespace inbox {
             <span>April 14, 2014</span>
         </div>
         <div class="section">
-            <h1><a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+            <h1><a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a></h1>
 <div class="section" id="emacs24">
-<h2>Emacs24を使う<a class="headerlink" href="#emacs24" title="Permalink to this headline">¶</a></h2>
+<h2>Emacs24を使う</h2>
 <p>Ubuntu 12系では残念ながら標準のapt-getリポジトリにはEmacs24が準備されていない．ググるとヒットするのですが，手順を書いておくと・・・</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># aptitude install python-software-properties</span>
 <span class="c"># add-apt-repository ppa:cassou/emacs</span>
@@ -732,14 +717,7 @@ namespace inbox {
 </div>
 <p>してみました．結果，Emacs23もインストールしてしまったものの，emacsのデフォルトパスもemacs24に向いており，emacs24からmozc.elを呼ぶことが出来たのでなんの問題もありませんでした．</p>
 <p class="rubric">脚注</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label"/><col/></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr>
-</tbody>
-</table>
-</div>
-
+<table class="docutils footnote" frame="void" id="f1" rules="none"><colgroup><col class="label"/><col/></colgroup><tbody valign="top"><tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>paco（<a class="reference external" href="http://porg.sourceforge.net/">http://porg.sourceforge.net/</a>）</td></tr></tbody></table></div>
         </div>
         <div class="postmeta">
         <div class="author">

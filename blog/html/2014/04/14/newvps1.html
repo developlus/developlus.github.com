@@ -86,10 +86,10 @@
             <span>April 14, 2014</span>
         </div>
     <div class="section" id="id1">
-<h1>サーバリニューアルのすゝめ（１）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>サーバリニューアルのすゝめ（１）</h1>
 <p>VPS上で構築していたサーバのPythonを3.3系にアップデートしたところ，なにを間違ってしまったのかいろいろなライブラリが利用できなくなってしまった．スナップショットを取っておけばよかったものの・・・時すでに遅し．ものはついでなので，メールサーバ＋メーリングリストのリニューアル＋Webコンテンツの統合のためにサーバ自体をリニューアルする．きっと時間はかからないはず．</p>
 <div class="section" id="vps">
-<h2>VPSサーバの増設<a class="headerlink" href="#vps" title="Permalink to this headline">¶</a></h2>
+<h2>VPSサーバの増設</h2>
 <p>「カゴヤ・クラウド／VPS」であれば，サーバを増設しても日単位の課金．新規サーバを増設して，旧サーバからの移行が完了するまでの数日間分の利用料金のみＯＫなはずです．</p>
 <p>何かしらハマるはずなので，４〜５日といったところでしょうか・・・</p>
 <p>今回は・・・Ubuntu 13系で行きたいところですが，LTSである12系しか準備されていません．OpenVZの痛いところです．</p>
@@ -99,7 +99,7 @@ Ubuntu 12.04.4 LTS \n \l
 </div>
 </div>
 <div class="section" id="ssh">
-<h2>SSHサーバ<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h2>
+<h2>SSHサーバ</h2>
 <p>確か通常のディストリビューションからUbuntu系をインストールすると，SSHサーバはインストールされていなかったと思いますが，「カゴヤ・クラウド／VPS」で作成されたインスタンスでは最初からSSHサーバが起動されています．</p>
 <p>経験上，Webサーバを公開しているとブルートフォースアタックを受けるので，sshdの待ち受けポートを変更しておきます．</p>
 <div class="highlight-python"><div class="highlight"><pre>root@cat:~# vim /etc/ssh/sshd_config

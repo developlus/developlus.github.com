@@ -86,12 +86,12 @@
             <span>November 06, 2013</span>
         </div>
     <div class="section" id="tinkerer">
-<h1>Tinkererの設定<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h1>
+<h1>Tinkererの設定</h1>
 <p>Tinkerrの初期設定については，様々なサイトで紹介されているので省略する．ただし，頭が真っ白な状態では現状のサイト構成辿りつけなかったのでポイントだけ記録しておきます．</p>
 <div class="section" id="id1">
-<h2>日本語設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>日本語設定</h2>
 <div class="section" id="id2">
-<h3>ビルドについて<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>ビルドについて</h3>
 <div class="highlight-python"><div class="highlight"><pre>$ tinkerer -b
 </pre></div>
 </div>
@@ -104,7 +104,7 @@ description = u&#39;脳内情報&#39; # 文字列がUnicodeであることをマ
 </div>
 </div>
 <div class="section" id="id3">
-<h3>記事中の日本語について<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>記事中の日本語について</h3>
 <p>これらの記事はEmacs（rst-mode）で記述しており，「auto-fill-mode」を有効にしています．なので，ReStドキュメント本体は適切な箇所で自動改行されています．</p>
 <p>この状態で何も考えずにコンテンツをビルドすると，改行が挿入された箇所が不自然に半角スペースに変換された状態となり，サイトの見た目が美しくありません．どうせビルド時に改行を[&amp;nbsp;]に置換しているんだろうな・・・とはあたりがつくものの，どこの設定を調節すれば良いのかサッパリでしたが，おおよそ自分が悩んでいる事象は世の中の先人も悩んでいるはずです．</p>
 <p>そんなわけで，ちょっとインターネットの力を借りると・・・これ</p>
@@ -123,7 +123,7 @@ extensions = [&#39;tinkerer.ext.blog&#39;, &#39;tinkerer.ext.disqus&#39;,
 </div>
 </div>
 <div class="section" id="id4">
-<h2>テーマについて<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>テーマについて</h2>
 <p>デフォルトのテーマでは味気ない．そこでテーマを変更します．デフォルトで提供されているテーマは以下の通り．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ls -l /usr/local/lib
 $ ls -l /usr/local/lib/python2.7/dist-packages/tinkerer/themes/

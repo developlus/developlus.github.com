@@ -86,19 +86,19 @@
             <span>November 08, 2013</span>
         </div>
     <div class="section" id="lubuntu">
-<h1>Lubuntuのすゝめ<a class="headerlink" href="#lubuntu" title="Permalink to this headline">¶</a></h1>
+<h1>Lubuntuのすゝめ</h1>
 <p>Lubuntuに特化した話ではないですが，Ubuntuを使う場合に私はこんな設定をしている・・・という内容を紹介します．</p>
 <div class="section" id="id1">
-<h2>インストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インストール</h2>
 <p>簡単すぎるので省略します．インストールディスクさえマウントできれば，あとは淡々とインストールするだけなので．</p>
 <p>そのうち，物理マシンのHDDではなくUSBにインストールする方法でも考えたいな・・・と．</p>
 </div>
 <div class="section" id="id2">
-<h2>まずはじめにアップデート<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>まずはじめにアップデート</h2>
 <p>インストールしたら必ずやることと．</p>
 <p>Debian系のパッケージ管理といえば「apt-get」ですが，これが少し拡張された「aptitude」を利用しています．そこまで大きな違いは無いようですが，パッケージの依存関係が管理されており，パッケージを削除する際には，関連パッケージもまとめて削除してくれるようです．</p>
 <div class="section" id="id3">
-<h3>プロキシの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>プロキシの設定</h3>
 <p>会社で利用していると，プロキシ経由でなければインターネット側に抜けられないのでプロキシの設定をします．RedHat系で「yum」を利用するのであれば，環境変数（http_proxy）でも書いておけばいいのですが，Ubuntuでは不足なので設定を追加します．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo vi /etc/apt/apt/apt.conf.d/00proxy
 Acquire::http::proxy &quot;http://proxy.server.co.jp:8080;
@@ -108,7 +108,7 @@ Acquire::ftp::proxy &quot;http://proxy.server.co.jp:8080;
 </div>
 </div>
 <div class="section" id="id4">
-<h3>更新の実行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>更新の実行</h3>
 <p>あとは「aptitude」を準備して，更新を実行するだけです．</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get update
 $ sudo apt-get install aptitude
@@ -122,7 +122,7 @@ $ auto aptitude autoclean
 </div>
 </div>
 <div class="section" id="id5">
-<h2>必要なパッケージの追加<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>必要なパッケージの追加</h2>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install openssh-server
 $ sudo aptitude install vim
 </pre></div>
@@ -130,7 +130,7 @@ $ sudo aptitude install vim
 <p>必要になったタイミングでおいおい準備していきます．</p>
 </div>
 <div class="section" id="os-windows">
-<h2>ホストOS（Windows）ディレクトリの参照<a class="headerlink" href="#os-windows" title="Permalink to this headline">¶</a></h2>
+<h2>ホストOS（Windows）ディレクトリの参照</h2>
 <p>Lubuntu側のメーラ（Emacs）でメールを受けて，添付ファイルをホストOS側に渡して，Office製品で編集する．なんてパターンが多々あります．Windows側からLubuntu側のファイルをSamba経由で参照しても良いのですが，私の場合はLubuntu側からWindowsのファイルシステムをCIFS経由で参照しています．</p>
 <p>その方法は・・・</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo aptitude install cifs-utils

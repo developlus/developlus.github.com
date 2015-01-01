@@ -86,9 +86,9 @@
             <span>April 16, 2014</span>
         </div>
     <div class="section" id="id1">
-<h1>サーバリニューアルのすゝめ（５）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>サーバリニューアルのすゝめ（５）</h1>
 <div class="section" id="ipv6">
-<h2>IPv6無効化<a class="headerlink" href="#ipv6" title="Permalink to this headline">¶</a></h2>
+<h2>IPv6無効化</h2>
 <p>以外とハマりやすいのがIPv6関連．ローカルにHTTP Proxy（Squid）をたてて，プロキシサーバにしようとしたところ，設定は間違っていないのになぜかWebアクセスできない・・・と悩んで，ログを確認してみると，DIRECTアクセス先の指定がIPv6になっている．しかし，IPv6 Readyな環境ではないのでもちろんタイムアウトします．</p>
 <p>そんなときは，IPv6を利用しないように設定します．</p>
 <p>設定は簡単「/etc/sysctl.conf」の末尾あたりに設定を追加．</p>
