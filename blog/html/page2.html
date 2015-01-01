@@ -28,7 +28,7 @@
         <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="_static/plugins.js"></script>
         <script src="_static/main.js"></script>
-        <link rel="prev" title="次の投稿" href="index.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+        <link rel="next" title="前の投稿" href="page3.html" /><link rel="prev" title="次の投稿" href="index.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '1.5',
@@ -81,8 +81,62 @@
 
 <div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
             <li class="left"> &laquo; <a href="index.html">次の投稿</a></li>
-            <li class="right"></li>
+            <li class="right"><a href="page3.html">前の投稿</a> &raquo; </li>
         </ul><div class="timestamp postmeta">
+            <span>April 14, 2014</span>
+        </div>
+        <div class="section">
+            <h1><a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></a></h1>
+<p>VPS上で構築していたサーバのPythonを3.3系にアップデートしたところ，なにを間違ってしまったのかいろいろなライブラリが利用できなくなってしまった．スナップショットを取っておけばよかったものの・・・時すでに遅し．ものはついでなので，メールサーバ＋メーリングリストのリニューアル＋Webコンテンツの統合のためにサーバ自体をリニューアルする．きっと時間はかからないはず．</p>
+<div class="section" id="vps">
+<h2>VPSサーバの増設<a class="headerlink" href="#vps" title="Permalink to this headline">¶</a></h2>
+<p>「カゴヤ・クラウド／VPS」であれば，サーバを増設しても日単位の課金．新規サーバを増設して，旧サーバからの移行が完了するまでの数日間分の利用料金のみＯＫなはずです．</p>
+<p>何かしらハマるはずなので，４〜５日といったところでしょうか・・・</p>
+<p>今回は・・・Ubuntu 13系で行きたいところですが，LTSである12系しか準備されていません．OpenVZの痛いところです．</p>
+<div class="highlight-python"><div class="highlight"><pre>root@cat:~# cat /etc/issue
+Ubuntu 12.04.4 LTS \n \l
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh">
+<h2>SSHサーバ<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h2>
+<p>確か通常のディストリビューションからUbuntu系をインストールすると，SSHサーバはインストールされていなかったと思いますが，「カゴヤ・クラウド／VPS」で作成されたインスタンスでは最初からSSHサーバが起動されています．</p>
+<p>経験上，Webサーバを公開しているとブルートフォースアタックを受けるので，sshdの待ち受けポートを変更しておきます．</p>
+<div class="highlight-python"><div class="highlight"><pre>root@cat:~# vim /etc/ssh/sshd_config
+
+Port 22 ⇒ 10022
+※わたしは10022は使っていませんが・・・
+</pre></div>
+</div>
+<p>これで，22番ポートのListenを止めておけば無駄な攻撃を受けなくて済みます．</p>
+<p>ついで，SSHクライアントで毎度ポートを設定するのも面倒なので，[.ssh/config]に接続情報を記載しておくと便利です．</p>
+<div class="highlight-python"><div class="highlight"><pre>user@host&gt; vim ~/.ssh/config
+
+Host cat
+  HostName cat.developlus.jp
+  User user
+  Port 10022
+</pre></div>
+</div>
+<p>実際には，「ProxyCommand」とか，「GatewayPorts」とか「LocalForward」とか沢山の設定を書いています．</p>
+</div>
+
+        </div>
+        <div class="postmeta">
+        <div class="author">
+            <span>投稿者 Egg</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="categories/blog.html">Blog</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="tags/vps.html">vps</a></span>
+        </div>
+        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>December 17, 2013</span>
         </div>
         <div class="section">
@@ -91,9 +145,11 @@
 <div class="section" id="id2">
 <h2>スマフォ側の設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>私の場合は，SPモードメールを「Communicase」で受信するように設定していましたが，Communicaseのアカウント設定で「アカウント毎設定＞ドコモ＞受信＞ドコモのメール受信」という設定項目で</p>
-<ul class="simple"><li>このアプリで受信する</li>
+<ul class="simple">
+<li>このアプリで受信する</li>
 <li>spモードメールアプリで受信する</li>
-</ul><p>という２択の設定が存在するので，後者「spモードメールアプリ」で受信する」を選択します．</p>
+</ul>
+<p>という２択の設定が存在するので，後者「spモードメールアプリ」で受信する」を選択します．</p>
 <p>さらに，ドコモアプリケーションマネージャ（「システム設定＞ドコモサービス＞アプリケーション管理」あたりから呼び出すことが可能です．）より，ドコモメール用のアプリ（ドコモメール）をインストールする必要があります．</p>
 <blockquote>
 <div>私の場合，ドコモアプリケーションマネージャをOffにしていたので，ちょっと引っかかりました．一度docomo IDを有効にして，メールの受信を開始してしまえば，Gmail向けのメーラアプリでも受信できると思います．（プッシュでの受信が可能かどうかは知らないですが）</div></blockquote>
@@ -102,11 +158,16 @@
 <h2>IMAPクライアントの設定<a class="headerlink" href="#imap" title="Permalink to this headline">¶</a></h2>
 <p>IMAPクライアント側の設定情報については，<a class="reference external" href="https://www.nttdocomo.co.jp/service/docomo_cloud/docomo_mail/function/other/index.html">公式</a>に記載があるので確認してください．</p>
 <p>概要としては，</p>
-<ul class="simple"><li>メールサーバ<ul><li>IMAP(imaps): imap.spmode.ne.jp:993</li>
+<ul class="simple">
+<li>メールサーバ<ul>
+<li>IMAP(imaps): imap.spmode.ne.jp:993</li>
 <li>SMTP(smtps): smtp.spmode.ne.jp:465</li>
-</ul></li>
-</ul><p>SMTPSの認証は，PLAIN/LOGINのどちらかのようです．絵文字なメールは確認していませんが，デコメ（？）を送るとHTMLメールになるようで，通常のメーラでも問題なく表示できそうです．</p>
+</ul>
+</li>
+</ul>
+<p>SMTPSの認証は，PLAIN/LOGINのどちらかのようです．絵文字なメールは確認していませんが，デコメ（？）を送るとHTMLメールになるようで，通常のメーラでも問題なく表示できそうです．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -176,6 +237,7 @@ mklink /J bin c:\cygwin\bin
 </div>
 <p>これで完了．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -203,26 +265,40 @@ mklink /J bin c:\cygwin\bin
 <h2>Cygwinのインストール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Cygwinの現在（2013年11月）の最新バージョンは1.7系です．しかも，64bitバイナリも提供されています．私の環境は，Windows7 64bitにCygwin1.7.25（32bit）です．</p>
 <p>インストールの流れは省略しますが，私が使っているパッケージを参考までに紹介しておきます．</p>
-<ul class="simple"><li>Devel<ul><li>gcc-core　・・・ちょっとコンパイルするときに</li>
+<ul class="simple">
+<li>Devel<ul>
+<li>gcc-core　・・・ちょっとコンパイルするときに</li>
 <li>gcc-g++　・・・ちょっとコンパイルするときに</li>
 <li>git　・・・gitからソース落とすときに</li>
 <li>make　・・・ちょっとコンパイルするときに</li>
 <li>subversion　・・・ソース管理するために</li>
-</ul></li>
-<li>Editors<ul><li>vim　・・・何はなくとも必要</li>
-</ul></li>
-<li>Net<ul><li>inetutils　・・・nslookupとか含まれてたはず</li>
+</ul>
+</li>
+<li>Editors<ul>
+<li>vim　・・・何はなくとも必要</li>
+</ul>
+</li>
+<li>Net<ul>
+<li>inetutils　・・・nslookupとか含まれてたはず</li>
 <li>nc　・・・簡易ファイル転送とか使えるから</li>
 <li>openldap　・・・Emacs＋Wanderlustのアドレス帳検索で使う</li>
 <li>openssh　・・・何はなくとも必要</li>
-</ul></li>
-<li>Utils<ul><li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
-</ul></li>
-<li>Web<ul><li>w3m　・・・Emacs＋w3m-modeで使う</li>
-</ul></li>
-<li>X11<ul><li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+<li>Utils<ul>
+<li>ncurses　・・・ターミナルエミュレータ上でclearとかするので</li>
+</ul>
+</li>
+<li>Web<ul>
+<li>w3m　・・・Emacs＋w3m-modeで使う</li>
+</ul>
+</li>
+<li>X11<ul>
+<li>xorg-server　・・・LinuxのEmacsを転送してくる</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="id2">
 <h2>Cygwinの環境変数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>なくても問題無いかもしれませんが，環境変数「HOME」を設定します．環境変数の設定方法は省略しますが</p>
@@ -300,6 +376,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>あとは，ショートカットを起動すると，Emacsが呼び出されてくるはず．ちなみに，Linuxにsshする際に「-Y」オプションをつけてログインしていれば，「firefox」や「LibreOffice」のウィンドウも転送することが可能です．普段，メールをWanderlustで読んでいる時に，添付ファイルのExcelなんかは，Emacs上で開いてLibreOfficeで閲覧していたりします．</p>
 <p>Office関連のファイルの編集はMS Officeでやった方が良いですが，閲覧だけならLibreOfficeで十分ですね．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -381,6 +458,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>「.wl」は先人の知恵がたくさんWeb上に転がっているので参考にさせてもらいました．私が使っているのは<a class="reference external" href="https://github.com/developlus/home/">こちら(${HOME}配下)</a>に配置しています．</p>
 <p>細かな設定の内容については別の機会に・・・</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -407,91 +485,118 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>そのための参考情報</p>
 <div class="section" id="vps-201311">
 <h2>VPSプロバイダ（2013年11月調べ）<a class="headerlink" href="#vps-201311" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils"><colgroup><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/><col width="14%"/></colgroup><thead valign="bottom"><tr class="row-odd"><th class="head">プロバイダ</th>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+<col width="14%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">プロバイダ</th>
 <th class="head">Type</th>
 <th class="head">CPU</th>
 <th class="head">Mem</th>
 <th class="head">HDD</th>
 <th class="head">月額</th>
 <th class="head">初期</th>
-</tr></thead><tbody valign="top"><tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://www.kagoya.jp/cloud/vps/">カゴヤ・クラウド</a></td>
 <td>OpenVZ</td>
 <td>3Core</td>
 <td>1GB</td>
 <td>200GB</td>
 <td>840</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>1GB</td>
 <td>50GB</td>
 <td>490</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://serversman.com/device/vps.html">ServersMan@VPS</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://fc2-vps.com/">FC2 VPS</a></td>
 <td>OpenVZ</td>
 <td>1Core</td>
 <td>1GB</td>
 <td>80GB</td>
 <td>780</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://joes-vps.com/">Joe’s</a></td>
 <td>OpenVZ</td>
 <td>？</td>
 <td>512MB</td>
 <td>100GB</td>
 <td>800</td>
 <td>1600</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.conoha.jp/">ConoHa</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>976</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://vps.gmocloud.com/special/web.html">GMO</a></td>
 <td>KVM</td>
 <td>3Core</td>
 <td>2GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.onamae.com/server/vps/">お名前.com</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>940</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.sppd.ne.jp/selfvps/">SPPD</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>2GB</td>
 <td>55GB</td>
 <td>866</td>
 <td>1575</td>
-</tr><tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://vps.sakura.ad.jp/">SAKURA</a></td>
 <td>KVM</td>
 <td>2Core</td>
 <td>1GB</td>
 <td>100GB</td>
 <td>980</td>
 <td>0</td>
-</tr><tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://www.saases.jp/cloud/vps/">SaaSes</a></td>
 <td>Xen</td>
 <td>？</td>
 <td>512MB</td>
 <td>50GB</td>
 <td>472</td>
 <td>0</td>
-</tr></tbody></table><p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
+</tr>
+</tbody>
+</table>
+<p>こうやってみると，Xenで運用されているVPSプロバイダって少ないです．「Xen VPS」で検索すると古い情報がいくつかヒットするのですが，現在はサービスを提供していないものが多いです．OpenVZベースの「Virtuozzo」でVPSサービスを提供しているプロバイダがほとんどですね．</p>
 <p>完全仮想化を希望する場合は「KVM」，準仮想化を希望する場合は「Xen」，カーネルベース仮想化（＝コンテナ型仮想化）を希望する場合は「OpenVZ」を選択するのが良いかと思いますが・・・</p>
 <p>完全仮想化</p>
 <blockquote>
@@ -508,6 +613,7 @@ ssh -Y -C vm.hostname.jp emacs &gt; /dev/null 2&gt;&amp;1 &amp;
 <p>ハードウェアのエミュレーションなど無駄な処理がないので，ともかく高速・パフォーマンスを稼げるのですが，専用のカーネルしか使えないので，インストール可能なOSはかなり絞られますね．ただ，RedHat系（CentOS）・Debian系・Ubuntu系は外されていないと思うので，困ることは無いと思います．</p>
 </div></blockquote>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -599,6 +705,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>これで，メーラから添付ファイルを保存する先を「~/Desktop」などに指定すれば，さくさくWindows側からファイルを操作することが可能です．</p>
 <p>ここでは，autofsによる自動マウントで実現していますが，「/etc/fstab」に記述してしまっても良いかもしれません．ただ，パスワードをそのまま書くのは気持ち悪いので，「crendentials」だけ別ファイルに切り出したほうが，少しだけ安心できます．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -630,33 +737,51 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <div class="section" id="vmware-server">
 <h3>VMWare Server<a class="headerlink" href="#vmware-server" title="Permalink to this headline">¶</a></h3>
 <p>既にサポート終了した仮想環境．VMWare Playerがクライアントマシン向けなら，VMWare Serverはサーバマシン向けといった形で住み分けがなされていたと思う．</p>
-<ul class="simple"><li>長所<ul><li>Windowsサービスとして仮想マシンを動作可能</li>
+<ul class="simple">
+<li>長所<ul>
+<li>Windowsサービスとして仮想マシンを動作可能</li>
 <li>操作はWeb GUIから</li>
-</ul></li>
-<li>短所<ul><li>サポートが終了している</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>サポートが終了している</li>
 <li>UIは英語のみ</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="vmware-player-vmware-player-plus">
 <h3>VMWare Player（もといVMWare Player Plus）<a class="headerlink" href="#vmware-player-vmware-player-plus" title="Permalink to this headline">¶</a></h3>
 <p>非常にメジャーな仮想環境です．VMWare Playerという製品名のプロダクトは終了し，「VMWare Player Plus」に生まれ変わった模様です．個人ユースでは無料，企業・法人利用では有料のようです．</p>
-<ul class="simple"><li>長所<ul><li>インストールが簡単</li>
+<ul class="simple">
+<li>長所<ul>
+<li>インストールが簡単</li>
 <li>UI/UXが良い．シンプルで直感的に使える</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
-</ul></li>
-</ul><p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
+</ul>
+</li>
+</ul>
+<p>この短所のGUIの件がやっかいです．私はck（on Cygwin）で生活しているので，GUIは不要です．Linuxのデスクトップ環境（GNOMEなど）そもそも見たくないのです．ただ，Emacsを動かすためにX Window Systemが欲しい・・・</p>
 </div>
 <div class="section" id="virtual-box-oracle">
 <h3>Virtual Box （Oracle）<a class="headerlink" href="#virtual-box-oracle" title="Permalink to this headline">¶</a></h3>
 <p>Oracle（旧Sun）が提供する仮想環境です．</p>
-<ul class="simple"><li>長所<ul><li>UIは洗練されてきて使いやすい模様</li>
+<ul class="simple">
+<li>長所<ul>
+<li>UIは洗練されてきて使いやすい模様</li>
 <li>仮想N/WのNATでポートフォワーディングができる</li>
-</ul></li>
-<li>短所<ul><li>GUIが表示される</li>
+</ul>
+</li>
+<li>短所<ul>
+<li>GUIが表示される</li>
 <li>VMWare製品くらべると少しもっさり？（個人の感想）</li>
-</ul></li>
-</ul><p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
+</ul>
+</li>
+</ul>
+<p>短所のGUIの件は，どうやら3rdパーティな人の貢献によりサービス化できる模様．現状は「VMWare Server」を利用していますが，次回から乗り換えます．</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -667,6 +792,7 @@ $ ln -s /mnt/host/host/Users/{USER}/Documents ~/
 <p>Ubuntu系の中でも最軽量の「Lubuntu」に決定．デスクトップ的にはXfceの方が好きなので，Xubuntuを選択するのも手ですが，普段Linux側のデスクトップにログインすることはないので，LXDEでいいや・・・と．</p>
 <p>次回，Lubuntuの設定に続く．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -795,6 +921,7 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 </div>
 <p>こんな感じです．</p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -826,6 +953,7 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
 <p>自分でよく使うものはここにまとめようかと考えましたが，どうせ使っていくうちに覚えるので不要です．</p>
 <p>詳細については以下で・・・<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">http://docs.sphinx-users.jp/rest.html</a></p>
 </div>
+
         </div>
         <div class="postmeta">
         <div class="author">
@@ -841,52 +969,20 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
                 タグ:
                 <a href="tags/sphinx.html">sphinx</a></span>
         </div>
-        </div><div class="separator post_separator"></div><div class="timestamp postmeta">
-            <span>November 05, 2013</span>
-        </div>
-        <div class="section">
-            <h1><a href="2013/11/05/start.html">Tinkerer(Sphinx) on GitHub<a class="headerlink" href="#tinkerer-sphinx-on-github" title="Permalink to this headline">¶</a></a></h1>
-<p>Web UIで執筆するCMSやブログシステムに耐えられなくて，さまざまなドキュメント管理ツールを試した結果，ReST（reStructured Text）にたどり着く．</p>
-<p>ReSTを整形するツールである「Sphinx」，さらにSphinxを利用するブログ構築を支援する「Tinkerer」を使って，今後のドキュメントを管理していく．</p>
-<div class="section" id="tinkerer">
-<h2>Tinkerer<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://tinkerer.me/">http://tinkerer.me/</a></p>
-<p>コマンド一つでブログのテンプレートの作成，ドキュメントのビルドを実行することが可能です．生成されるドキュメントは静的なものなので，どこにでも引っ越し可能です．</p>
-</div>
-<div class="section" id="github">
-<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/">https://github.com/</a></p>
-<p>言わずとしれた分散リポジトリ管理システムです．無料で個人のリポジトリを作成できることから巷でも人気のようですが，自分で書いたソースコードをインターネットな世界に晒す勇気がなくて躊躇していました．お仕事のソース管理はSubversionで十分でしたし．</p>
-<p>しかし，Tinkerer関連の情報を集めていくうちに，GitHubも使いようによってはGitHub上でブログを書いて置けるとか・・・しかも，リポジトリなのでどこからでも編集可能ということで採用してみることにしました．</p>
-<p>GitHub上をマスターとして，個人のサーバ上にリポジトリのコピーをおいておけば，編集は一箇所で済むし，バックアップも不要．一石二鳥です．</p>
-</div>
-        </div>
-        <div class="postmeta">
-        <div class="author">
-            <span>投稿者 Egg</span>
-        </div>
-        <div class="categories">
-            <span>
-                カテゴリー:
-                <a href="categories/blog.html">Blog</a></span>
-        </div>
-        <div class="tags">
-            <span>
-                タグ:
-                <a href="tags/tinkerer.html">tinkerer</a>, <a href="tags/sphinx.html">sphinx</a>, <a href="tags/github.html">github</a></span>
-        </div>
         </div><div class="archive_link">
         <a href="archive.html"> &mdash; ブログアーカイブ &mdash; </a>
     </div><ul class="related clearfix">
             <li class="left"> &laquo; <a href="index.html">次の投稿</a></li>
-            <li class="right"></li>
+            <li class="right"><a href="page3.html">前の投稿</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (3)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (2)</li></ul>
+    <ul><li><a href="categories/blog.html">Blog</a> (10)</li><li><a href="categories/cygwin.html">Cygwin</a> (1)</li><li><a href="categories/emacs.html">Emacs</a> (4)</li><li><a href="categories/linux.html">Linux</a> (4)</li><li><a href="categories/mac.html">Mac</a> (2)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (5), <a href="tags/github.html">github</a> (1), <a href="tags/homebrew.html">homebrew</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (3), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (3), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="tags/cask.html">cask</a> (1), <a href="tags/cygwin.html">cygwin</a> (2), <a href="tags/docomo.html">docomo</a> (1), <a href="tags/dovecot.html">dovecot</a> (1), <a href="tags/emacs.html">emacs</a> (5), <a href="tags/github.html">github</a> (1), <a href="tags/homebrew.html">homebrew</a> (1), <a href="tags/lubuntu.html">lubuntu</a> (2), <a href="tags/mac.html">mac</a> (3), <a href="tags/postfix.html">postfix</a> (2), <a href="tags/sphinx.html">sphinx</a> (3), <a href="tags/stone.html">stone</a> (1), <a href="tags/tinkerer.html">tinkerer</a> (3), <a href="tags/vm.html">vm</a> (1), <a href="tags/vps.html">vps</a> (5), <a href="tags/wanderlust.html">Wanderlust</a> (1)</div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
+            <a href="2015/01/01/cask.html">Cask</a>
+        </li><li>
             <a href="2014/12/31/emacs.html">Emacs on MacOS</a>
         </li><li>
             <a href="2014/12/31/mac2.html">Homebrew</a>
@@ -904,8 +1000,6 @@ $ diff original-dark/static/dark.css  developlus/static/dark.css
             <a href="2014/04/14/newvps3.html">サーバリニューアルのすゝめ（３）</a>
         </li><li>
             <a href="2014/04/14/newvps2.html">サーバリニューアルのすゝめ（２）</a>
-        </li><li>
-            <a href="2014/04/14/newvps1.html">サーバリニューアルのすゝめ（１）</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

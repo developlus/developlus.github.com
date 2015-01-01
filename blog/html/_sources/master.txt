@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/01/01/cask
    2014/12/31/emacs
    2014/12/31/mac2
    2014/12/31/mac1
